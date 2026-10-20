@@ -1,0 +1,1712 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Guide du staff de Kannushi no Sekai : les treize sections de la Bible, sans les secrets de meneur.">
+<style>[hidden]{display:none!important}img{max-width:100%}body{margin:0}</style>
+<title>Bible Staff KNS</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Concept : le grimoire du staff. Une couverture d'encre et de vermillon, puis un texte de lecture calme avec sommaire latéral. Mêmes codes que le site vitrine : dark-first, soleil rouge, mincho japonais. */
+:root{
+  --bg:#efe9de; --bg2:#e4dccd; --fg:#1a1517; --muted:#5b5254; --line:#cfc5b3;
+  --accent:#c42a25; --accent-fg:#fff6ee; --card:#f7f2e9; --shade:rgba(20,16,26,.7);
+  --open:#9a6200; --openbg:rgba(154,98,0,.12); --spoil:#8a2a6a; --spoilbg:rgba(138,42,106,.12); --susp:#2c5d8f; --suspbg:rgba(44,93,143,.12);
+  --mark:#ffd84d; --markfg:#1a1517;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f0c11; --bg2:#17121a; --fg:#ece4d6; --muted:#a59c97; --line:#2c2430;
+  --accent:#e0403a; --accent-fg:#1a0d0c; --card:#181319; --shade:rgba(8,6,10,.7);
+  --open:#e8b64a; --openbg:rgba(232,182,74,.14); --spoil:#d68ad0; --spoilbg:rgba(214,138,208,.14); --susp:#7fb0e8; --suspbg:rgba(127,176,232,.14);
+  --mark:#a8801a; --markfg:#fff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f0c11; --bg2:#17121a; --fg:#ece4d6; --muted:#a59c97; --line:#2c2430;
+  --accent:#e0403a; --accent-fg:#1a0d0c; --card:#181319; --shade:rgba(8,6,10,.7);
+  --open:#e8b64a; --openbg:rgba(232,182,74,.14); --spoil:#d68ad0; --spoilbg:rgba(214,138,208,.14); --susp:#7fb0e8; --suspbg:rgba(127,176,232,.14);
+  --mark:#a8801a; --markfg:#fff; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.75 var(--body);margin:0;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;margin:0;text-wrap:balance}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* barre */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:8;background:var(--shade);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08);color:#ece4d6}
+.bar .wrap{display:flex;align-items:center;gap:16px;padding-block:9px}
+.bar b{font-family:var(--display);font-size:1.05rem;white-space:nowrap}
+.bar .sp{flex:1}
+.bar button{font:500 .82rem var(--body);color:inherit;background:transparent;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.bar button:hover{border-color:#ff8a82;color:#ff8a82}
+.bar button[aria-pressed="true"]{border-color:#ff8a82;color:#ff8a82}
+.prog{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#e0403a;transform-origin:left;transform:scaleX(var(--p,0))}
+
+/* couverture */
+.hero{position:relative;color:#ece4d6;min-height:560px;display:flex;align-items:flex-end;background:#0f0c11;overflow:hidden}
+.hero-bg{position:absolute;inset:-20% 0;background:url(img/hero.jpg) center 35%/cover;transform:translate3d(0,var(--py,0px),0);will-change:transform}
+.hero-bg i{position:absolute;inset:0;background:inherit;animation:breath 28s ease-in-out infinite alternate}
+@keyframes breath{from{transform:scale(1)}to{transform:scale(1.09)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,12,17,.45),rgba(15,12,17,.1) 38%,rgba(15,12,17,.95))}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.mist{position:absolute;left:-25%;right:-25%;bottom:-6%;height:50%;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 30% 100%,rgba(236,228,214,.16),transparent 60%),radial-gradient(ellipse at 75% 100%,rgba(236,228,214,.1),transparent 55%);animation:drift 46s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateX(-6%)}to{transform:translateX(6%)}}
+.hero .wrap{position:relative;z-index:2;padding-block:110px 56px;width:100%}
+.stamp{display:inline-flex;align-items:center;gap:10px;font:500 .74rem var(--body);letter-spacing:.22em;text-transform:uppercase;color:#ff8a82;border:1px solid #ff8a82;padding:6px 12px;border-radius:2px;margin-bottom:22px;animation:rise 1s 1.2s both}
+.hero h1{font-size:clamp(2.4rem,7vw,5rem);font-weight:800;animation:ink 1.8s 1.5s cubic-bezier(.6,0,.2,1) both}
+.hero .jp{font-family:var(--display);font-size:clamp(1.1rem,2.6vw,1.6rem);letter-spacing:.5em;color:#ff8a82;margin:10px 0 20px;animation:track 2s 2.3s ease-out both}
+.hero p.lede{max-width:36em;font-size:1.15rem;margin:0 0 26px;animation:rise 1.2s 2.6s both}
+.chips{display:flex;flex-wrap:wrap;gap:10px;animation:rise 1.2s 2.9s both}
+.chips span{border:1px solid rgba(236,228,214,.35);padding:5px 14px;border-radius:999px;font-size:.85rem}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes ink{from{clip-path:inset(0 100% 0 0);opacity:.2;filter:blur(8px)}60%{opacity:1}to{clip-path:inset(0 -2% 0 0);opacity:1;filter:blur(0)}}
+@keyframes track{from{letter-spacing:1.1em;opacity:0}to{letter-spacing:.5em;opacity:1}}
+
+/* légende */
+.legend{background:var(--bg2);border-block:1px solid var(--line);padding-block:26px}
+.legend .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;font-size:.92rem;color:var(--muted)}
+.legend b{color:var(--fg)}
+
+/* mise en page */
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:48px;align-items:start;padding-block:48px 90px}
+.side{position:sticky;top:64px;max-height:calc(100vh - 80px);overflow-y:auto;padding-right:6px;font-size:.92rem}
+.side input{width:100%;padding:10px 12px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:2px;font:inherit;margin-bottom:6px}
+.side .hits{font-size:.8rem;color:var(--muted);margin:0 0 14px;min-height:1.2em;display:flex;gap:10px;align-items:center}
+.side .hits button{background:none;border:1px solid var(--line);color:var(--fg);border-radius:2px;cursor:pointer;padding:0 8px}
+.side ol{list-style:none;margin:0;padding:0}
+.side li{margin:0}
+.side a{display:block;text-decoration:none;color:var(--muted);padding:6px 10px;border-left:2px solid var(--line);transition:color .25s,border-color .25s,background .25s}
+.side a:hover{color:var(--fg)}
+.side li.on > a{color:var(--fg);border-left-color:var(--accent);background:var(--card);font-weight:700}
+.side ol ol{display:none;margin:2px 0 8px}
+.side li.on > ol{display:block}
+.side ol ol a{padding-left:24px;font-size:.84rem}
+.side ol ol a.cur{color:var(--accent)}
+
+.content{min-width:0}
+.sec{padding-top:12px;margin-bottom:34px}
+.banner{position:relative;min-height:230px;display:flex;align-items:flex-end;color:#ece4d6;background:#0f0c11;overflow:hidden;margin:0 0 30px;border-radius:2px}
+.banner-bg{position:absolute;inset:-25% 0;background:center/cover;transform:translate3d(0,var(--py,0px),0);will-change:transform}
+.banner::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,8,12,.25),rgba(10,8,12,.85))}
+.banner .in{position:relative;z-index:2;padding:26px 28px;width:100%}
+.banner .num{font:500 .78rem var(--body);letter-spacing:.24em;text-transform:uppercase;color:#ff8a82;display:flex;align-items:center;gap:12px}
+.banner .num::before{content:"";width:36px;height:1px;background:currentColor;transform-origin:left;transition:transform .9s .25s cubic-bezier(.2,.7,.2,1)}
+.js .banner.rv:not(.in) .num::before{transform:scaleX(0)}
+.banner h2{font-size:clamp(1.7rem,4vw,2.7rem);font-weight:800;margin-top:8px}
+.js .rv{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv:not(.in){opacity:0;transform:translateY(28px)}
+.content p,.content li{max-width:46em}
+.content p{margin:0 0 16px}
+.content h3{font-size:1.45rem;font-weight:700}
+.content h4{font-size:1.15rem;font-weight:700;margin:26px 0 8px;color:var(--accent)}
+.content em{color:var(--muted)}
+.content ul,.content ol{padding-left:1.3em;margin:0 0 16px}
+.content li{margin-bottom:6px}
+.content li::marker{color:var(--accent)}
+.content hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+details.sub{border-top:1px solid var(--line);padding:4px 0 6px;margin-top:6px}
+details.sub > summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px;padding:14px 0 10px}
+details.sub > summary::-webkit-details-marker{display:none}
+details.sub > summary::before{content:"";flex:none;width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg);transition:transform .3s}
+details.sub[open] > summary::before{transform:rotate(45deg)}
+details.sub > .body{padding:2px 0 14px 21px}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--line);border-radius:2px}
+.content table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+.content th,.content td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.content th{background:var(--card);font-family:var(--display);white-space:nowrap}
+.content tr:last-child td{border-bottom:0}
+body.hidesp .spoilp{filter:blur(7px);cursor:pointer;transition:filter .3s;user-select:none}
+body.hidesp .spoilp:hover,body.hidesp .spoilp.shown{filter:none;user-select:auto}
+mark{background:var(--mark);color:var(--markfg);padding:0 2px;border-radius:2px}
+mark.cur{outline:2px solid var(--accent)}
+.legendnote{font-size:.85rem}
+footer{background:var(--bg2);border-top:1px solid var(--line);padding-block:36px;font-size:.88rem;color:var(--muted)}
+footer h3{font-size:1rem;color:var(--fg);margin-bottom:8px}
+footer ul{margin:0 0 12px;padding-left:18px;columns:2;column-gap:36px}
+.top{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:7;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:var(--shade);color:#ece4d6;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;font-size:1.1rem}
+.top.show{opacity:1;pointer-events:auto}
+.tocbtn{display:none}
+@media (max-width:960px){
+  body{font-size:16px}
+  .layout{grid-template-columns:1fr;gap:0;padding-block:28px 80px}
+  .side{display:none;position:fixed;inset:0;z-index:9;max-height:none;background:var(--bg);padding:70px max(16px,env(safe-area-inset-left,0px)) 24px}
+  body.toc .side{display:block}
+  .tocbtn{display:inline-block}
+  .hero{min-height:500px}
+  .legend .wrap{grid-template-columns:1fr}
+  footer ul{columns:1}
+  .side ol ol{display:none}
+  .side li.on > ol{display:block}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-bg i,.mist{animation:none}
+  .stamp,.hero h1,.hero .jp,.hero p.lede,.chips{animation:none}
+  .curtain,#ink{display:none}
+  .ticker div,.tag.open,details.sub[open] > .body{animation:none}
+  .hero-bg,.banner-bg{transform:none}
+  .js .rv{transition:none}
+}
+
+/* rideau d'entree */
+.curtain{position:fixed;inset:0;z-index:20;pointer-events:none;animation:gone 0s 2.1s forwards}
+.curtain i{position:absolute;top:0;bottom:0;width:50.5%;background:#0b090d}
+.curtain i:first-child{left:0;animation:openL 1s 1s cubic-bezier(.7,0,.2,1) forwards}
+.curtain i:nth-child(2){right:0;animation:openR 1s 1s cubic-bezier(.7,0,.2,1) forwards}
+.curtain img{position:absolute;left:50%;top:50%;width:96px;height:auto;margin:-48px 0 0 -48px;animation:logoIn 1.6s both}
+@keyframes openL{to{transform:translateX(-101%)}}
+@keyframes openR{to{transform:translateX(101%)}}
+@keyframes logoIn{0%{opacity:0;transform:scale(.8)}20%{opacity:1;transform:scale(1)}60%{opacity:1}100%{opacity:0;transform:scale(1.15)}}
+@keyframes gone{to{visibility:hidden}}
+/* bandeau de kanji */
+.ticker{overflow:hidden;background:var(--bg2);border-block:1px solid var(--line);padding-block:12px;white-space:nowrap;user-select:none}
+.ticker div{display:inline-flex;gap:56px;padding-right:56px;font:700 1.4rem var(--display);color:var(--muted);animation:slide 40s linear infinite;will-change:transform}
+.ticker span{display:inline-flex;align-items:baseline;gap:12px}
+.ticker small{font:500 .66rem var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* encre sous le pointeur */
+#ink{position:fixed;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}
+/* kanji en filigrane */
+.sec{position:relative;overflow:clip}
+.sec::before{content:attr(data-k);position:absolute;right:-1%;top:210px;font:800 clamp(10rem,24vw,20rem)/1 var(--display);color:var(--fg);opacity:.035;pointer-events:none}
+.sec > *{position:relative}
+/* ouverture douce des blocs et reperage d'un lien */
+details.sub[open] > .body{animation:fadeIn .45s ease-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+details.sub:target > summary{animation:flash 1.8s ease-out}
+@keyframes flash{0%,40%{background:var(--openbg)}100%{background:transparent}}
+details.sub > summary h3{background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 2px no-repeat;transition:background-size .5s}
+details.sub > summary:hover h3{background-size:100% 2px}
+.chips b{font-variant-numeric:tabular-nums;font-weight:700}
+.banner{transition:transform .35s ease-out;transform-style:preserve-3d}
+.content tr{transition:background .25s}
+.content tbody tr:hover{background:var(--card)}
+.a-rouge{color:#e0403a;font-weight:700}.a-orange{color:#e8782a;font-weight:700}.a-jaune{color:#d9a900;font-weight:700}.a-verte{color:#3f9a5a;font-weight:700}.a-bleue{color:#2f7fc8;font-weight:700}.a-indigo{color:#6b70d8;font-weight:700}.a-violette{color:#a463e0;font-weight:700}
+
+/* sceaux : OUVERT, SPOILER MENEUR, EN SUSPENS */
+.tag{display:inline-block;font:700 .66rem/1 var(--display);letter-spacing:.2em;text-transform:uppercase;padding:4px 6px 3px 9px;border:1.5px solid currentColor;border-radius:1px;vertical-align:.1em;white-space:nowrap;transform:rotate(-1.4deg);margin-right:2px}
+.tag.open{color:var(--accent)}
+.tag.spoil{color:var(--bg);background:var(--fg);border-color:var(--fg)}
+.tag.susp{color:var(--muted);border-style:dashed}
+.tag.other{color:var(--muted)}
+.tagnote{font-size:.92em;font-style:italic;color:var(--muted)}
+.banner .tag.open{color:#ff8a82}
+:root{--open:var(--accent)}
+</style>
+
+
+</head>
+<body>
+<div class="curtain" aria-hidden="true"><i></i><i></i><img src="img/logo.png" alt=""></div>
+<canvas id="ink" aria-hidden="true"></canvas>
+<header class="bar"><div class="wrap">
+  <b>神主の世界</b><span class="sp"></span>
+  <button type="button" id="tocbtn" class="tocbtn">Sommaire</button>
+  <button type="button" id="foldbtn">Tout replier</button>
+  <button type="button" id="spbtn" aria-pressed="false" hidden>Flouter les secrets</button>
+</div><div class="prog" id="prog"></div></header>
+
+<main>
+<section class="hero" aria-label="Couverture">
+  <div class="hero-bg" data-par="0.25"><i></i></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="mist"></div>
+  <div class="wrap">
+    <div class="stamp">Guide du staff</div>
+    <h1>Bible de l'univers</h1>
+    <div class="jp" lang="ja">神主の世界</div>
+    <p class="lede">Les treize sections de Kannushi no Sekai, telles qu'elles sont acceptées comme vraies au 21 octobre 2026, sans les secrets réservés aux meneurs.</p>
+    <div class="chips"><span>Version 6.1</span><span><b data-to="13">13</b> sections</span><span>environ <b data-to="23800">23 800</b> mots</span></div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div id="tk"></div></div>
+
+<div class="legend"><div class="wrap">
+  <div><span class="tag open">OUVERT</span> <b>Point pas encore décidé.</b> Le reste du texte est accepté, mais ce détail reste à trancher par l'auteur.</div>
+  <div><span class="tag susp">EN SUSPENS</span> <b>Remis en question.</b> Existait sous une autre forme, rouvert sans être tranché.</div>
+  <div class="legendnote">Les sections 12 et 13 sont des documents de travail : la 12 liste ce qui reste à décider, la 13 est le système de jeu, encore en construction.</div>
+</div></div>
+
+<div class="wrap layout">
+  <nav class="side" id="side" aria-label="Sommaire">
+    <input id="q" type="search" placeholder="Chercher dans la Bible" aria-label="Chercher dans la Bible" autocomplete="off">
+    <div class="hits" id="hits"></div>
+    <ol><li><a href="#s1">1. Nom et Identité de l&#x27;Œuvre</a><ol><li><a href="#s1-1">Titre officiel</a></li><li><a href="#s1-2">Pitch</a></li><li><a href="#s1-3">Le « paradis »</a></li><li><a href="#s1-4">Ton et public visé</a></li></ol></li><li><a href="#s2">2. L&#x27;État du Monde</a><ol><li><a href="#s2-1">Chronologie</a></li><li><a href="#s2-2">Les calendriers</a></li><li><a href="#s2-3">La Géographie</a></li><li><a href="#s2-4">Yamatai, les cinq quartiers</a></li><li><a href="#s2-5">L&#x27;Ambiance</a></li><li><a href="#s2-6">La Situation Politique et Cosmologique</a></li></ol></li><li><a href="#s3">3. Les Kannushi</a><ol><li><a href="#s3-1">Définition et origine du nom</a></li><li><a href="#s3-2">La tension dramatique centrale : la souillure nécessaire</a></li></ol></li><li><a href="#s4">4. Le Système de Magie</a><ol><li><a href="#s4-1">L&#x27;Aura</a></li><li><a href="#s4-2">Les 7 Auras</a></li><li><a href="#s4-3">L&#x27;âme : un esprit, quatre âmes</a></li><li><a href="#s4-4">Les Norito</a></li><li><a href="#s4-5">Les Éveils et l&#x27;échelle Shinkai</a></li><li><a href="#s4-6">L&#x27;Aura et l&#x27;Aura Meurtrière</a></li><li><a href="#s4-7">Le Kegare (穢れ), la Souillure</a></li><li><a href="#s4-8">Ouvert (Section 4)</a></li></ol></li><li><a href="#s5">5. Les Kami et les Naobi no Kami</a><ol><li><a href="#s5-1">Le principe : le Wakemitama</a></li><li><a href="#s5-2">Naobi et Magatsuhi, deux faces d&#x27;une même pièce</a></li><li><a href="#s5-3">Pourquoi ces Kami aident les Tokoyojin</a></li><li><a href="#s5-4">Le Panthéon des 10 Kami jouables</a></li><li><a href="#s5-5">Quelques Kami en détail</a></li><li><a href="#s5-6">Les Mihashira no Uzu no Miko (anciennement « Mikiko »)</a></li><li><a href="#s5-7">Les Kotoamatsukami, les Cinq Dieux Primordiaux</a></li><li><a href="#s5-8">Les Sept Générations divines (Kamiyonanayo)</a></li><li><a href="#s5-9">Ouvert (Section 5)</a></li></ol></li><li><a href="#s6">6. Les Factions, Clans et Cultes</a><ol><li><a href="#s6-1">Principe général</a></li><li><a href="#s6-2">Les 9 Clans</a></li><li><a href="#s6-3">Les ères historiques, un trait d&#x27;identité</a></li><li><a href="#s6-4">Ouvert (Section 6)</a></li></ol></li><li><a href="#s7">7. Les Races Jouables</a><ol><li><a href="#s7-1">Les Humains</a></li><li><a href="#s7-2">Les Yôkai</a></li><li><a href="#s7-3">Les Demi-Humains</a></li><li><a href="#s7-4">Ouvert (Section 7)</a></li></ol></li><li><a href="#s8">8. Les Figures de Pouvoir</a><ol><li><a href="#s8-1">Hachiman, le Bouclier Vivant</a></li><li><a href="#s8-2">Himiko, l&#x27;Impératrice</a></li><li><a href="#s8-3">Sukunabikona, le Créateur</a></li><li><a href="#s8-4">Sugawara no Michizane, le Directeur</a></li><li><a href="#s8-5">Ouvert (Section 8)</a></li></ol></li><li><a href="#s9">9. Cosmologie et Metaplot</a><ol><li><a href="#s9-1">Les Mondes (quatre couches)</a></li><li><a href="#s9-2">Le Conflit Central</a></li><li><a href="#s9-3">L&#x27;Événement Fondateur : Dan no Ura (1185)</a></li><li><a href="#s9-4">Les Plot Twists Majeurs</a></li><li><a href="#s9-5">Izanagi et Izanami, maîtres du destin</a></li><li><a href="#s9-6">La mort : face à Izanami</a></li><li><a href="#s9-7">La campagne principale : la quête des Trois Trésors</a></li><li><a href="#s9-8">La Tension Cosmique Finale</a></li><li><a href="#s9-9">Ouvert (Section 9)</a></li></ol></li><li><a href="#s10">10. Les Yôkai</a><ol><li><a href="#s10-1">Classification</a></li><li><a href="#s10-2">Les Générations et leurs chefs</a></li><li><a href="#s10-3">L&#x27;Infiltration</a></li></ol></li><li><a href="#s11">11. Les Armes et Objets Sacrés</a><ol><li><a href="#s11-1">Jingi et Shinpô</a></li><li><a href="#s11-2">Les Trois Trésors Sacrés (Jingi)</a></li><li><a href="#s11-3">Muramasa et Masamune (Shinpô)</a></li><li><a href="#s11-4">Futsunushi (Shinpô)</a></li><li><a href="#s11-5">Les Shinpô de clan</a></li><li><a href="#s11-6">Le Jade</a></li><li><a href="#s11-7">Ouvert (Section 11)</a></li></ol></li><li><a href="#s12">12. Points en Suspens</a><ol><li><a href="#s12-1">Monde et chronologie</a></li><li><a href="#s12-2">Géographie</a></li><li><a href="#s12-3">Système de magie et de jeu (renvoyés à SYSTÈME DU JEU)</a></li><li><a href="#s12-4">Kami et clans</a></li><li><a href="#s12-5">Figures de pouvoir</a></li><li><a href="#s12-6">Travail éditorial à faire</a></li></ol></li><li><a href="#s13">13. Le Système de Dés (Discord, en construction)</a><ol><li><a href="#s13-1">Objectifs</a></li><li><a href="#s13-2">Le dé</a></li><li><a href="#s13-3">Les critiques</a></li><li><a href="#s13-4">Les actions et l&#x27;ordre de jeu</a></li><li><a href="#s13-5">Les Norito : construction par points de Majoration</a></li><li><a href="#s13-6">La vie et la mort</a></li><li><a href="#s13-7">La Garde et le coup de grâce</a></li><li><a href="#s13-8">Les postures de combat (en construction)</a></li><li><a href="#s13-9">Idées gardées en réserve</a></li><li><a href="#s13-10">Ouvert</a></li></ol></li></ol>
+  </nav>
+  <article class="content" id="content">
+<section class="sec" id="s1" data-k="名">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/pagode.jpg);background-position:50% 50%"></div><div class="in"><div class="num">Section 1</div><h2>Nom et Identité de l&#x27;Œuvre </h2></div></div>
+<details class="sub" id="s1-1" open><summary><h3>Titre officiel</h3></summary><div class="body">
+<p>Le projet s'appelle <strong>Kannushi no Sekai : Tokoyo no Monogatari</strong>. L'abréviation <strong>KNS</strong> reste l'identité du projet et de la communauté, ancrée depuis 8 ans. <strong>Tokoyo no Kuni</strong> (le Pays Éternel) désigne strictement le monde de l'histoire, la dimension dans laquelle les joueurs évoluent, un sous-domaine du Yomi.</p>
+</div></details><details class="sub" id="s1-2" open><summary><h3>Pitch</h3></summary><div class="body">
+<p>Un univers de dark fantasy inspiré du Japon féodal et de ses croyances syncrétiques (shinto, bouddhisme, et des influences chrétiennes infiltrées), où des guerriers-prêtres combattent des yôkai dans un paradis détruit, portant en eux un fragment d'âme divine qui leur donne des pouvoirs surnaturels.</p>
+<p>Le mot « féodal » reste juste : Tokoyo n'a jamais connu de modernisation, en guerre de survie depuis 1185. Les mesures réelles de l'ère Meiji (1868 à 1873) n'ont pas touché Tokoyo.</p>
+<p>Règle de monde : toutes les croyances sont vraies vues de l'intérieur. La croyance humaine fait exister les dieux et les panthéons, les mondes shinto sont vrais mais locaux.</p>
+</div></details><details class="sub" id="s1-3" open><summary><h3>Le « paradis »</h3></summary><div class="body">
+<p>Le « paradis » désigne le monde spirituel éternel qu'était Tokoyo no Kuni à l'origine, un lieu comparable au Pléroma, avec une touche des Champs Élysées. Il n'était pas matériel : ni faim, ni soif, ni maladie, ni corps. Les habitants étaient des âmes.</p>
+<p>Le monde matériel est né de l'intrusion du Kegare (voir Section 2). À ce moment, les âmes du Pléroma ont reçu un corps humain (celui qu'elles avaient de leur vivant), ont bâti des villages puis des villes pour se protéger, tandis que les yôkai se multipliaient. C'est la fin du paradis, vécue de l'intérieur.</p>
+</div></details><details class="sub" id="s1-4" open><summary><h3>Ton et public visé</h3></summary><div class="body">
+<p>Univers sombre, létal et punitif. Référence de ton : The Witcher, bâti sur le folklore et la mythologie japonais. Références de combat : Tokyo Ghoul, Demon Slayer, Jujutsu Kaisen, Naruto, Sekiro, JoJo.</p>
+<p>Déconseillé aux moins de 16 ans (une recommandation, pas une interdiction). La mort est permanente par défaut : pas de sort de résurrection, mais devant Izanami on peut repousser la mort ou conclure un pacte (voir Section 9). Retrouver un mort, à la manière d'Izanagi au Yomi, est un savoir secret et une quête exceptionnelle. Le gore est représentable, l'agression sexuelle ne l'est jamais (hors-champ). « Punitif » vaut aussi pour le monde : pertes, conséquences, le MJ ne ménage pas les joueurs.</p></div></details>
+</section>
+<section class="sec" id="s2" data-k="世">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/etat.jpg);background-position:50% 45%"></div><div class="in"><div class="num">Section 2</div><h2>L&#x27;État du Monde </h2></div></div>
+<details class="sub" id="s2-1" open><summary><h3>Chronologie</h3></summary><div class="body">
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Événement</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ôkuninushi commence à recruter secrètement des âmes de légendes japonaises (les <strong>Eirei</strong>)</td>
+<td>vers 660 av. J.-C. (couronnement de Jinmu)</td>
+</tr>
+<tr>
+<td><strong>Dan no Ura.</strong> Perte des Trois Trésors Sacrés. Des portails s'ouvrent et déversent le <strong>Kegare</strong> dans le monde : celui-ci devient matériel, les corps apparaissent d'un coup, un crépuscule éternel s'installe, les premiers yôkai apparaissent, désorganisés (dont les fantômes des Heike)</td>
+<td>1185</td>
+</tr>
+<tr>
+<td>Latence : les <strong>30 Royaumes</strong> sont fondés dans ce monde nouveau. Ôkuninushi nomme <strong>Himiko</strong> Impératrice et <strong>Hachiman</strong> Shogun, ses deux bras droits</td>
+<td>1185 à 1200</td>
+</tr>
+<tr>
+<td>Phase 1, « c'est une rumeur » : fortifications, disparitions isolées</td>
+<td>1200 à 1215</td>
+</tr>
+<tr>
+<td>Phase 2, « il y a vraiment quelque chose »</td>
+<td>1215 à 1228</td>
+</tr>
+<tr>
+<td><strong>Première Génération</strong> de yôkai organisée, ouverture de la phase 3, « il y en a plusieurs ». Elle s'ouvre par 4 ans d'<strong>Ômagatoki</strong></td>
+<td>1228 (Ômagatoki 1228 à 1231)</td>
+</tr>
+<tr>
+<td>Phase 4, « nous devons apprendre à vivre avec » : spécialistes et samouraïs, précurseurs des Kannushi</td>
+<td>à partir de 1300</td>
+</tr>
+<tr>
+<td><strong>14 Générations</strong> de yôkai, une tous les 49 ans : 1228, 1277, 1326, 1375, 1424, 1473, 1522, 1571, 1620, 1669, 1718, 1767, 1816, 1865. Les 30 Royaumes tombent un par un (la saignée)</td>
+<td>1228 à 1870</td>
+</tr>
+<tr>
+<td>Jules Brunet passe à Tokoyo (8 juin 1869), par un seppuku spirituel réalisé par un prêtre</td>
+<td>1869</td>
+</tr>
+<tr>
+<td>La 14e Génération, ouverte par l'Ômagatoki de 1865 à 1869, prend fin avec le <strong>Sacrifice d'Ôkuninushi</strong></td>
+<td>1865 à 1870</td>
+</tr>
+<tr>
+<td>Début du JDR (39 ans après le Sacrifice)</td>
+<td>1909</td>
+</tr>
+<tr>
+<td><strong>15e Génération</strong>, ouverte par 4 ans d'Ômagatoki</td>
+<td>1914 à 1918</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Les Générations.</strong> Chaque Génération est un groupe organisé de yôkai mené par un chef ou un groupe de chefs (duo ou ensemble). Elle n'a pas de fin fixe : elle ne s'arrête que lorsque les humains parviennent à la repousser. Les 4 ans d'Ômagatoki qui l'ouvrent sont l'avantage des yôkai (voir plus bas). L'ordre des chefs et des groupes, année par année, est <strong><span class="tag open">OUVERT</span></strong> (à décider par l'auteur). Le <strong>Hyakki Yakô</strong>, mené par Nurarihyon, sera l'une des 15 Générations, laquelle est <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p><strong>Ômagatoki (逢魔時, « l'heure de la rencontre des démons »).</strong> Au début de chaque Génération, pendant 4 ans, l'éclipse devient totale : pleine nuit. On ne distingue plus les visages, ce qui favorise l'infiltration des yôkai métamorphes. Coutume : quand on est interpellé dans le noir (« Qui va là ? »), on doit répondre, car répondre prouve qu'on n'est pas un monstre. Les quatre ans évoquent les quatre cavaliers.</p>
+<p><strong>La saignée.</strong> Les 30 Royaumes tombent un par un, environ deux par Génération (29 pour 14 Générations), jusqu'aux deux derniers royaumes continentaux, un sur le continent yin, un sur le continent yang, conquis après l'Ômagatoki de 1869. Yamatai est le trentième Royaume, la capitale de l'Empire et le dernier grand bastion de l'humanité : elle reste sur son île centrale.</p>
+<p><strong>Les 29 Royaumes perdus.</strong> Vingt-neuf Royaumes sont tombés, plus Yamatai, la capitale, qui tient encore. Leurs noms, inventés pour KNS, sont répartis entre les deux continents :</p>
+<ul>
+<li><strong>Ouest, yang (14)</strong> : Hikarizaka (la colline de lumière), Shirotsuki (la lune blanche), Amanoha (l'aile du ciel), Kogane (l'or), Tsuyukusa (l'herbe de rosée), Mikagura (la danse sacrée), Sorano (la plaine du ciel), Akebono (l'aube), Kasumi (la brume), Tsukumo (les cent âges), Natsukage (l'ombre d'été), Hoshizora (le ciel étoilé), Fujinami (la vague de glycine), Yuzuriha (la feuille qui cède).</li>
+<li><strong>Est, yin (15)</strong> : Kurokawa (la rivière noire), Murasame (la pluie d'automne), Shigure (l'averse froide), Kagerou (le mirage de chaleur), Kasane (les couches superposées), Oboro (la lune voilée), Tsubaki (le camélia), Kurenai (le rouge profond), Shimotsuki (le mois du givre), Nagori (ce qui reste), Fuyugomori (l'hibernation), Sazanami (les petites vagues), Utsusemi (la mue de cigale), Ukigumo (le nuage flottant), Mizuhiki (le cordon d'eau).</li>
+</ul>
+<p>L'ordre de chute, les deux derniers Royaumes (un par continent, tombés après l'Ômagatoki de 1869) et le détail de chaque Royaume sont <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p><strong>Hors de Yamatai.</strong> Yamatai est le dernier grand bastion, mais pas le seul endroit où des humains vivent : quelques villages tiennent encore sur les continents, loin de tout, souvent protégés par un kami local (voir Section 5). Coupés de l'Empire, ils survivent par leurs propres moyens. Leur nombre, leur lien avec Yamatai et leur sort face aux yôkai sont <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p><strong>Le Sacrifice (1870).</strong> Après les lourdes pertes de la 14e Génération, Ôkuninushi sait que le prochain Ômagatoki (1914) pourrait être le dernier. Il refuse la défaite et l'abandon : il utilise sa puissance divine pour se sacrifier, <strong>divisant son âme parmi son armée</strong> pour la renforcer. Ce sacrifice est un serment, un Seigan : « ma vie contre une Norito surpuissante ». À ce même instant, le passage vers l'extérieur se ferme à jamais et le recrutement d'Eirei prend fin. Il ouvre simultanément les chakras de tous les humains de Tokoyo, tous ceux nés depuis 1185 comme les Eirei, au prix de la vie de ceux dont l'esprit n'était pas assez fort. Il n'est pas vraiment mort : il s'est dispersé, il prévoit de revenir, et Tokoyo est en partie son âme. Le mode exact de son retour est <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p>Au même moment, <strong>Himiko et Hachiman</strong> décrètent la refondation des Kannushi (voir Section 3). Les Kannushi naissent donc réellement en 1870. Avant, les samouraïs combattaient et les prêtres étudiaient, ils fusionnent parce que, pour sauver l'humanité, il fallait pouvoir faire les deux.</p>
+<p><strong>Avant 1870 : les purifications de masse.</strong> Ôkuninushi célébrait lui-même la grande purification (Ôharae) à l'échelle du monde entier, deux fois par an (30 juin et 31 décembre). Le Kegare était bien moins un problème qu'après son Sacrifice. Depuis, son âme étant partagée, nul ne peut la mener d'un seul geste : chaque Kannushi purifie à son échelle, et les rites du clan Jôdo qui entretiennent son pouvoir en sont l'écho.</p>
+<p>L'ambiance du présent du jeu reste celle de la Première Guerre Mondiale : mémoire vivante et trauma collectif, mais pas un événement mythique lointain. Les parents des joueurs ont connu le Sacrifice et la chute du dernier royaume continental.</p>
+</div></details><details class="sub" id="s2-2" open><summary><h3>Les calendriers</h3></summary><div class="body">
+<p>Trois façons de compter les années coexistent à Tokoyo.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Calendrier</th>
+<th>Qui l'utilise</th>
+<th>1909</th>
+<th>1914</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grégorien (naissance du Christ)</td>
+<td>Les Kirishitan uniquement</td>
+<td>1909</td>
+<td>1914</td>
+</tr>
+<tr>
+<td>Impérial (an 1 = 660 av. J.-C., avènement de Jinmu : année grégorienne + 660)</td>
+<td>Peu employé : l'Empire n'est plus d'actualité</td>
+<td>2569</td>
+<td>2574</td>
+</tr>
+<tr>
+<td><strong>Calendrier d'ère</strong></td>
+<td><strong>Tout le monde, au quotidien</strong></td>
+<td>an 44 de l'ère de la 14e Génération</td>
+<td>an 0 de l'ère de la 15e Génération</td>
+</tr>
+</tbody>
+</table></div>
+<p>Chaque Génération ouvre une nouvelle <strong>ère de 49 ans</strong>. L'ère de la 14e Génération commence en 1865 (an 0). En 1909, nous sommes donc en l'an 44, et il reste 5 ans avant l'an 0 de l'ère de la 15e Génération (1914). Les quatre premières années de chaque ère sont celles de l'Ômagatoki. Par commodité, toutes les dates de cette Bible sont données en calendrier grégorien.</p>
+<p><strong>Les ères ont un nom</strong>, comme les ères japonaises réelles (gengō), lié au chef de leur Génération (par exemple l'ère de Shuten-dôji). Les noms dépendent de l'ordre des Générations, qui reste <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s2-3" open><summary><h3>La Géographie</h3></summary><div class="body">
+<p>Le continent de Tokoyo no Kuni est divisé en deux par une mer centrale, formant sur la carte un symbole Yin-Yang. Le continent de l'<strong>ouest</strong> (à gauche) est <strong>yang</strong>, celui de l'<strong>est</strong> (à droite) est <strong>yin</strong>. Sur le continent yang, l'âme prend le dessus : toutes les Auras y sont renforcées. Sur le continent yin, le corps prend le dessus : tout ce qui touche au corps y est renforcé (points de vie, résistance, endurance). Chaque continent donne un avantage, sans contrepartie, aux humains de Tokoyo seulement : les yôkai n'en profitent pas (plus simple à gérer pour le MJ). L'ampleur de l'effet est <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p>Au centre de la mer, <strong>deux îles</strong> (la carte doit être modifiée, il y avait quatre îlots) : celle de <strong>Yamatai</strong>, dernier bastion, et celle du <strong>Palais d'Ôkuninushi</strong>, qui reliait Tokoyo au Takama-ga-hara. Le Palais a été détruit à moitié lors du Sacrifice, la moitié restante est visible à l'horizon depuis Yamatai, cicatrice permanente de la chute du Monde Éternel. Le sens des îles extérieures et des frontières en pointillé de la carte est <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p><strong>Le Palais de Ryûjin</strong> existe réellement, intact et protégé des yôkai, mais nul ne sait où il se trouve. Grâce à lui, tout le monde à Tokoyo vieillit très lentement. À l'intérieur, Ryûjin manipule le temps à volonté, rarement, contre un service à lui rendre : accélération vécue, dilatation punitive à la Urashima, ou rien. Son existence est une légende connue, son pouvoir sur le temps un secret des élites Kannushi.</p>
+<p><strong>L'océan infranchissable.</strong> La mer de Tokoyo a un bord que personne n'atteint. Au loin, les <strong>Shiranui</strong> (不知火), flammes-mères qui se multiplient en milliers de lumières alignées à l'horizon et reculent à mesure qu'on s'approche, sont un présage qui interdit de prendre la mer. Ce sont aussi les <strong>Lanternes du dragon</strong>, les lumières des <strong>Huit Grands Rois Dragons</strong> (Nanda, Upananda, Sâgara, Vasuki alias Kuzuryû, Takshaka, Anavatapta, Manasvin, Utpalaka), la cour de Ryûjin qui garde la limite. <strong>Keneô</strong>, seul, se tient au bord et est le passeur des âmes vers le monde des morts, et juge ceux qui insistent comme des morts (croyance de la rivière Sanzu et du Styx). Les spectres des Heike entraînent les navires par le fond. Les navires qui s'obstinent reviennent sans être arrivés.</p>
+</div></details><details class="sub" id="s2-4" open><summary><h3>Yamatai, les cinq quartiers</h3></summary><div class="body">
+<p>Yamatai, sur l'île centrale, est la première ville du monde matériel, fondée en 1185 autour d'Himiko, et la capitale de l'Empire dès l'origine. Elle n'est jamais tombée. La ville est divisée en <strong>cinq quartiers, un par anneau du Godai</strong> (le Livre des Cinq Anneaux de Musashi : Terre, Eau, Feu, Vent, Vide). Le Vide est au centre, les autres l'entourent. Une partie de la ville porte encore les cicatrices de la chute du dernier royaume continental et du Sacrifice, dont la mémoire reste vivante.</p>
+<ul>
+<li><strong>Vide (le Honmaru).</strong> Le cœur impérial, silencieux et strictement contrôlé. La cour d'Himiko et son donjon, l'état-major de Hachiman, le tribunal impérial, les archives de l'Empire, et l'académie des Kannushi de Michizane à sa lisière. Le Vide est aussi le Kû, l'Aura divine : le centre qui ne se voit pas.</li>
+<li><strong>Feu (le Samurai-machi).</strong> Le quartier des clans et des guerriers. Chacun des neuf clans y tient un secteur reconnaissable à ses couleurs et à son architecture, avec ses dojos et ses rivalités. Le Shogunal y tient les casernes.</li>
+<li><strong>Eau (le Shitamachi).</strong> La ville basse. Elle prend la forme de ce qu'on y met : crée par les marchands, artisans, pêcheurs et réfugiés des Royaumes perdus, organisée par origines et par métiers. On y trouve le grand marché, le marché noir, le théâtre (couverture du clan Edo) et le Kurokado, le quartier de plaisirs créé par Hachiman et surveillé par l'Onmyôdô.</li>
+<li><strong>Vent (le Minato-machi).</strong> Les docks et les murailles maritimes. Ce qui vient du dehors y entre : navires, expéditions de ravitaillement, rumeurs, étrangers, et les yôkai qui tentent de s'infiltrer. Les équipages qui reviennent d'un territoire yôkai y passent un examen d'Aura.</li>
+<li><strong>Terre (le Tsuchi-machi).</strong> Les fondations de la ville : jardins suspendus, fermes, réserves de grain, remparts intérieurs. Le quartier des fermiers du clan Jôdo, des Nawanashi et des rites d'Ukemochi qui purifient la terre souillée. C'est le quartier qui nourrit Yamatai, et le moins glorieux.</li>
+</ul>
+<p>Yamatai vit en économie de guerre : priorité aux armes et à la nourriture, monnaie le Mon (subdivisé en Rin), solde de l'État pour les Kannushi, marché noir structuré autour des objets rapportés des Royaumes perdus. La paranoïa est devenue une habitude : on vérifie l'Aura avant un mariage, on ne mange pas chez un inconnu. Les fêtes suspendent la méfiance : le matsuri d'Ôkuninushi (anniversaire du Sacrifice), le festival des lanternes mises à l'eau vers le Palais, la Nuit du Voile Mince, le tournoi des nouveaux Kannushi, le Genpuku. Les lieux, personnages et secrets du supplément <strong>KNS_Yamatai_v2</strong> restent à recaler sur cette chronologie <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s2-5" open><summary><h3>L'Ambiance</h3></summary><div class="body">
+<p>Le monde est dans un crépuscule permanent, né avec le monde matériel en 1185. Le soleil est toujours faible et voilé, les nuits sont froides, il ne fait jamais vraiment jour, il n'y a pas de saisons. Cause : une éclipse presque totale, parfois totale, maintenue par <strong>Tsukuyomi</strong>, tombé du ciel à Tokoyo, qui suit sa sœur Amaterasu. Elle est réparable en théorie, mais il ne voudra jamais : c'est pour lui le yin et le yang. Une fin de campagne se pense comme la reconquête des 30 Royaumes et le retour de la sécurité, pas comme le retour de la lumière.</p>
+</div></details><details class="sub" id="s2-6" open><summary><h3>La Situation Politique et Cosmologique</h3></summary><div class="body">
+<p>Depuis le couronnement légendaire de Jinmu, Ôkuninushi recrute secrètement les âmes de grandes figures de l'histoire et de la mythologie japonaises, les <strong>Eirei</strong> (英霊, « âmes héroïques »), pour leur gloire, leurs valeurs ou leur impact sur la vie japonaise. Il prend l'âme au moment de la mort, dans le Pays du Milieu, avant qu'elle n'arrive devant Izanami : l'âme arrive à Tokoyo avec ses souvenirs, dans un corps. Officiellement, il leur offre un paradis. Officieusement, il bâtit une armée destinée à se venger d'Amaterasu, reprendre le Pays du Milieu, et envahir le Takama-ga-hara.</p>
+<p><strong>Le plan d'origine d'Ôkuninushi</strong> : se retirer dans un monde invisible et éternel (Tokoyo), y amasser une armée, puis revenir avec elle reprendre ce qui lui appartient selon lui, le Pays du Milieu (Ashihara no Nakatsukuni), perdu dans un conflit contre les envoyés d'Amaterasu (le Kuni-yuzuri, la « cession du pays » du mythe). Depuis 1185, Amaterasu a envoyé ses propres gens (les yôkai) : Ôkuninushi est sur la défensive. Il doit d'abord gagner la bataille de Tokoyo, avant la bataille d'Ashihara no Nakatsukuni, puis celle du Takama-ga-hara.</p>
+<p>En 1185, à Dan no Ura, les Trois Trésors d'Amaterasu sont perdus dans la bataille. Ôkuninushi refuse de les lui rendre : il ne le peut pas, ces objets sont très puissants et c'est une chance inouïe de les avoir dans son monde. Ce refus pousse Amaterasu à déclarer la guerre à Ôkuninushi et à son monde. En parlant en secret avec Izanami, Amaterasu comprend ce qui s'est vraiment passé : Ôkuninushi amasse les âmes des morts Eirei pour les envoyer dans son monde plutôt que vers les profondeurs du Yomi. Les portails s'ouvrent, le Kegare se déverse, les premiers yôkai apparaissent, d'abord sans ordre. À partir de 1228, des groupes organisés de yôkai attaquent : c'est la saignée, de 1228 à 1870. Ôkuninushi tente de repousser les Générations avec son armée d'Eirei, sans succès, jusqu'au Sacrifice.</p>
+<p><strong>Toute la population de Tokoyo, Eirei comme descendants, constitue de fait cette armée</strong> : il n'y a pas de population civile séparée d'une armée secrète. Mais tout le monde à Tokoyo a de l'Aura et peut la travailler, sans pour autant être Kannushi (voir Section 3). Les fermiers du clan Jôdo, par exemple, sont de simples humains protégés par une minorité de Kannushi.</p>
+<p><strong>Himiko et Hachiman, les deux bras droits.</strong> Ôkuninushi nomme Himiko Impératrice des 30 Royaumes et Hachiman Shogun. <strong>Himiko règne depuis 1185</strong>, soit 724 ans en 1909. Elle est la reine légendaire de Yamataikoku, qui ne vieillit presque pas (elle peut mourir). Il est <strong>de notoriété publique qu'un Wakemitama d'Amaterasu loge en Himiko</strong> : c'est pour cela qu'elle est Impératrice (voir Section 8).</p>
+<p><strong>Le statu quo.</strong> Les yôkai ne peuvent pas pénétrer frontalement Yamatai, mais infiltrent constamment la société en se métamorphosant en êtres humains. N'importe qui peut être un yôkai. L'ambiance est celle de la paranoïa permanente.</p>
+<p><strong>Les Trois Trésors Sacrés.</strong> Amaterasu cherche à récupérer les Trois Trésors engloutis à Dan no Ura en 1185 avec l'Empereur Antoku et Taira no Tokiko. Tokoyo faisant partie du monde des morts, ils s'y trouvent désormais. Jusqu'en 1870, Hachiman détenait Kusanagi et l'Impératrice le Yasakani no Magatama. Lors de son Sacrifice, Ôkuninushi a dispersé les trois trésors (cachés en des lieux du monde, protégés par des épreuves et des gardiens, hors de portée d'Amaterasu). Depuis, ils sont introuvables : des légendes et des rumeurs, avec des indices ici et là (on dit que Ryûjin en possède un, ou Hachiman, ou Himiko). L'Impératrice engage des Kannushi pour les retrouver. Le miroir Yata-no-Kagami, l'âme d'Amaterasu selon la tradition, n'a jamais été localisé. Si Yamatai tombe : Ôkuninushi meurt, c'est la fin de Tokoyo, les humains deviennent des yôkai au service d'Izanami, le sceau d'Izanagi faiblit, Amaterasu récupère les Trois Trésors et arrête l'invasion, Izanami règne (le pacte est honoré). Les joueurs choisissent leur camp. Une troisième voie existe (voir Section 9).</p>
+<h4>La fracture Eirei / descendants</h4>
+<p>Un <strong>descendant</strong> est tout humain né à Tokoyo depuis 1185. Les Eirei bénéficient de privilèges sociaux hérités (accès facilité aux rangs, confiance a priori, titres réservés). Plus les générations passent, plus ces avantages se diluent, ce qui crée un conflit de statut entre les « vieilles familles » d'Eirei et les descendants tardifs (environ 29 générations en 1909), en plus des tensions entre les clans. Les humains nés avant 1870 n'ont reçu l'Aura qu'au Sacrifice. Les Eirei d'origine peuvent être vivants en 1909 (ils vieillissent très lentement) : il faut un répertoire de PNJ Eirei, surtout comme mentors des nouvelles générations. La formation se fait dans une académie commune à tous les clans. Les ères historiques (Kodai, Heian, etc.) ne sont qu'un trait d'identité des Eirei, pas des factions.</p></div></details>
+</section>
+<section class="sec" id="s3" data-k="神">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/samurai.jpg);background-position:50% 50%"></div><div class="in"><div class="num">Section 3</div><h2>Les Kannushi </h2></div></div>
+<details class="sub" id="s3-1" open><summary><h3>Définition et origine du nom</h3></summary><div class="body">
+<p>Le mot <strong>Kannushi</strong> a évolué de son sens shinto originel (prêtre de sanctuaire) pour désigner les guerriers-purificateurs de Tokoyo. Un Kannushi est <strong>un humain qui a reçu la bénédiction d'un Naobi no Kami</strong> : un fragment de l'âme de ce Kami, le <strong>Wakemitama</strong>, qui se greffe sur son âme (voir Sections 4 et 5). Cette bénédiction lui donne accès à une Aura de plus, celle du Naobi, en plus de l'Aura qu'il a de base.</p>
+<p>Les Kannushi sont <strong>nés en 1870</strong>, au moment du Sacrifice d'Ôkuninushi, grâce à l'éveil collectif des chakras et à la prière aux Naobi no Kami qu'il a rendue possible. Avant 1870, il n'existait pas de Kannushi : les samouraïs combattaient et les prêtres étudiaient. La refondation a été <strong>décrétée conjointement par Himiko et Hachiman</strong>, chacun apportant l'autorité de son domaine, le pouvoir religieux pour l'une, le pouvoir militaire pour l'autre. De cette union est né le Kannushi tel qu'il existe aujourd'hui, à la fois prêtre et soldat, l'un ne pouvant exister sans l'autre. Pour sauver l'humanité, il fallait pouvoir faire les deux.</p>
+<p><strong>Naobi no Kami.</strong> Un Naobi est tout Kami qui aide à la purification, à la correction du désordre et à l'élimination des calamités, y compris les renégats célestes (Takemikazuchi, Omoikane, Uzume). Ils s'opposent aux <strong>Magatsuhi no Kami</strong>, chefs de la calamité, mais Naobi et Magatsuhi sont les deux faces d'une même pièce : un même Kami peut basculer de l'un à l'autre (voir Section 5).</p>
+<p><strong>Eirei et descendants.</strong> Les descendants nés à Tokoyo sont Kannushi exactement au même titre que les Eirei, sans statut inférieur. L'écart entre Eirei et descendants est social, pas ontologique.</p>
+<p><strong>L'éveil par la prière.</strong> Tout humain de Tokoyo a de l'Aura et peut la travailler, mais seuls ceux qui prient et sont acceptés par un Naobi deviennent Kannushi. La prière se fait pendant la formation dans l'académie commune à tous les clans (vers 14 ans) : l'apprenti choisit le Naobi, le Naobi peut refuser (le MJ juge, selon le caractère du Kami), les essais sont illimités, et le lien est définitif et transformant (semi-divin). Aucun moment de crise n'est nécessaire.</p>
+<p><strong>Les Nawanashi.</strong> Tout humain qui a de l'Aura mais pas de Naobi est un <strong>Nawanashi</strong> (縄無し, « sans corde »). C'est un état, pas un choix : le fermier paisible, l'apprenti qui attend, le combattant sans dieu. La plupart attendent qu'un Naobi réponde, certains ne sont jamais choisis : ce sont les rônins du monde des Kannushi. Ils n'ont pas de domaine, ce qui est un désavantage clair, mais peuvent utiliser l'Aura de base.</p>
+<p><strong>La corde sacrée (shimenawa).</strong> Elle est l'élément commun de tous les Kannushi, autant que l'armure de samouraï. C'est à la fois un <strong>insigne</strong> (la marque visible de la divinité d'un Kannushi) et une <strong>barrière sacrée</strong> (une frontière sacrée portable qui limite la contagion du Kegare). Elle n'apparaît pas par magie : c'est un <strong>outil fabriqué par les Kannushi du clan Impérial (c'est l'une de leurs techniques) et remis par l'Empire</strong> aux nouveaux Kannushi. Perdue ou coupée, elle se remplace auprès de l'Empire. Un Nawanashi pourrait en voler une et s'en servir, mais il serait un imposteur.</p>
+<p><strong>Les Kannushi, petits Kami.</strong> Un Kannushi reste un humain semi-divin qui porte un fragment d'âme de Kami. C'est un petit Kami à part entière que l'« éveil de sa propre divinité » peut faire grandir. Les Kami du panthéon sont invisibles par défaut.</p>
+<p><strong>Tous les Kannushi peuvent purifier.</strong> Grâce à l'Aura Verte (qui retire le Kegare), tout Kannushi peut apprendre à purifier, et pas seulement Ôkuninushi (qui célébrait seul la grande purification avant 1870). De base, un Kannushi maîtrise deux Auras : une au choix du joueur et celle de son Naobi. Il peut en apprendre d'autres avec les niveaux, dont la Verte (voir Section 4).</p>
+</div></details><details class="sub" id="s3-2" open><summary><h3>La tension dramatique centrale : la souillure nécessaire</h3></summary><div class="body">
+<p>Tuer souille, qu'on soit devenu guerrier de force ou de vocation. Chaque yôkai abattu, chaque vie prise, ajoute au Kegare. Combien de fois un Kannushi peut-il se purifier avant de devenir, lui aussi, ce qu'il combat ? Cette tension est au cœur de l'identité de chaque personnage joueur, et la gestion du Kegare en est l'interprétation mécanique.</p>
+<p>Les Kannushi restent soumis au Kegare comme des humains, malgré leur nature semi-divine. Les Kami eux-mêmes ne sont pas immunisés au Kegare : leur Ara peut dominer. Le Kegare <strong>permanent</strong> ne vient que d'actes qui trahissent gravement le Musubi (le viol, le meurtre horrible, et d'autres actes complètement inhumains et contre nature). Tuer par nécessité (légitime défense, défense d'autrui, ordres de guerre, exécution d'un yôkai infiltré) donne du Kegare <strong>temporaire</strong>, que l'on peut purifier. Un meurtre commis par haine, sans être horrible, donne un Kegare temporaire élevé. Les chiffres exacts seront fixés avec le système de jeu.</p></div></details>
+</section>
+<section class="sec" id="s4" data-k="気">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/foret.jpg);background-position:50% 50%"></div><div class="in"><div class="num">Section 4</div><h2>Le Système de Magie </h2></div></div>
+<details class="sub" id="s4-1" open><summary><h3>L'Aura</h3></summary><div class="body">
+<p>L'Aura est l'essence de toute magie dans Tokoyo no Kuni. Elle est produite par le mélange du <strong>Yin</strong> (corps physique, énergie physique) et du <strong>Yang</strong> (Tamashii/Mitama, l'âme connectée aux Kami). C'est l'<strong>énergie de la vie</strong> : la perdre entièrement, c'est mourir. Il existe 7 Auras correspondant aux 7 chakras. Les chakras produisent l'Aura, et l'Aura sert à faire les techniques.</p>
+<p>Les gens ordinaires perdent un peu d'Aura en permanence par leurs six chakras. Éveiller ses chakras arrête la fuite. <strong>Tous les humains de Tokoyo ont eu leurs chakras éveillés en 1870</strong>, même les non-Kannushi, et ont donc de l'Aura. Un humain normal n'a qu'une seule Aura. Un Kannushi en a une de plus, celle de son Naobi (voir Section 3). Les nouvelles Auras s'obtiennent par l'entraînement, à la fois physique (yin) et spirituel (yang), qui est nécessaire pour chaque Éveil, et chaque Éveil permet d'obtenir une Aura de plus, au choix du joueur (sauf le Violet, réservé à l'Éveil 5). L'Éveil 4 (Shinkai 10) débloque toutes les Auras normales qui manquent.</p>
+<p><strong>Mudrâ et incantation.</strong> Chaque Aura se crée en faisant le bon <strong>mudrâ</strong> (geste des mains) qui canalise l'Aura depuis son chakra, et toute Norito demande des mudrâ. Une technique à plusieurs Auras demande <strong>un mudrâ par Aura</strong> : une Norito Rouge, Orange et Bleue demande trois mudrâ. <strong>L'ordre :</strong> si la Norito contient de l'Aura Bleue, on commence par le mudrâ Bleu ; pour les autres Auras, l'ordre n'a pas d'importance. <strong>L'incantation</strong> utilise la prononciation japonaise du Shingon (mantra de Dainichi, A-bi-ra-un-ken, lié aux cinq éléments) : Rouge <strong>A</strong> (terre), Orange <strong>Bi</strong> (eau), Jaune <strong>Ra</strong> (feu), Verte <strong>Un</strong> (vent), Bleue <strong>Ken</strong> (vide), Indigo <strong>On</strong> (le OM japonais), Violette <strong>silence</strong> (pas de syllabe, la couronne étant au-delà du son). Elle <strong>n'est pas nécessaire</strong> en général. Elle ne le devient qu'avec l'<strong>Aura Bleue</strong>, où prononcer la syllabe renforce la <strong>qualité et la quantité</strong> d'Aura produite et rend la Norito plus puissante. Cela justifie le <strong>surcast</strong> : une technique devient plus puissante quand on y met plus d'Aura.</p>
+</div></details><details class="sub" id="s4-2" open><summary><h3>Les 7 Auras</h3></summary><div class="body">
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Aura</th>
+<th>Chakra</th>
+<th>Fonction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-rouge">Rouge</td>
+<td>Jambes</td>
+<td>Bouclier et arme : l'énergie physique à son maximum, renforcement du corps offensif et défensif</td>
+</tr>
+<tr>
+<td class="a-orange">Orange</td>
+<td>Bas du ventre</td>
+<td>Création et forme : donner une forme à l'Aura hors du corps (projection), façonner les techniques (les illusions ne sont pas de l'Orange)</td>
+</tr>
+<tr>
+<td class="a-jaune">Jaune</td>
+<td>Plexus solaire</td>
+<td>Volonté : accumuler puis libérer, résister au contrôle mental, à la peur et à l'intimidation, émotions. Fait basculer les âmes entre Ara et Nigi (soi et cibles)</td>
+</tr>
+<tr>
+<td class="a-verte">Verte</td>
+<td>Cœur</td>
+<td>Soins et guérison. Retire le Kegare : c'est l'Aura de la purification</td>
+</tr>
+<tr>
+<td class="a-bleue">Bleue</td>
+<td>Gorge</td>
+<td>Impose la règle d'un domaine (interdire, limiter, lier), serments magiques (Seigan), vérité. Pas de dégâts par elle-même, avec un coût</td>
+</tr>
+<tr>
+<td class="a-indigo">Indigo</td>
+<td>Troisième Œil</td>
+<td>Détection et perception de l'Aura, traque, prémonition, lecture du Kegare</td>
+</tr>
+<tr>
+<td>Violette / Kû</td>
+<td>Couronne</td>
+<td>L'Aura divine, connexion aux forces créatrices de l'univers, liée aux Kotoamatsukami. Elle devient permanente à l'Éveil 5</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Précisions.</strong></p>
+<ul>
+<li><strong>Les Auras d'un Kannushi.</strong> De base, un Kannushi en maîtrise deux : celle de son Naobi et une au choix du joueur (la Jaune est un choix possible : seule Uzume la donne au départ, mais elle s'apprend aussi comme les autres). Il peut en apprendre d'autres avec les niveaux, y compris la Verte. Elles s'obtiennent par l'entraînement (physique et spirituel), nécessaire à chaque Éveil, qui en donne une de plus ; le détail est <strong><span class="tag open">OUVERT</span></strong> (système de jeu).</li>
+<li><strong>Rouge.</strong> Bouclier et arme : l'énergie physique à son maximum. Passive ou ponctuelle selon la technique.</li>
+<li><strong>Orange.</strong> Création et forme. Par défaut, toute technique projetée hors du corps exige l'Aura Orange, qui façonne les techniques. Les illusions ne viennent pas de l'Orange : elles sont propres au domaine des Arts (Uzume). Les autres couleurs (soin Vert, mots Bleus) ne se projettent pas à distance par elles-mêmes, sauf exceptions à définir (techniques spéciales ou Éveils avancés).</li>
+<li><strong>Jaune.</strong> Volonté et pouvoir personnel. Elle accumule puis libère, résiste au contrôle mental, à la peur et à l'intimidation, et fait basculer les âmes entre Ara et Nigi (soi et cibles).</li>
+<li><strong>Verte.</strong> Soigne les blessures et retire le Kegare. Tout Kannushi peut apprendre à purifier.</li>
+<li><strong>Bleue.</strong> Impose la règle d'un domaine à une cible (interdire, limiter, lier), nomme, fait jurer : Seigan (serments, comme les vœux de Hunter x Hunter ou de Jujutsu Kaisen). Elle ne fait pas de dégâts par elle-même et chaque règle a un coût ou une limite. Rompre un Seigan donne du Kegare. Le plus grand des Seigan est le sacrifice de sa propre vie contre une Norito surpuissante (le Sacrifice d'Ôkuninushi, le sceau d'Izanagi).</li>
+<li><strong>Indigo.</strong> Détecte l'Aura et le Kegare, prémonition, et permet aux experts de distinguer un yôkai. La divination des Onmyôdô repose sur leur Aura Indigo.</li>
+<li><strong>Jade.</strong> Catalyseur d'Aura pour les armes (toute arme, munitions comprises), rare, surtout en territoire yôkai. Le clan <strong>Shogunal</strong> et le clan <strong>Shugendô</strong> se le partagent : le Shugendô le récupère dans les endroits dangereux, le manie et le travaille, le Shogunal contrôle une partie du stock et paie les expéditions. Les deux clans se disputent le Jade. Il se brise, mais un forgeron lié à Kagutsuchi le répare. Il stocke des techniques à usage unique utilisables par tous. Les sabres faits de Jade sont appelés des shinken (神剣, « sabre divin »). Les armes à feu sont des arquebuses (fin d'Edo). Les forgerons liés à Kagutsuchi sont-ils le Shugendô ou à part : <strong><span class="tag open">OUVERT</span></strong>.</li>
+</ul>
+</div></details><details class="sub" id="s4-3" open><summary><h3>L'âme : un esprit, quatre âmes</h3></summary><div class="body">
+<p>La théorie de base de KNS est l'<strong>ichirei shikon</strong> (一霊四魂, « un esprit, quatre âmes »).</p>
+<p><strong>Le Naohi (直霊) est l'esprit</strong>, pas une âme. Lié au ciel (aux Naobi no Kami), il supervise les quatre âmes, joue le rôle de conscience et rappelle à l'ordre quand une âme va trop loin. Depuis le Sacrifice d'Ôkuninushi, tous les Naohi sont connectés au « ciel », aux dieux. Le Kegare corrompt le Naohi. Quand le Naohi est corrompu, la personne devient un yôkai.</p>
+<p><strong>Les quatre âmes (Mitama) coexistent en permanence</strong> autour du Naohi :</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Âme</th>
+<th>Vertu</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ara-Mitama</strong></td>
+<td>Courage, élan</td>
+<td>Force brute, élan. Premier contact avec l'Aura</td>
+</tr>
+<tr>
+<td><strong>Nigi-Mitama</strong></td>
+<td>Lien, harmonie</td>
+<td><strong>État normal du Kannushi</strong>, cible des manipulations de l'Aura Jaune</td>
+</tr>
+<tr>
+<td><strong>Saki-Mitama</strong></td>
+<td>Amour, bénédiction</td>
+<td>Source de la chance et de la bénédiction du Kami (les points de chance, brouillon de Legacy à 7 points, restent à retravailler ; la chance est la faveur d'Izanagi face à la malchance d'Izanami, voir Section 9)</td>
+</tr>
+<tr>
+<td><strong>Kushi-Mitama</strong></td>
+<td>Sagesse</td>
+<td>Donne accès aux différentes Auras et porte le Wakemitama</td>
+</tr>
+</tbody>
+</table></div>
+<p>Les quatre vertus (courage, lien, amour, sagesse) sont conservées. Il n'y a pas d'« ombres » : pas de double sombre pour chaque âme.</p>
+<p>Le <strong>Kushimitama</strong> est le point de rencontre du corps (yin) et de l'âme (yang) : c'est par lui que l'Aura se forme, ce qui explique qu'il donne accès aux Auras, et que le Wakemitama s'y greffe comme un mini yin-yang.</p>
+<h4>Le curseur Nigi / Ara</h4>
+<p>Le Kannushi essaie de rester en <strong>Nigi</strong>, comme un yin et un yang avec l'<strong>Ara</strong>. Les âmes sont toujours toutes présentes : Ara et Nigi sont deux postures, pas deux états exclusifs. Saki et Kushi ne s'estompent pas en Ara. Il est parfois utile de passer de l'une à l'autre, et l'Aura Jaune permet de basculer consciemment.</p>
+<ul>
+<li><strong>Gain de l'Ara</strong> : les Auras frappent plus fort.</li>
+<li><strong>Prix de l'Ara</strong> : les Auras ont plus de chances d'échouer (<strong>miscast</strong>) : dégâts sur le lanceur ou effet néfaste sur les alliés. Le retour au Nigi est plus difficile après.</li>
+<li><strong>La jauge d'Ara</strong> : vide au repos, elle monte pendant l'Ara. À chaque tour, le joueur décide s'il l'augmente. Plus elle est haute, plus les ratés sont probables. À son maximum, le Kannushi est bloqué en Ara. Elle baisse de <strong>1 point par jour de repos et de purification</strong>. La taille, la montée exacte, les ratés et l'interaction avec l'Aura Jaune sont renvoyés à <strong>SYSTÈME DU JEU</strong>.</li>
+<li><strong>Pas de jauge de Nigi</strong> pour l'instant : on la reconsidérera après des essais.</li>
+</ul>
+<p><em>Fondements dans les sources japonaises :</em> l'Encyclopedia of Shinto (Kokugakuin) décrit le Nigi comme l'état normal et l'Ara comme un état de guerre ou de catastrophe, qui revient au Nigi par l'attention rituelle. Les quatre âmes y sont dites coexister en parallèle. Aucune source ne dit qu'on perd des fonctions en Ara : ce choix est donc fidèle aux sources.</p>
+<h4>Le Wakemitama</h4>
+<p>Le Naobi no Kami donne au Kannushi un fragment de son âme, le <strong>Wakemitama</strong>. Il se <strong>greffe sur le Kushimitama</strong> (l'âme de sagesse : intuition, perception du sacré) comme un <strong>mini yin-yang</strong>, et donne à l'Aura la forme d'un <strong>domaine</strong>, celui du Kami (Mizuhanome : l'Aura devient de l'eau). Les trois autres âmes (Ara, Nigi, Saki) restent celles du joueur : le Kami ne réécrit pas son caractère. Le Naohi n'est pas touché par la greffe. La couleur de l'Aura du Naobi devient une affinité.</p>
+<p>Diviser l'âme d'un Kami ne partage pas sa puissance : un Wakemitama est toujours un don complet, plusieurs hôtes ne s'affaiblissent pas entre eux. La corruption d'un Kami (s'il bascule en Ara) ne se propage pas au Wakemitama déjà donné.</p>
+<p>Sans Kami, un humain (Nawanashi, Éveil 0) peut utiliser l'Aura, mais il n'a qu'une seule Aura et sa fonction de base, à petite échelle. C'est le Kami qui donne les Éveils (donc la puissance) et les Auras supplémentaires : les techniques à plusieurs couleurs sont donc réservées aux Kannushi. Le domaine du Kami amplifie : d'autres peuvent improviser un geste proche en plus faible, mais le Kannushi du domaine le fait mieux et apprend les Norito de la lignée de son Kami.</p>
+<p><strong>Un Kami, un domaine.</strong> Un Kannushi n'a qu'un domaine, de l'Éveil 1 à l'Éveil 4 (l'Éveil 3 ouvre des sous-domaines du même domaine). Les autres visages de son Kami sont du lore. Les domaines d'élément (Eau, Feu, Terre, Vent, Foudre) changent la nature de l'Aura : sans Kagutsuchi, pas de flamme. Les domaines de pratique (Guerre, Sagesse, Arts, Vie, Mort) amplifient une manière d'agir. Les yôkai ont en plus deux domaines propres, la Supercherie et la Malédiction, et ont accès aux autres domaines (voir Section 10). La Supercherie couvre la métamorphose, l'imitation et le piège. La Malédiction s'attaque au Kegare de la cible : le faire monter, ou l'empêcher d'être purifié pendant un temps.</p>
+<p><strong>Ouvert :</strong> ce que devient le Wakemitama à la mort de l'hôte ou quand l'hôte devient yôkai ; comment les Éveils approfondissent la greffe.</p>
+</div></details><details class="sub" id="s4-4" open><summary><h3>Les Norito</h3></summary><div class="body">
+<p>Les Norito sont les techniques magiques des Kannushi : des prières rituelles adressées à leur Kami. En récitant l'incantation (souvent le nom de la technique), dans sa tête ou à voix haute, le Kannushi manifeste la magie de son Kami. Une Norito est à la fois une prière, un rituel et une technique de combat. Dire l'incantation à voix haute avec l'Aura Bleue renforce la technique (comme dans Jujutsu Kaisen). Hors Aura Bleue, réciter ou taire l'incantation est purement cosmétique. Une Norito peut être créée personnellement ou enseignée de maître à élève, dans le même Kami ou domaine. Un individu peut avoir une Aura Meurtrière faible mais des Norito aux conditions ou restrictions qui les rendent redoutables (notamment par l'Aura Bleue) : ne jamais sous-estimer un adversaire sur la seule foi de son Aura.</p>
+</div></details><details class="sub" id="s4-5" open><summary><h3>Les Éveils et l'échelle Shinkai</h3></summary><div class="body">
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Éveil</th>
+<th>Shinkai</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>Humain sans rang. Il a de l'Aura, mais n'est pas Kannushi (c'est un Nawanashi)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Le Kannushi transforme son Aura en domaine de son Kami, maîtrise brute</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td><strong>Kenshô</strong> (見性) : escalade quantitative du même domaine</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+<td>Changement d'état qualitatif du même domaine, avec sous-domaines (Eau vers Glace, Vapeur ou Acide). Pas de fusion élémentaire. Nom « Shinjin » proposé, non confirmé</td>
+</tr>
+<tr>
+<td>4</td>
+<td>10</td>
+<td><strong>Satori</strong> (悟り) : débloque toutes les Auras normales qui manquent (les six, sauf la Violette) et donne la capacité d'enquêter sur l'Éveil 5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>au-delà du 10</td>
+<td>Aura Violette permanente, par connexion à UNE sphère de Kotoamatsukami (Temps, Gravité, Matière, Espace, Énergie), choix définitif. C'est l'éveil vers le Nirvana. Il se découvre par l'enquête que permet l'Éveil 4. À sa mort, le Kannushi rejoint Amida : il échappe définitivement à Izanami et au cycle de renaissance</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Auras maîtrisées selon le Shinkai</strong> (l'entraînement, à la fois physique et spirituel, est nécessaire pour atteindre chaque Éveil) :</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Shinkai</th>
+<th>Éveil</th>
+<th>Auras maîtrisées</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>2 (une au choix et celle du Naobi)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>10</td>
+<td>4</td>
+<td>6 (toutes les Auras normales)</td>
+</tr>
+<tr>
+<td>au-delà</td>
+<td>5</td>
+<td>7 (avec l'Aura Violette)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Entre deux paliers, le nombre d'Auras ne change pas.</p>
+<p><strong>L'entraînement</strong> est à la fois <strong>physique</strong> (yin) : l'effort du corps (combat, ascèse, endurance), et <strong>spirituel</strong> (yang) : le travail de l'âme (prière, méditation, rites, enseignement du clan). Chaque clan met l'accent différemment (par exemple le Shugendô sur le corps, le Tendai et le Jôdo sur l'âme).</p>
+<p><strong>L'échelle Shinkai.</strong> 0 humain sans rang. 1 à 3 Kannushi débutant. 4 à 6 vétéran. 7 à 8 élite. 9 à 10 sommet, ou Kami majeur (les 10 Kami jouables, plafond partagé). Au-dessus du 10 : les <strong>Sandaishin</strong>, qui n'y arrivent qu'avec le temps ou après des épreuves (un Sandaishin est supérieur à un Kannushi de même niveau, par nature). Hors échelle : les Mihashira no Uzu no Miko, les 7 Générations d'Amatsukami (dont Izanagi et Izanami), les Kotoamatsukami. Un <strong>Magatsuhi</strong> est un Kami majeur au-dessus du Shinkai 10. Un <strong>Tatarigami</strong> est de Shinkai 4 à 8. Inspiration réelle : le shinkai (神階), les rangs de cour donnés aux Kami.</p>
+<p>Atteindre Amida à la mort exige un éveil complet (Éveil 5, Aura Violette), presque impossible : Hachiman est le seul candidat connu. L'Incarnation (Avatar) est un choix du Kami, pas un mécanisme automatique de rang.</p>
+<p><strong>Le Sudden Awakening.</strong> Mécanique séparée : un accès <strong>temporaire</strong> à l'Aura Violette.</p>
+<ul>
+<li><strong>Involontaire</strong> : le Naobi aide le Kannushi sans qu'on le lui demande, en général lors d'une crise extrême (mort frôlée, choc traumatique comme la perte d'un proche), comme l'éveil du Mangekyô Sharingan.</li>
+<li><strong>Volontaire</strong>, par l'<strong>Aura Bleue</strong> : le Kannushi paie un prix démesuré, qui croît avec la durée pendant laquelle il garde l'Aura Violette. <strong>Le prix est jugé par le MJ</strong> (les Kotoamatsukami, joués par le MJ, doivent l'accepter) : effacer à jamais sa capacité à créer de l'Aura, endormir à jamais un des six chakras, perdre quelque chose de permanent, ne plus pouvoir progresser. Pas de table fixe.</li>
+</ul>
+<p><strong>Technique signature</strong> (capacité propre à chaque Kannushi, inspirée du Hatsu de Hunter x Hunter) : moment d'apparition <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s4-6" open><summary><h3>L'Aura et l'Aura Meurtrière</h3></summary><div class="body">
+<p><strong>L'Aura</strong> grandit avec la puissance. L'Aura Indigo la détecte et permet à un adversaire de jauger la puissance de l'autre : le <strong>Shinkai</strong> est le niveau de l'Aura, et l'analyser donne un niveau présumé.</p>
+<p><strong>L'Aura Meurtrière (死霊気)</strong> est séparée : tout le monde en a une, elle peut être bien plus haute que le niveau, et elle est fondée sur le <strong>nombre d'êtres vivants tués</strong>. On commence à 0, sauf accord du MJ. Exemple : un niveau 6 qui a tué 7 personnes a une Aura de 6 et une Aura Meurtrière de 7. Si la personne cache son Aura, l'Aura Meurtrière se détecte avec l'Indigo. Sinon, tout le monde la ressent. Masquer son Aura s'acquiert à partir du niveau 4, avec la maîtrise de l'Indigo, qui détecte l'Aura et apprend aussi à contrôler ce qu'elle laisse paraître (technique dès Shinkai 4).</p>
+<p>Après la mort d'un ennemi, <strong>tous ceux qui lui ont infligé des dégâts</strong> gagnent +1 Aura Meurtrière, quel que soit celui qui porte le coup final. Même après une purification du Kegare, l'Aura Meurtrière reste <strong>imprimée dans l'âme</strong> : on peut avoir 500 d'Aura Meurtrière avec 0 de Kegare, si l'on s'est bien purifié à chaque fois. Hachiman, dont l'Aura Meurtrière doit être énorme, est un exemple : on la décrit comme <strong>une mer de morts</strong>, alors que son Kegare est à 0. L'effet d'une Aura Meurtrière élevée est social : intimidation, renommée, gloire.</p>
+</div></details><details class="sub" id="s4-7" open><summary><h3>Le Kegare (穢れ), la Souillure</h3></summary><div class="body">
+<p>Le Kegare est la souillure accumulée par les actes commis, le poids des morts. Il augmente selon les tsumi, les actes qui rompent le Musubi. Le Kegare peut être purifié, et cela relève de l'hygiénisme chez les Kannushi : la peur de se transformer en yôkai est trop grande. Pas un gramme de souillure ne doit être gardé par le corps. Le Kegare est une véritable épidémie, transmissible. Les agressions sexuelles de tout genre sont impardonnables.</p>
+<p><strong>Le Kegare permanent ne vient que d'actes qui trahissent gravement le Musubi : le viol, le meurtre horrible, et d'autres actes complètement inhumains et contre nature.</strong> Une victime humaine tuée en légitime défense n'en laisse pas. La marque d'Izanami (repousser la mort) en laisse aussi un. Tuer par nécessité (légitime défense, défense d'autrui, ordre de guerre, exécution d'un yôkai infiltré) donne du Kegare <strong>temporaire</strong>, que l'on purifie. Un meurtre commis par haine, sans être horrible, donne un Kegare temporaire élevé : plus lourd, mais purifiable.</p>
+<p>Les yôkai comptent dans le Kegare comme les humains : tuer un yôkai donne du Kegare (temporaire s'il y a nécessité). Plus un Kannushi est efficace au combat, plus il se souille et plus il doit se purifier. Un personnage peut masquer son Kegare sans aucun coût : cela ne consomme pas d'énergie et ne l'affaiblit pas.</p>
+<p>Deux compteurs : Kegare <strong>temporaire</strong> (purifiable) et <strong>permanent</strong> (tsumi impardonnables). Barème en brouillon, à ajuster avec le système de dés : cadavre ou funérailles sans rite +1 ; tuer un yôkai +2 ; tuer un humain par nécessité +5 temporaire ; briser un Seigan +3 ; etc. Paliers 5, 10, 15, 20. À chaque palier, une Marque permanente (yeux ternes, mains froides). Quand les Marques atteignent un total, le Naohi est corrompu et la personne devient yôkai. Les yôkai n'ont pas de Kegare de base, mais l'utilisent volontiers comme carburant : le Kegare rend réellement plus fort, une épée à double tranchant. À la mort, l'Aura qui s'échappe peut être capturée par le Kegare et devenir un yôkai. Purifier : misogi, harae, techniques Vertes. Le Kegare permanent ne part jamais.</p>
+<h4>Sources de Kegare</h4>
+<ul>
+<li><strong>La mort</strong> : la source la plus importante d'impureté dans le shinto. Le contact avec les cadavres, les funérailles, le sang lié à la mort et le deuil rendent impur. Izanagi, revenu du Yomi, doit pratiquer le misogi.</li>
+<li><strong>Le sang</strong> : blessures, violence, guerre. Il marque un état liminal dangereux entre vie et mort. Les aspects sensibles (menstruations, accouchement) sont optionnels à la table.</li>
+<li><strong>La maladie et la corruption physique</strong> : épidémies, maladies graves, catastrophes naturelles, malchance, erreurs humaines.</li>
+<li><strong>Les transgressions (tsumi)</strong> : inceste, destruction de la nature, cruauté, usage nuisible de l'Aura, violence, rupture des tabous. Les tsumi sont célestes (offenses aux Kami et à leurs lieux sacrés, par exemple cracher sur le sanctuaire d'un Kami) ou terrestres (offenses faites aux êtres et à la terre). Le but du rituel est la restauration de l'harmonie, pas le pardon moral.</li>
+<li><strong>Le Kegare 気枯れ</strong> : littéralement « épuisement du souffle vital ». Tout ce qui réduit la vie en quelqu'un est source de Kegare.</li>
+<li>
+<p><strong>La purification</strong> : misogi (ablution dans l'eau), harae (purification rituelle), sel purificateur, abstinence, isolement temporaire.</p>
+</li>
+<li>
+<p><strong>Repousser la mort</strong> : l'âme qui repousse la mort face à Izanami est marquée par elle d'un Kegare permanent (voir Section 9).</p>
+</li>
+</ul>
+<p>Le Kegare n'est pas un péché moral absolu : c'est une contamination, un déséquilibre, une rupture de l'harmonie. La purification compte plus que la culpabilité.</p>
+<h4>Ressentir l'Aura Meurtrière et l'Aura de Kegare</h4>
+<p>L'Aura Meurtrière se détecte avec l'Indigo. L'Aura de Kegare peut être détectée sans Indigo : n'importe qui faisant un effort peut la ressentir. Au Shinkai 4, les personnages peuvent apprendre à masquer leur Aura de Kegare.</p>
+</div></details><details class="sub" id="s4-8" open><summary><h3>Ouvert (Section 4)</h3></summary><div class="body">
+<ul>
+<li>Comment les Éveils approfondissent la greffe du Wakemitama, et ce que l'Aura Violette fait au Naohi.</li>
+<li>L'identité mécanique propre à chaque Kami élémentaire (au-delà de la couleur d'Aura). Les anciens catalogues (Legacy v2, rework « Pouvoirs Octroyés » d'Hachiman) contiennent des bases partiellement utilisables.</li>
+<li>Les points de chance (7) à retravailler.</li>
+<li>Le détail chiffré de la jauge d'Ara, du barème de Kegare, des Huit Bannières (voir Section 6) : SYSTÈME DU JEU.</li>
+</ul></div></details>
+</section>
+<section class="sec" id="s5" data-k="社">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/renard.jpg);background-position:50% 50%"></div><div class="in"><div class="num">Section 5</div><h2>Les Kami et les Naobi no Kami </h2></div></div>
+<details class="sub" id="s5-1" open><summary><h3>Le principe : le Wakemitama</h3></summary><div class="body">
+<p>Un <strong>Naobi no Kami</strong> donne librement à un humain un fragment de son âme, le <strong>Wakemitama</strong>. Ce fragment se greffe sur le Kushimitama de l'humain (voir Section 4) et lui donne l'Aura du Kami et un domaine. L'humain devient un <strong>Kannushi</strong>, un Yorishiro vivant, un réceptacle vivant de l'énergie divine.</p>
+<p>Le lien s'obtient par la <strong>prière</strong>, pendant la formation à l'académie commune (vers 14 ans), ou plus tard. L'apprenti choisit le Naobi, <strong>le Naobi peut refuser</strong> (le MJ juge, selon le caractère du Kami), les essais sont illimités et le lien est définitif et transformant. Un humain refusé garde son Aura, mais n'est pas Kannushi : c'est un Nawanashi (voir Section 3). Le nom « Ubusunagami » n'est plus utilisé. Il est réservé, le cas échéant, au kami tutélaire du lieu de naissance (kami local) <strong><span class="tag open">OUVERT, à confirmer</span></strong>.</p>
+<p><strong>Grâce au Sacrifice d'Ôkuninushi</strong>, tous les Naohi humains sont connectés au « ciel », aux dieux, ce qui permet aux Naobi no Kami de répondre aux prières et de donner leur Wakemitama.</p>
+<p>Un Wakemitama est toujours un don complet : diviser l'âme d'un Kami ne partage pas sa puissance. Plusieurs hôtes ne s'affaiblissent pas entre eux. La corruption du Kami ne se propage pas au Wakemitama déjà donné.</p>
+</div></details><details class="sub" id="s5-2" open><summary><h3>Naobi et Magatsuhi, deux faces d'une même pièce</h3></summary><div class="body">
+<p>Un <strong>Naobi no Kami</strong> est tout Kami qui aide à la purification, à la correction du désordre et à l'élimination des calamités, y compris les renégats. Un <strong>Magatsuhi no Kami</strong> est un Kami de la calamité. Les deux sont les faces d'une même pièce : c'est un <strong>état</strong> du Kami, pas une classe fixe.</p>
+<p><strong>Un Kami devient Magatsuhi</strong> quand son Ara domine, qu'il est <strong>au-dessus du Shinkai 10</strong>, et qu'il nuit durablement. Un Kami moindre en Ara reste un Naobi, aussi violent soit-il.</p>
+<p>Un Magatsuhi peut aussi donner un Wakemitama. Son hôte est un <strong>Magatsunushi</strong> (禍津主, « maître d'un Magatsuhi », nom construit pour KNS, non attesté dans les textes japonais). Un Magatsunushi peut être un humain, un yôkai ou un demi-humain. Pour un yôkai, ce Wakemitama lui donne un domaine du dieu, en plus de celui de sa propre nature.</p>
+<p><strong>La nature de l'hôte est fixée au moment du don.</strong> Un Wakemitama donné par un Naobi fait un Kannushi, donné par un Magatsuhi il fait un Magatsunushi, et cela ne change plus, même si le Kami bascule ensuite.</p>
+<p><strong>Origine des Magatsuhi.</strong> Certains sont des Kami que le pacte Amaterasu/Izanami a basculés en Ara et envoyés dans Tokoyo. D'autres le deviennent d'eux-mêmes par leurs actes.</p>
+<p><strong>Les ressemblances avec le culte réel.</strong> Chaque Kami peut avoir un mode Nigi et un mode Ara, honorés dans des sanctuaires séparés (le <em>matsuri-wake</em> réel : Ômiwa honore le Nigi-mitama d'Ônamuchi, son sanctuaire annexe Sai-jinja l'Ara-mitama). Apaiser l'Ara d'un Kami demande deux choses : un rite (offrandes, Norito, purification, tenu par le Yoshida et le clan Impérial, avec l'appui de l'Onmyôdô) pour le calmer, et le règlement de ce qui l'a fait basculer (une offense, une promesse brisée, un oubli, une corruption). Un Kami apaisé sans règlement retombe en Ara.</p>
+</div></details><details class="sub" id="s5-3" open><summary><h3>Pourquoi ces Kami aident les Tokoyojin</h3></summary><div class="body">
+<p>Tous les Kami du panthéon jouable sont soit des Kunitsukami (dieux terrestres), soit des renégats qui ont trahi le camp céleste pour des raisons personnelles. Aucun Amatsukami fidèle à Amaterasu n'accorde son pouvoir aux humains de Tokoyo en tant que Naobi. La liste des 10 Kami jouables est <strong>définitive</strong>. Le « 12e Kami disparu » est abandonné. D'autres Kami existent comme kami locaux ou régionaux, mais ils ne sont pas assez puissants pour diviser leur âme : seuls les 10 Kami jouables et les trois Mihashira donnent un Wakemitama. Un kami local protège un lieu et peut donner de petites bénédictions. Il n'est pas forcément plus fort qu'un Kannushi ou qu'un yôkai, et peut même être un Kami errant qui a besoin d'aide.</p>
+<p>La rencontre avec un Kami majeur est possible mais rare et médiée (lieu sacré, rituel, Avatar choisi par le Kami, rêve), jamais un PNJ ordinaire. Ôkuninushi ne peut pas être rencontré en personne, car Tokoyo est en partie son âme.</p>
+</div></details><details class="sub" id="s5-4" open><summary><h3>Le Panthéon des 10 Kami jouables</h3></summary><div class="body">
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Kami</th>
+<th>Domaine</th>
+<th>Genre</th>
+<th>Statut</th>
+<th>Aura donnée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mizuhanome</td>
+<td>Eau</td>
+<td>Féminin</td>
+<td>Kunitsukami, née de la souffrance d'Izanami la nuit de la naissance de Kagutsuchi</td>
+<td class="a-orange">Orange</td>
+</tr>
+<tr>
+<td>Kagutsuchi</td>
+<td>Feu</td>
+<td>Masculin</td>
+<td>Kunitsukami (né avant les camps)</td>
+<td class="a-jaune">Jaune</td>
+</tr>
+<tr>
+<td>Iwanaga</td>
+<td>Terre</td>
+<td>Féminin</td>
+<td>Kunitsukami, fille d'Ôyamatsumi, renvoyée par Ninigi : la permanence refusée</td>
+<td class="a-rouge">Rouge</td>
+</tr>
+<tr>
+<td>Shinatobe</td>
+<td>Vent</td>
+<td>Féminin</td>
+<td>Kunitsukami</td>
+<td class="a-verte">Verte</td>
+</tr>
+<tr>
+<td>Takemikazuchi</td>
+<td>Foudre</td>
+<td>Masculin</td>
+<td>Renégat, Amatsukami. Il sait qu'Amaterasu n'est pas normale et l'a trahie pour la sauver</td>
+<td class="a-rouge">Rouge</td>
+</tr>
+<tr>
+<td>Sakuya</td>
+<td>Vie</td>
+<td>Féminin</td>
+<td>Kunitsukami, Konohanasakuya-hime, fille d'Ôyamatsumi, épouse de Ninigi</td>
+<td class="a-verte">Verte</td>
+</tr>
+<tr>
+<td>Ôkuninushi</td>
+<td>Mort</td>
+<td>Masculin</td>
+<td>Kunitsukami, sacrifié en 1870 mais pas vraiment mort, conduit de tous les liens. Identifié publiquement à Amida et à Fudô Myôô. « Ôkuninushi » est un titre (« Grand Maître de la Terre »), un seul titulaire. Vénéré par tous les clans</td>
+<td class="a-indigo">Indigo</td>
+</tr>
+<tr>
+<td>Takeminakata</td>
+<td>Guerre</td>
+<td>Masculin</td>
+<td>Kunitsukami, fils d'Ôkuninushi, dieu-serpent de Suwa</td>
+<td class="a-rouge">Rouge</td>
+</tr>
+<tr>
+<td>Omoikane</td>
+<td>Sagesse</td>
+<td>Masculin</td>
+<td>Renégat, Amatsukami exclu du conseil des dieux, exilé sur terre. Fils de Takamimusubi dans le mythe réel</td>
+<td class="a-bleue">Bleue</td>
+</tr>
+<tr>
+<td>Uzume</td>
+<td>Arts</td>
+<td>Féminin</td>
+<td>Renégate, Amatsukami humiliée, a été avec Sarutahiko</td>
+<td class="a-jaune">Jaune</td>
+</tr>
+</tbody>
+</table></div>
+<p>Trois des dix démarrent sur l'Aura Rouge (la Terre avec Iwanaga, la Foudre avec Takemikazuchi, la Guerre avec Takeminakata), un sur l'Orange (l'Eau, Mizuhanome), deux sur la Jaune (le Feu avec Kagutsuchi, les Arts avec Uzume), deux sur la Verte (le Vent avec Shinatobe, la Vie avec Sakuya), un sur l'Indigo et un sur la Bleue. Les éléments suivent leur chakra : Terre Rouge, Eau Orange, Feu Jaune, Vent Vert, Vide Bleu (le Vide n'a pas de Kami d'élément). La couleur d'Aura donnée est la couleur de départ du Naobi. Le domaine (le contenu) vient du Kami, la couleur (le canal) vient de l'Aura. Un Kannushi d'Omoikane doit avoir appris l'Indigo pour utiliser la Préscience. Comme toute technique projetée exige l'Orange, un Kannushi de Terre, de Feu ou de Vent prend l'Orange comme Aura de son choix s'il veut projeter son élément.</p>
+</div></details><details class="sub" id="s5-5" open><summary><h3>Quelques Kami en détail</h3></summary><div class="body">
+<p><strong>Takemikazuchi, le renégat (Foudre, Aura de départ Rouge).</strong> Dieu du tonnerre et de l'épée, né du sang de Kagutsuchi quand Izanagi l'a tué. Il était le bras armé d'Amaterasu : c'est lui qui a imposé la cession des terres à Ôkuninushi, écrasé Takeminakata et envoyé son sabre à Jinmu. Il sait en secret qu'Amaterasu n'est pas normale : dieu du tonnerre, il reconnaît dans les armées yôkai le tonnerre du Yomi, celui des huit dieux d'Izanami, preuve du pacte. Il l'a trahie tout en voulant la sauver. Il a quitté le ciel, refuse de mener ses armées et donne des fragments de lui à des humains de Tokoyo, comme il avait déjà envoyé son sabre à Takakuraji au lieu de descendre lui-même. Né de la mort d'un fils tué par son père, il refuse d'être la lame qui tue encore un être de sa famille divine : il veut la corriger, pas la détruire. Le palais promis à Ôkuninushi en échange de la terre, détruit en 1870, est une parole brisée, qu'il avait négociée. Futsunushi, son frère d'armes, est une épée sacrée que les joueurs pourront obtenir (voir Section 11).</p>
+<p><strong>Mizuhanome (Eau).</strong> Déesse de l'eau, née de la souffrance d'Izanami la nuit où naît Kagutsuchi : le Feu et l'Eau naissent ensemble. « Suijin » n'est pas un dieu mais le nom général des dieux de l'eau douce. Ryûjin, roi dragon de la mer, reste dans le lore (son palais, les rois dragons).</p>
+<p><strong>Iwanaga (Terre).</strong> Le roc et la permanence. Offerte à Ninigi avec sa sœur Sakuya, elle fut renvoyée : de ce refus vient la brièveté de la vie des humains (selon les versions, elle a maudit Ninigi et tous les êtres, ou son père a prononcé le châtiment). Ses parents Ôyamatsumi et Kaya sont du lore.</p>
+<p><strong>Sakuya (Vie).</strong> Konohanasakuya-hime, déesse des fleurs et du mont Fuji, épouse de Ninigi. Soupçonnée par lui, elle s'est enfermée dans une hutte en flammes et a accouché sans être brûlée.</p>
+<p><strong>Uzume (Arts, Aura de départ Jaune).</strong> Déesse de la danse et du rire, qui a fait sortir Amaterasu de sa grotte, puis a parlé à Sarutahiko. Renégate, humiliée par le ciel. Son Kannushi joue le rôle d'un barde : il choisit un art (danse, chant, flûte, tambour) et fait trois choses. <strong>Inspirer</strong> : donner à un allié un petit bonus pour son prochain coup (Jaune). <strong>Handicaper</strong> : décourager ou déstabiliser un ennemi par la voix ou la musique (Jaune, sur l'émotion). <strong>Illusionner</strong> : créer des formes et des doubles, ce qui est propre aux Arts et ne vient pas de l'Orange. Pas de « toucher à tout ». Les Norito des Arts sont à écrire <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p><strong>Omoikane (Sagesse, Aura de départ Bleue).</strong> Dieu de la pensée et des plans, qui a trouvé le moyen de faire sortir Amaterasu de sa grotte. Renégat exclu du conseil des dieux. Son Kannushi fait quatre choses. <strong>Le stratège</strong> : il lit le combat et désigne le point faible de l'ennemi, ses alliés frappent mieux (il doit avoir appris l'Indigo pour la Préscience). <strong>Le maître des plans</strong> : il prépare à l'avance des pièges, des rituels et des règles posées avant le combat (par exemple une ligne gravée au sol que nul ne franchit), au prix d'un coût, comme toute règle de la Bleue. <strong>L'archiviste</strong> : il sait des choses, comme l'identité d'un yôkai déguisé ou la faiblesse d'une famille. <strong>Influencer l'intelligence</strong> : il peut augmenter ou baisser l'intelligence d'une personne, alliée ou ennemie. Les Norito de la Sagesse sont à écrire <strong><span class="tag open">OUVERT</span></strong>, ainsi que les limites de l'effet sur l'intelligence. La Sagesse a une famille par couleur d'Aura :</p>
+<ul>
+<li><strong>Rouge</strong> : augmente l'intelligence.</li>
+<li><strong>Orange</strong> : permet de buffer et de debuffer à distance.</li>
+<li><strong>Jaune</strong> : baisse ou augmente l'intelligence des autres.</li>
+<li><strong>Verte</strong> : soigne les dégâts mentaux.</li>
+<li><strong>Bleue</strong> : renforce l'intelligence donnée par les autres Auras.</li>
+<li><strong>Indigo</strong> : prédiction, tactique, plan maître (masterplan).</li>
+</ul>
+<p>En jeu, l'« intelligence » de la Sagesse se traduit par des <strong>buffs de combat</strong> : initiative, esquive et effets du même genre, sur soi ou sur les autres, et leurs inverses (debuffs) sur l'ennemi. Pas de bonus de force.</p>
+<p><strong>Takeminakata (Guerre, en cours de conception).</strong> Dieu-serpent et dragon de Suwa, fils d'Ôkuninushi. Écrasé par Takemikazuchi et chassé à Suwa, il y devient le grand dieu : la défaite le nourrit. Rôle de tank : ténacité face aux dégâts et au Kegare (c'est le dieu de guerre qui absout ceux qui tuent), et un passif d'expérience quand le Kannushi frôle la mort. À l'Éveil 3, une forme de bataille de dragon d'Orient. Le détail est en cours de conception <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s5-6" open><summary><h3>Les Mihashira no Uzu no Miko (anciennement « Mikiko »)</h3></summary><div class="body">
+<p>Amaterasu, Tsukuyomi et Susanô sont les trois nobles enfants nés de la purification d'Izanagi au retour du Yomi. Chacun ne donne pas son pouvoir à de nombreux Kannushi comme un Kami élémentaire. Il choisit lui-même, sans prière, son <strong>Sandaishin</strong>, l'élu humain qui porte un fragment de son âme.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Kami</th>
+<th>Domaine</th>
+<th>Statut narratif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amaterasu</td>
+<td>Lumière (le Soleil)</td>
+<td><strong>Magatsuhi no Kami.</strong> Antagoniste visible. Son Aramitama domine, et nul ne le sait. Pacte secret avec Izanami, qui a corrompu son âme (Ara). Veut récupérer les Trois Trésors. Un Wakemitama d'elle loge en Himiko, ce qui est de notoriété publique.</td>
+</tr>
+<tr>
+<td>Tsukuyomi</td>
+<td>Ténèbres (la Lune)</td>
+<td>A eu une descendance, mêlée au fil des siècles à celle d'Amaterasu (licence créative). Banni du ciel par Amaterasu (le soleil et la lune ne se croisent jamais), il est tombé à Tokoyo, crée l'éclipse perpétuelle et agit un peu par Hachiman. Tantôt Naobi, tantôt Magatsuhi.</td>
+</tr>
+<tr>
+<td>Susanô</td>
+<td>Tempêtes (catastrophes naturelles)</td>
+<td>Scellé avec Izanami au Yomi, il combat sa mère par amour. Son poste de Sandaishin est vacant. Tantôt Naobi, tantôt Magatsuhi (par exemple quand il provoque des catastrophes naturelles).</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sandaishin.</strong> Titre de l'élu humain d'un Mihashira. Les Mihashira sont tellement plus puissants que les autres Naobi qu'un Sandaishin est beaucoup plus fort par nature. Il est <strong>rare</strong> : tout le monde n'est pas digne, il faut une résilience incroyable pour contenir un fragment d'âme des enfants ultimes d'Izanagi. Un Mihashira pourrait en théorie en avoir plusieurs, mais le second est quasi impossible à trouver. Un Sandaishin est supérieur à un Kannushi du même niveau et n'atteint le niveau « au-dessus du Shinkai 10, sous son dieu » qu'avec le temps ou après des épreuves (progression <strong><span class="tag open">OUVERT</span></strong>). Dès son choix, un Sandaishin débloque d'un coup les six Auras normales (la Violette reste réservée à l'Éveil 5), donc la couleur de départ des Mihashira ne compte pas. La vacance du poste de Susanô est un rebondissement de campagne : un joueur ou le groupe peut l'embrasser.</p>
+<p><strong>Hachiman</strong> est le Sandaishin de Tsukuyomi. Il descend, par le sang, à la fois d'Amaterasu (lignée impériale, empereur Ôjin) et de Tsukuyomi (licence créative), ce qui fait de lui et d'Himiko les héritiers d'une même fracture familiale divine, sans qu'aucun des deux ne le sache. En vérité, il est un vrai Kannushi (Tsukuyomi était Naobi quand il lui a donné son Wakemitama en 1870), mais cela n'est pas établi dans le monde, ni pour lui ni pour les joueurs : le MJ peut le révéler ou le laisser planer.</p>
+<p><strong>Himiko</strong> est le Sandaishin d'Amaterasu. Parce que le Wakemitama qu'elle porte vient d'une Magatsuhi, elle est une <strong>Magatsunushi</strong> et non une Kannushi (voir Section 8).</p>
+</div></details><details class="sub" id="s5-7" open><summary><h3>Les Kotoamatsukami, les Cinq Dieux Primordiaux</h3></summary><div class="body">
+<p>Au-dessus de tout conflit, au-dessus même d'Amaterasu et d'Ôkuninushi, existent les Kotoamatsukami, cinq dieux nés d'eux-mêmes qui ont fondé l'univers. Ils <strong>se sont cachés après leur naissance</strong> et n'ont aucun intérêt pour les humains. Ils ne prennent pas parti, ne choisissent pas d'hôte et n'accordent aucun pouvoir.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Kotoamatsukami</th>
+<th>Force fondamentale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ame-no-Minakanushi</td>
+<td>Le Temps</td>
+</tr>
+<tr>
+<td>Takamimusubi</td>
+<td>La Gravité</td>
+</tr>
+<tr>
+<td>Kamimusubi</td>
+<td>La Matière</td>
+</tr>
+<tr>
+<td>Ame-no-Tokotachi</td>
+<td>L'Espace</td>
+</tr>
+<tr>
+<td>Umashiashikabihikoji</td>
+<td>L'Énergie</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Note : les noms du tableau de la v4 étaient abrégés (« Takami », « Kami »). Ils sont ici développés : Takamimusubi et Kamimusubi. <span class="tag open">À CONFIRMER</span></em></p>
+<p>Les Kotoamatsukami sont présents de manière abstraite dans le temps qui passe, la gravité, la matière, l'espace, l'énergie. Ils sont liés à l'Aura Violette. <strong>Ils ne se sont éveillés qu'à des appels exceptionnels, sans prendre parti</strong>, par exemple pour faire sortir Amaterasu de sa grotte : ils ont réuni tout le monde pour trouver une solution. Pendant l'invasion de Tokoyo, on ne sait pas s'ils ont fait quelque chose, rien de visible en tout cas. L'Éveil 5 relie un Kannushi, par un fin lien d'Aura, à UNE de leurs sphères (choix définitif). Seuls Izanami et Izanagi les atteignent toutes. Le MJ joue leur rôle quand il juge le prix d'un Sudden Awakening volontaire.</p>
+<p><em>Dans le mythe réel :</em> Takamimusubi (sous le nom de Takagi no Kami) et Kamimusubi réapparaissent plusieurs fois (le premier pour l'envoi des dieux et la descente du petit-fils d'Amaterasu, le second côté Izanami/Izumo pour ranimer Ôkuninushi). Dans KNS, ces apparitions sont lues comme de brèves réponses à des appels précis.</p>
+<p><strong>Règle de monde.</strong> Toutes les croyances sont vraies vues de l'intérieur. La croyance humaine fait exister les dieux et les panthéons, les mondes shinto sont vrais mais locaux. La plupart des panthéons (japonais, bouddhiste, le Dieu chrétien et ses saints) sont nés de puissances cosmiques que les Kannushi appellent Kotoamatsukami. Le Dieu des Abrahamiques n'a jamais été personnifié et serait Dainichi ou un Kotoamatsukami. Il existe des courants d'un « Un » originel (Ame-no-Minakanushi, Daigen Sonshin).</p>
+</div></details><details class="sub" id="s5-8" open><summary><h3>Les Sept Générations divines (Kamiyonanayo)</h3></summary><div class="body">
+<p>Les sept Générations d'Amatsukami (dont Izanagi et Izanami) sont hors échelle. <strong>Omodaru et Ayakashikone</strong>, 6e Génération, juste avant Izanagi et Izanami, sont le couple divin que le syncrétisme identifie au <strong>Dairokuten Maô</strong> (le « roi démon du sixième ciel »), plutôt bienveillant, vénéré dans le Shugendô. <strong>Oda Nobunaga</strong> est un usurpateur : un humain (probablement Eirei) qui a proclamé ce titre. Comment ils se rapportent à la règle « aucun Amatsukami fidèle n'accorde de pouvoir » est <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s5-9" open><summary><h3>Ouvert (Section 5)</h3></summary><div class="body">
+<ul>
+<li>Le mode de transmission exact du titre de Sandaishin (rare, choisi par le Mihashira) à confirmer.</li>
+<li>Les critères de refus de chaque Naobi sont laissés au MJ.</li>
+<li>Les noms des Kami locaux et régionaux.</li>
+<li>Le détail du rite d'apaisement de l'Ara (principe posé : un rite et le règlement de la cause).</li>
+<li>Le statut hors panthéon de Sarutahiko (probablement l'un des chefs des Tengu), de Michizane (Eirei, pas encore Kami, vu comme Hachiman) et de Ryûjin.</li>
+</ul></div></details>
+</section>
+<section class="sec" id="s6" data-k="派">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/duel.jpg);background-position:50% 50%"></div><div class="in"><div class="num">Section 6</div><h2>Les Factions, Clans et Cultes </h2></div></div>
+<details class="sub" id="s6-1" open><summary><h3>Principe général</h3></summary><div class="body">
+<p>Les anciens clans de sang (Minamoto, Taira, Fujiwara) ont été remplacés par des clans fondés sur les croyances. Dans un monde détruit où les archives ont brûlé, les lignées de sang ont beaucoup moins de sens que les convictions spirituelles.</p>
+<p>Chaque clan n'a qu'<strong>un seul Ujigami</strong> : son <strong>fondateur vivant et chef</strong>, qui est un <strong>Kannushi ordinaire</strong> (un humain béni par un Naobi, avec sa corde). Il est Ujigami parce qu'il a fondé le clan et le dirige, et sa « bénédiction » est son <strong>enseignement exclusif</strong>, plus un petit bonus (à traiter avec le système de jeu). Tout le monde honore tous les Kami. On naît dans un clan (l'enfant d'un mariage mixte choisit à 14 ans). Les clans sont religieux par la doctrine, mais héréditaires en pratique.</p>
+<p><strong>Avant 1870</strong>, les neuf clans existaient déjà : huit communautés de prêtres qui étudiaient (Impérial, Jôdo, Tendai, Yoshida, Shugendô, Onmyôdô, Kirishitan, Edo), formées au fil des siècles à mesure que leurs fondateurs arrivaient, et le <strong>Shogunal</strong>, l'ordre des samouraïs qui combattaient, fondé par Hachiman, nommé Shogun par Ôkuninushi. En 1870, tous deviennent des clans de Kannushi, à la fois prêtres et soldats.</p>
+<p>Les neuf clans sont le <strong>seul moteur de faction</strong> (politique, territoire, agenda). Les ères historiques ne sont qu'un trait d'identité des Eirei. Les clans qui s'occupent des morts (la foi du Jôdo, les rites du Tendai et du Yoshida) visent le même but : empêcher qu'Izanami garde les âmes des morts (chaque clan a sa vision de ce que doit devenir une âme).</p>
+</div></details><details class="sub" id="s6-2" open><summary><h3>Les 9 Clans</h3></summary><div class="body">
+<h4>Clan Impérial, Shinto impérial (Ujigami : Himiko)</h4>
+<p>La lignée revendiquant une descendance directe d'Amaterasu, comme la vraie famille impériale japonaise. Très restreint (quelques dizaines de descendants des proches d'Himiko), concentré à la cour de Yamatai. Son pouvoir est rituel plutôt que militaire : il légitime tout le reste. <strong>Himiko</strong> en est l'Ujigami et la cheffe. Toyo, enseignante Kannushi, en est membre et héritière probable.</p>
+<ul>
+<li><strong>Enseignement exclusif : la maîtrise de la purification du Kegare</strong> (Ôharae de masse : lieux, foules, armées). C'est le clan maître de la purification, dans l'esprit de l'Ôharae que l'empereur réel célébrait deux fois par an à la porte Suzaku. Cet enseignement comprend aussi la création de la shimenawa (la corde sacrée des Kannushi) et d'autres objets sacrés : ce sont des techniques du clan Impérial.</li>
+<li><strong>Les tatari.</strong> Dans l'esprit de la théorie d'Ogura Jiji (l'empereur, souverain de tout le pays, porte les malédictions de tous les dieux et doit les connaître), l'Impératrice <strong>porte physiquement</strong> une partie des tatari et du Kegare des dieux du pays, ce qui explique sa longévité étrange, son épuisement, et sa vulnérabilité à l'Ara d'Amaterasu. Le fardeau ne se purge pas, il se contient. Voir Himiko (Section 8).</li>
+<li><strong>Fermé au sang extérieur</strong> : épouser un extérieur fait perdre le statut. Les consortes viennent des Onmyôdô, testées (jusqu'en 1870 par le bijou Yasakani, la méthode actuelle est <span class="tag open">OUVERT</span>) pour garder la pureté du sang de l'Impératrice et « la pleine puissance d'Amaterasu ». En vérité, Amaterasu s'assure ainsi de posséder plus facilement les empereurs et impératrices. Toyo, née d'un parent impérial et d'un Onmyôdô, est l'hôte préparée.</li>
+<li><strong>Mécanique de faction : l'autorité repose sur la pureté</strong> (Kegare et sang). La divination n'existe chez eux que dans la personne de l'Impératrice, via le Wakemitama d'Amaterasu qu'elle porte (le bijou Yasakani n'en était qu'un canal). Le clan craint d'être supplanté par le Shogunal. Allié de l'Onmyôdô.</li>
+<li><strong>Ce que sait le clan :</strong> qu'un Wakemitama d'Amaterasu loge en Himiko est de notoriété publique (c'est la raison de son titre). Personne ne sait que c'est son Aramitama, sauf Himiko, qui le découvre pendant la campagne et le cache.</li>
+</ul>
+<h4>Clan Jôdo, Bouddhisme de la Terre Pure (Ujigami : Shinran)</h4>
+<p>Basé sur le vrai Jôdo-shû, avec un basculement propre à Tokoyo : la Terre Pure n'est pas un paradis futur, c'est un état déjà atteint autrefois, avant l'invasion. Tokoyo est la vraie Terre Pure, envahie, qu'il faut reconstruire. Fondateur et Ujigami : <strong>Shinran</strong> (aussi appelé Zenshin). Tout le monde à Tokoyo vénère Ôkuninushi, identifié à Amida et à Fudô Myôô, et le clan Jôdo assure <strong>les rites qui le vénèrent</strong> et entretiennent son pouvoir, afin que les pouvoirs des Kami restent utilisables.</p>
+<ul>
+<li><strong>Enseignement exclusif (les quatre) :</strong> (1) les rites qui entretiennent Ôkuninushi et stabilisent le lien entre les Kannushi et leur Naobi (par exemple restaurer un Wakemitama fragilisé) ; (2) la réincarnation individuelle : par la foi seule et un vœu formulé au dernier souffle, chacun peut demander à renaître dans Tokoyo (rejoindre Amida lui-même est presque impossible, il faut l'éveil complet et Hachiman est le seul candidat connu), sans rite funéraire nécessaire ; (3) les vœux de renaissance, par lesquels, en priant, on entre en contact avec Ôkuninushi lui-même ; (4) les rites d'Ukemochi, déesse de la nourriture, qui purifient les terres souillées par le Kegare pour y planter de quoi nourrir Tokoyo (ce n'est pas un domaine de Kami, mais un savoir du clan, surtout des fermiers).</li>
+<li><strong>Credo :</strong> (1) vénération et récitation du nom d'Ôkuninushi, seule pratique indispensable pour tous les clans ; (2) les vœux de naissance dans sa terre sont remplacés par des vœux pour la <strong>renaissance</strong> de sa terre ; (3) la compassion et la sagesse naissent de la foi et se traduisent en actes altruistes dans un monde corrompu par le Kegare.</li>
+<li><strong>Deux classes :</strong> les fermiers (simples humains, Nawanashi, qui nourrissent Tokoyo) et les guerriers Kannushi.</li>
+<li>Avant l'invasion, il n'y avait ni faim, ni soif, ni maladie, ni corps : le clan voit le corps comme corrompu et sale.</li>
+<li><strong>Craint :</strong> (A) la mort de ses rares Kannushi, (B) le Kegare des blessés et des morts, (C) que la promesse de salut soit vaine si Tokoyo tombe.</li>
+</ul>
+<h4>Clan Tendai, Bouddhisme Tendai (Ujigami : Saichô)</h4>
+<p>Basé sur le vrai Tendai, fondé par Saichô au Mont Hiei, l'école mère du Zen, du Jôdo et du Nichiren. Syncrétiste : les Kami y sont vus comme des manifestations locales des Bouddhas. Le clan des érudits et des archivistes, qui étudient la nature des yôkai plutôt que de simplement les combattre. Fondateur et Ujigami : <strong>Saichô</strong>.</p>
+<ul>
+<li><strong>Enseignement exclusif :</strong> (1) l'<strong>étude et l'identification des yôkai</strong> (origine, Kegare, faiblesse, s'ils peuvent être sauvés) ; (2) la <strong>réincarnation des autres</strong> : par des rites (accompagner le mourant, guider l'âme pendant les 49 jours, nourrir les âmes errantes), le clan fait renaître dans Tokoyo les âmes qui ne l'ont pas demandé elles-mêmes, pour empêcher que des gens deviennent yôkai ; et il libère les yôkai de ce monde pour leur permettre de se réincarner et d'avoir une nouvelle chance d'atteindre l'illumination. Selon le yôkai, certains reviennent humains dans Tokoyo (ceux qui peuvent se battre), d'autres, trop corrompus, partent hors de Tokoyo.</li>
+<li>Croit que les yôkai peuvent être <strong>sauvés</strong>. La rivalité avec Yoshida se réduit à un axe : le sort des morts violents (le Jôdo laisse chacun demander sa renaissance, le Tendai fait renaître les autres et libère les yôkai, le Yoshida donne au mort une place de petit kami).</li>
+<li><strong>Craint :</strong> (A) que les yôkai ne puissent pas être sauvés, (B) d'être traité en traître par les autres clans, (C) que le Kegare des yôkai les transforme.</li>
+<li>Lien réel : Shinran, fondateur du Jôdo, fut moine Tendai pendant vingt ans au mont Hiei.</li>
+</ul>
+<h4>Clan Yoshida, Shinto Yoshida (Ujigami : Yoshida Kanetomo)</h4>
+<p>Basé sur le vrai Shinto Yoshida, fondé par Yoshida Kanetomo, qui prétendait à la suprématie du Shinto pur. Puriste dans le <strong>rite</strong> (forme exacte des rites funéraires et des sanctuaires), <strong>ouvert dans la doctrine</strong> (il n'exclut aucune foi).</p>
+<ul>
+<li><strong>Enseignement exclusif (les trois) :</strong> (1) le rite funéraire qui transforme un humain mort en <strong>petit kami</strong> (le shinto ancien évitait la mort comme impure, le Yoshida le fait activement, à Tokoyo aussi) ; (2) le <strong>registre et la légitimité des Kami et des sanctuaires</strong> (reconnaître un kami local, vérifier qu'un sanctuaire est valide, identifier un faux), lié à la règle « la croyance fait exister les dieux » ; (3) la <strong>forme exacte des rites</strong> (sanctuaires, Norito, cérémonies, pour que chaque rite fonctionne sans faute).</li>
+<li>Passer par lui pour ses morts est recommandé, obligatoire seulement pour les sanctuaires publics.</li>
+<li><strong>Craint</strong> que les gens aillent chez le Tendai ou le Jôdo plutôt que chez lui.</li>
+</ul>
+<h4>Clan Shugendô, Ascèse en montagne (Ujigami : En no Gyôja)</h4>
+<p>Basé sur le vrai Shugendô, la voie des yamabushi : le pouvoir se gagne par l'épreuve physique extrême, pas par la seule prière. Les éclaireurs et les forces spéciales de Yamatai, seuls assez endurcis pour opérer hors des murs. Fondateur et Ujigami : <strong>En no Gyôja</strong>, Eirei de l'ère Kodai. <strong>Zenki et Goki</strong> (couple d'oni rouge et bleue) sont des yôkai subjugués par En no Gyôja.</p>
+<ul>
+<li><strong>Enseignement exclusif :</strong> (1) l'<strong>ascèse qui forge le corps et l'Aura</strong> (jeûne, froid, montagne : bonus durable, au risque d'être exposé au Kegare de la montagne) ; (2) la <strong>survie et les routes en territoire yôkai</strong> (traverser les zones interdites, trouver les chemins sûrs).</li>
+<li><strong>Le Jade :</strong> ils le récupèrent dans les endroits dangereux, le manient et le travaillent (ils sont en partie le clan forgeron de Yamatai), et gardent une partie du stock. Le Shogunal n'en a plus le monopole : les deux clans se le disputent. Les forgerons liés à Kagutsuchi sont-ils le Shugendô ou à part ? <strong><span class="tag open">OUVERT</span></strong></li>
+<li><strong>Veulent</strong> atteindre le Jade et traverser les zones interdites. <strong>Craignent</strong> le Kegare de la montagne (leurs membres peuvent devenir yôkai) et de perdre leur rôle si le Shogunal trouve une autre voie vers le Jade. L'expulsion d'un esprit ou d'un yôkai infiltré revient officiellement au Tendai ou au Shugendô.</li>
+</ul>
+<h4>Clan Onmyôdô, Divination Yin-Yang (Ujigami : Abe no Seimei)</h4>
+<p>Basé sur le bureau de l'Onmyôryô de la cour impériale : divination, calendrier, rituels de protection. Le clan qui gère la paranoïa centrale du jeu : le contrôle d'identité, la détection des yôkai infiltrés. Fondateur et Ujigami : <strong>Abe no Seimei</strong>, <strong>demi-humain de naissance</strong> (fils de Kuzunoha, renarde blanche), le premier demi-humain. Son ascendance est <strong>secrète</strong>. [Ce que Seimei sait de sa propre ascendance, s'il doit manger de la chair humaine et ses liens avec Sukunabikona : <strong>OUVERT</strong>.]</p>
+<ul>
+<li><strong>Enseignement exclusif : la divination</strong>, art qui s'apprend, fondé sur l'Aura Indigo. Elle ne montre pas un avenir inaltérable, mais la direction des « marées du temps » (comme une rivière qui coule toujours vers le bas). Un maître peut prévoir la fin de Tokoyo, un débutant à peine les trois prochaines secondes. Les Onmyôdô sont stratèges et ministres, et la divination sert aussi à manipuler la foule. Mentir sur les prédictions est banni officiellement.</li>
+<li><strong>Rôle policier :</strong> ils <strong>signalent</strong> (divination) et <strong>protègent</strong> (barrières, sceaux, interdits de jours et de lieux). Chasser un esprit ou un yôkai infiltré revient officiellement au Tendai ou au Shugendô.</li>
+<li><strong>Allié de l'Impérial :</strong> les présages que reçoit l'Impératrice (autrefois par le bijou Yasakani) sont fabriqués par Amaterasu, et le chef Onmyôdô l'aide à les interpréter. Seimei sait ce que tout le monde sait (qu'un Wakemitama d'Amaterasu loge en Himiko), mais pas que c'est son Aramitama : ses divinations lui montrent une direction sombre (la chute de Yamatai, des présages tordus) sans qu'il sache pourquoi. Il est en alerte sans preuve. Il sert d'intermédiaire à Himiko. Les Onmyôdô fournissent les consortes de la maison impériale.</li>
+<li><strong>Craignent</strong> (A) que la mort d'un grand maître ruine la confiance dans le clan, (B) de prévoir la chute de Yamatai sans être écoutés.</li>
+</ul>
+<h4>Clan Kirishitan, Syncrétisme chrétien-bouddhiste (Ujigami : Takayama Ukon) <strong><span class="tag susp">EN SUSPENS</span> <span class="tagnote">mis de côté</span></strong></h4>
+<p>Basé sur les vrais Kakure Kirishitan. Pour eux les Kami sont des <strong>saints</strong> (même lien que tout Kannushi, lu par la foi chrétienne) ; leur Dieu est un Kotoamatsukami reconnu sans le savoir, sans dire lequel. Le clan le plus fragile : depuis la fermeture du passage en 1870, plus aucun nouveau converti occidental ne peut arriver. Jules Brunet, Eirei (passé le 8 juin 1869 par un seppuku spirituel réalisé par un prêtre lié à Maria Kannon), en est le dernier représentant.</p>
+<p><strong>Mis de côté par l'auteur</strong> : il n'est pas certain que ce clan reste dans l'univers. Restent ouverts : son enseignement exclusif, ce qu'il craint, une éventuelle persécution à Tokoyo, le lien avec la doctrine Yoshida de l'Origine unique.</p>
+<h4>Clan Edo (穢土), Folie libre (Ujigami : Ikkyû Sôjun)</h4>
+<p>Jeu de mots avec 浄土 (Jôdo, « terre pure ») : 穢土 signifie « terre souillée ». L'antithèse directe du Jôdo. Fondateur et Ujigami : <strong>Ikkyû Sôjun</strong>, chef à contrecœur, <strong>sans grades ni certificats</strong> (il brûla son propre inka, ne certifie personne). Principe <strong>fûkyô</strong> (風狂, « folie libre » qui rompt les conventions) : les Edo refusent de mentir sur ce qu'ils ressentent, vivent chaque émotion comme un trésor, dans le présent, dans un monde qu'ils croient déjà perdu, et moquent la vertu sans contenu. Ils assument le Kegare plutôt que de faire semblant d'être purs. <strong>Momiji</strong> est une Eirei de ce clan.</p>
+<ul>
+<li><strong>Enseignement exclusif :</strong> (1) <strong>vivre avec le Kegare sans le fuir</strong>, voire puiser une force dans la souillure (le contrepoint du clan Impérial, avec le risque de dérive vers le yôkai) ; (2) la <strong>force des émotions</strong> : une émotion pleinement vécue devient puissance (lien avec l'Aura Jaune et la jauge d'Ara).</li>
+<li><strong>Culte du crâne</strong> (memento mori inspiré du crâne d'Ikkyû : coupe, combat rituel) : de l'ambiance, <strong><span class="tag open">À DÉVELOPPER</span></strong>. Épreuve de succession : la coupe-crâne bue jusqu'à la lie (idée).</li>
+</ul>
+<h4>Clan Shogunal, École religieuse militaire (Ujigami : Hachiman)</h4>
+<p>Basé sur le vrai Hachiman-shinkô : combattre, c'est prier. Le clan le plus structuré et le plus discipliné de Yamatai, l'ossature de la défense militaire. L'<strong>Ujigami et chef est Hachiman lui-même</strong>, vivant. Tout le monde honore Tsukuyomi, et le secret est que l'âme de Tsukuyomi loge en Hachiman. C'est un miroir caché du clan Impérial : force et légitimité contre sang.</p>
+<ul>
+<li><strong>Mécanique de faction :</strong> le <strong>Jade</strong> et les armes, et Kusanagi (qu'Hachiman détenait jusqu'en 1870, aujourd'hui introuvable). Le clan contrôle une partie du stock de Jade, qu'il partage avec le Shugendô, et paie les expéditions.</li>
+<li><strong>Les Huit Bannières</strong> <strong>bénissent chaque membre</strong> du clan. Chaque Bannière est une maîtrise d'arme : un petit bonus quand le membre s'en sert (un Kannushi de la Bannière de l'arc tire mieux à l'arc). Le chiffre est renvoyé à <strong>SYSTÈME DU JEU</strong> <strong><span class="tag open">OUVERT</span></strong>.</li>
+<li><strong>Veut</strong> l'ordre et les armes. <strong>Craint</strong> d'être supplanté par l'Impérial.</li>
+<li><strong>Seul Hachiman</strong> soupçonne que ce qui loge en Himiko n'est pas ce qu'il semble être. Il est le seul candidat connu à atteindre Amida.</li>
+</ul>
+</div></details><details class="sub" id="s6-3" open><summary><h3>Les ères historiques, un trait d'identité</h3></summary><div class="body">
+<p>Les ères (Kodai, jusqu'à 794 ; Heian, 794-1185 ; Kamakura, 1185-1333 ; Muromachi/Sengoku, 1336-1603 ; Edo, 1603-1868 ; Bakumatsu, 1853-1870) ne sont pas des factions, mais un trait d'identité hérité des Eirei (statut social, réflexes culturels).</p>
+<p>Candidats Eirei fondateurs de l'ère Kodai : Himiko (la reine légendaire de Yamataikoku), l'Impératrice Jingû et Ôjin/Hachiman (mère et fils, probablement recrutés ensemble), Yamato Takeru (lié à l'épée Kusanagi), En no Gyôja (fondateur du Shugendô). Mystère non résolu : dans les vrais sanctuaires Hachiman, un troisième kami nommé <strong>Hime-gami</strong> accompagne Ôjin et Jingû sans identité claire. Qui est Hime-gami à Tokoyo est <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s6-4" open><summary><h3>Ouvert (Section 6)</h3></summary><div class="body">
+<ul>
+<li>Le clan Kirishitan.</li>
+<li>Les neuf Shinpô de clan (un objet sacré par clan, liés à leur fondateur ou à leur enseignement).</li>
+<li>La bénédiction chiffrée (petit bonus) de chaque Ujigami : SYSTÈME DU JEU.</li>
+<li>Qui peut mener le rite qui libérerait Himiko, quand le clan Impérial ignore qu'elle est possédée par l'Ara.</li>
+</ul></div></details>
+</section>
+<section class="sec" id="s7" data-k="人">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/races.jpg);background-position:50% 30%"></div><div class="in"><div class="num">Section 7</div><h2>Les Races Jouables </h2></div></div>
+<details class="sub" id="s7-1" open><summary><h3>Les Humains</h3></summary><div class="body">
+<p>Race de base. Tous les humains de Tokoyo ont de l'Aura (une seule, de base), grâce à l'éveil des chakras de 1870, et peuvent la travailler. Il y a trois statuts :</p>
+<ul>
+<li><strong>Kannushi</strong> : un humain béni par un Naobi no Kami (voir Section 3), avec une Aura de plus et une corde. Tout humain peut le devenir.</li>
+<li><strong>Nawanashi</strong> : tout humain avec de l'Aura mais sans Naobi (état, pas choix). Les fermiers du clan Jôdo, par exemple, sont des Nawanashi au repos (Éveil 0). Certains ne sont jamais choisis.</li>
+<li><strong>Magatsunushi</strong> : un humain béni par un Magatsuhi (voir Section 5), par exemple Himiko.</li>
+</ul>
+<p>Un humain peut accéder aux 7 Auras avec les niveaux, mais commence avec une seule (le Kannushi, avec deux).</p>
+</div></details><details class="sub" id="s7-2" open><summary><h3>Les Yôkai</h3></summary><div class="body">
+<p>Les Yôkai sont des êtres surnaturels de chair et de sang, doués de sentiments et de paroles comme les humains. Ils peuvent utiliser l'Aura. Leurs capacités magiques sont ancrées dans leur <strong>nature propre</strong>. Un yôkai ordinaire n'a pas de pouvoir divin, <strong>sauf</strong> s'il est un Magatsunushi (porteur du Wakemitama d'un Magatsuhi), auquel cas il a un domaine du dieu en plus de celui de sa nature.</p>
+<p><strong>Quatre origines :</strong></p>
+<ul>
+<li><strong>(A) Venus de dehors</strong>, apparus à partir de 1185 par les portails qui déversent le Kegare : les premiers étaient désorganisés (dont les fantômes des Heike), puis des groupes organisés à partir de 1228 (les Générations). Ce sont les Magatsuhi envoyés par le pacte et les yôkai errants.</li>
+<li><strong>(B) Humains transformés par le Kegare</strong> : les Marques de Kegare atteignent un total, le Naohi est corrompu, la personne devient yôkai. Le Chinkon est le dernier rituel pour sauver l'âme.</li>
+<li><strong>(C) Nés de la capture, après la mort, de l'Aura qui s'échappe du corps</strong> : mort violente, ou vie mal vécue.</li>
+<li><strong>(D) Le Reiraku</strong> : un dieu déchu faute de culte, qui réapparaît en yôkai de n'importe quel type. Ce n'est pas un type, mais une source.</li>
+</ul>
+<p>Les âmes qui n'atteignent pas Amida se réincarnent à Tokoyo, humain ou yôkai selon leur vie passée. On ne peut pas savoir si une personne est la réincarnation d'une âme : tout nouveau-né peut l'être.</p>
+<p><strong>Métamorphose.</strong> Seuls les <strong>Henge Yôkai</strong> se métamorphosent parfaitement en être humain (c'est leur pouvoir principal). Les autres ont une forme fixe. L'humain transformé par le Kegare garde son apparence avec un trait monstrueux involontaire. Les familles Henge sont laissées de côté. Un Henge peut jouer n'importe quel rôle social (marchand, paysan, noble, soldat, Kannushi), et possède un <strong>domaine</strong> issu de sa propre nature qui <strong>ressemble</strong> à celui d'un Kami (pour un Reiraku, le domaine d'avant la chute), ce qui lui permet de se faire passer pour un Kannushi. Cette ressemblance n'est pas divine. Cela crée la paranoïa centrale du jeu.</p>
+<p><strong>Classification.</strong> Six types : humain, animal, plante, objet, objet naturel, <strong>Kami</strong> (Magatsuhi et Tatarigami). L'unité est la <strong>famille nommée</strong> (-kin). Humain : Oni-kin, Shiryô-kin. Animal : Kitsune, Tanuki, Neko, Inu, Itachi, Kumo, Namazu, Tori (tengu), Kappa. Objet : Tsumo-kin. Plante : Ki-kin. Objet naturel : Shizen-kin. Kami : Magatsuhi, Tatarigami.</p>
+<p><strong>Échelle.</strong> Le Shinkai, de 0 à 10, égale en puissance brute celle des Kannushi. Seuls les <strong>Magatsuhi</strong> la dépassent. Les Tatarigami sont de Shinkai 4 à 8. Les petits yôkai existent (Shinkai 0 à 2) dans les familles existantes. Chefs nommés uniquement pour les familles sociales (degrés provisoires) : Oni (<strong>Shuten-dôji</strong>, 10, accompagné d'<strong>Ibaraki-dôji</strong>), Kitsune (<strong>Tamamo-no-Mae</strong>, 10), Tengu (<strong>Sôjôbô</strong>, 9), Kappa (<strong>Kusenbô</strong>, 8, roi des kappa), Tanuki (<strong>Hage-tanuki</strong> de Yashima, 7, bienveillant). La famille Neko n'a pas de chef nommé.</p>
+<p><strong>Origines et clans.</strong> Les yôkai n'ont pas de Kegare de base, mais l'utilisent volontiers comme carburant. Le clan Tendai croit qu'ils peuvent être sauvés. Un yôkai peut-il appartenir à un clan : cas partiel, <strong>Zenki et Goki</strong> sont subjugués par En no Gyôja (Shugendô). Le cas général est <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p><strong>Détection.</strong> Par un <strong>faisceau d'indices imparfaits</strong>, jamais un test unique (pas de lien Kami ou de prière ratée, Kegare perceptible, signes liés au type). Les experts de l'Indigo peuvent distinguer un yôkai. Copie d'une personne : trois cas coexistent (imitation d'une personne précise, visage humain inventé, imitation avec un coût ou une limite), laissés au MJ. Une couche vrai/faux est gardée : certains « yôkai » sont des mensonges ou des erreurs.</p>
+<p><strong>Jouables.</strong> Par défaut, un personnage peut devenir yôkai (variante yôkai secret). Capacités de base par type, pouvoirs par famille : <strong>SYSTÈME DU JEU</strong>.</p>
+</div></details><details class="sub" id="s7-3" open><summary><h3>Les Demi-Humains</h3></summary><div class="body">
+<p>Les Demi-Humains possèdent simultanément une âme humaine et une âme yôkai. Leur apparence est humaine avec des particularités yôkai visibles. Ils sont créés par <strong>Sukunabikona</strong> (compagnon d'Ôkuninushi, dieu de la médecine et de la magie), qui crée une armée de vivants là où Ôkuninushi recrutait des morts. Seul un <strong>Kannushi lié à Ôkuninushi</strong> (domaine des âmes, Aura Indigo), à un Éveil avancé, peut fusionner une âme humaine avec une âme yôkai (piège narratif : un allié apparent peut être le complice). Le résultat est imparfait : extrêmement puissants, mais <strong>condamnés à manger de la chair humaine</strong>, ce qui les rend monstrueux aux yeux de la société qu'ils étaient censés protéger. Cette faim vient de la fusion, et n'a pas de lien avec les yôkai dévoreurs de l'histoire Jôdo.</p>
+<p>Comme les humains, un Demi-Humain peut prier un Naobi et devenir <strong>Kannushi</strong>, ou devenir <strong>Magatsunushi</strong>.</p>
+<p><strong>Statut :</strong> cachés, persécutés. <strong>Ils n'ont pas encore paru au début de la campagne (1909)</strong> et apparaissent pendant la campagne. Personne ne les utilise officiellement. Quelques individus isolés les utilisent en secret, et qui est un mystère à résoudre (le MJ peut décider plus tard que des officiers du Shogunal, pas Hachiman, en sont responsables). Le programme de Sukunabikona est préparé en secret avant la campagne, sans date de début imposée.</p>
+<p><strong>Exception : Abe no Seimei</strong> est demi-humain <strong>de naissance</strong> (fils de Kuzunoha, renarde blanche), le premier. Son ascendance est secrète. Il précède le programme artificiel de Sukunabikona.</p>
+<p><strong>Rôle narratif :</strong> pas une race jouable dès le départ. Élément de plot : les joueurs découvriront les activités de Sukunabikona et pourront choisir de les stopper ou de les laisser continuer.</p>
+</div></details><details class="sub" id="s7-4" open><summary><h3>Ouvert (Section 7)</h3></summary><div class="body">
+<ul>
+<li>Quels yôkai sont jouables, capacités par type et par famille (SYSTÈME DU JEU).</li>
+<li>Un yôkai peut-il appartenir à un clan, cas général.</li>
+<li>Les suites sur Seimei : qui connaît son ascendance, doit-il manger de la chair humaine, lien avec Sukunabikona, statut de Kuzunoha.</li>
+</ul></div></details>
+</section>
+<section class="sec" id="s8" data-k="長">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/figures.jpg);background-position:50% 20%"></div><div class="in"><div class="num">Section 8</div><h2>Les Figures de Pouvoir </h2></div></div>
+<details class="sub" id="s8-1" open><summary><h3>Hachiman, le Bouclier Vivant</h3></summary><div class="body">
+<p><strong>Rôle.</strong> Shogun de Yamatai, chef militaire de l'Empire, fondateur du clan Shogunal dont il est l'Ujigami et le chef. Un des deux bras droits d'Ôkuninushi, nommé Shogun par lui en 1185. Il a détenu Kusanagi jusqu'en 1870 ; elle est aujourd'hui introuvable. Il vieillit très lentement, comme tous à Tokoyo. C'est le <strong>seul candidat connu</strong> à atteindre Amida à sa mort.</p>
+<p><strong>Statut.</strong> Semi-divin, humain devenu Kami potentiel qui a <strong>refusé le titre</strong> pour ne pas abandonner les Tokoyojin. Il est le <strong>Sandaishin de Tsukuyomi</strong>, dont l'âme loge en lui depuis 1870. Son degré sur l'échelle est volontairement <strong>indéterminé</strong> (mystère). Il descend, par le sang, à la fois d'Amaterasu (lignée impériale, empereur Ôjin) et de Tsukuyomi (licence créative), ce qui fait de lui et d'Himiko les héritiers d'une même fracture familiale divine, sans qu'aucun des deux ne le sache.</p>
+<p><strong>Les Huit Bannières.</strong> Elles bénissent chaque membre du clan Shogunal (voir Section 6). Liste de travail : Kenjutsu (sabre), Taijutsu (corps), Kyûjutsu (arc), Sôjutsu (lance), Naginatajutsu (hallebarde), Shurikenjutsu (projectiles), Kusarigamajutsu (faucille), Dakkenjutsu (points vitaux). Seul Hachiman lui-même a jamais maîtrisé les huit. Chaque Bannière est une maîtrise d'arme, avec un petit bonus quand on s'en sert. Le chiffre est renvoyé à <strong>SYSTÈME DU JEU</strong> <strong><span class="tag open">OUVERT</span></strong>.</p>
+<p><strong>Contrainte narrative.</strong> Si les yôkai n'attaquent pas frontalement Yamatai, c'est grâce à sa présence, mais cela le cloue à la capitale : il ne peut pas mener l'offensive. Les joueurs sont ce que Hachiman ne peut pas être : ils peuvent partir, prendre des risques, mener l'offensive. La dissuasion vient de sa puissance brute et ne vaut que pour les yôkai non-Kami. Les yôkai de type Kami (Magatsuhi, Tatarigami) l'égalent ou le dépassent mais restent passifs pour d'autres raisons : les plus dangereux sont <strong>scellés ou endormis</strong> (un réveil peut devenir une horloge de campagne), les autres ont leurs raisons propres (aucun intérêt pour Yamatai, apaisés par un culte). Chaque Kami-type est une intrigue distincte.</p>
+</div></details><details class="sub" id="s8-2" open><summary><h3>Himiko, l'Impératrice</h3></summary><div class="body">
+<p><strong>Rôle.</strong> Impératrice, cheffe spirituelle de l'Empire, <strong>Ujigami et cheffe du clan Impérial</strong>. La tension Himiko (spirituel) / Hachiman (militaire) est au cœur de la politique de Yamatai. Elle est la reine légendaire de Yamataikoku elle-même, nommée Impératrice des 30 Royaumes par Ôkuninushi en 1185, et règne depuis (724 ans en 1909). Elle n'est pas immortelle : elle n'est simplement pas affectée par la vieillesse, et peut mourir.</p>
+<p><strong>Ce que tout le monde sait.</strong> Un Wakemitama d'<strong>Amaterasu loge en Himiko</strong>, et c'est pour cela qu'elle est l'Impératrice.</p>
+<p><strong>Ce que sait Himiko, et comment cela évolue.</strong></p>
+<ul>
+<li><strong>Au début de la campagne (1909)</strong> : elle sent que quelque chose ne va pas. Elle ne sait pas que c'est l'Aramitama, mais elle voit l'écart entre la déesse qu'on lui a enseignée et ce qu'elle ressent. Elle cherche à comprendre.</li>
+<li><strong>Plus tard, pendant la campagne</strong> (le moment exact est laissé au MJ, avant la décision du seppuku de 1914) : elle apprend que ce qui loge en elle est le côté Ara de la déesse, et <strong>le cache à tous</strong>, car cela ruinerait la foi en l'Impératrice. C'est le secret qu'elle porte.</li>
+<li>Elle <strong>veut protéger l'Empire</strong> (Yamatai doit survivre, quel que soit le camp, elle est prête à se sacrifier) et <strong>trouver une troisième voie</strong> hors de « la peste ou le choléra ». Elle <strong>craint</strong> de devenir l'Incarnation d'Amaterasu, la chute de Yamatai par sa faute, la trahison de ses proches si la vérité se sait.</li>
+<li>Elle agit par un <strong>intermédiaire</strong>, <strong>Seimei</strong> (comme dans son mythe : d'après le Wei zhi, non revérifié, un seul homme relayait ses paroles). Seimei sait qu'un Wakemitama d'Amaterasu loge en elle, comme tout le monde. Il ne sait pas que c'est l'Aramitama, mais ses divinations lui montrent une direction sombre, et il se tait par crainte de diviser Yamatai.</li>
+<li>Sa divination vient du Wakemitama d'Amaterasu qu'elle porte : le bijou Yasakani n'en était qu'un canal (il est introuvable depuis 1870). Depuis, ses visions sont plus floues et plus piégées : ce sont des présages fabriqués par Amaterasu.</li>
+</ul>
+<p><strong>Le fardeau.</strong> Le corps de l'Impératrice absorbe une partie des tatari et du Kegare des dieux du pays (voir clan Impérial, Section 6). Il <strong>ne peut pas être purgé</strong>, seulement contenu, et augmente avec les siècles. Himiko sait qu'un jour elle devra <strong>céder sa place par le seppuku</strong>, afin de mourir sans causer la mort de Yamatai. Ce seppuku, accompli en pleine pureté, <strong>brûle</strong> le Kegare accumulé : rien ne passe à la successeure. Elle a <strong>préparé sa successeure</strong>, <strong>Toyo</strong> (née d'un parent impérial et d'un Onmyôdô, vivante et adulte, enseignante Kannushi, l'hôte préparée, pas encore touchée).</p>
+<p><strong>L'enjeu de la campagne (1914).</strong> Au moment de faire le seppuku, vers 1914 (début de la 15e Génération), Himiko <strong>refusera</strong>, parce qu'<strong>Amaterasu lui ordonne</strong> : elle a pris assez de place pour contrôler son esprit. Amaterasu veut profiter du Kegare accumulé pour la posséder complètement et obtenir un <strong>corps physique</strong> dans ce monde, auquel elle n'avait pas accès, afin d'en finir avec l'armée d'Ôkuninushi. Elle la presse par un mélange de visions fabriquées, de prises de contrôle du corps (absences) et d'une offre (sauver Yamatai contre son corps) : le rythme est laissé au MJ. C'est aussi Amaterasu qui la pousse à lancer la quête des trois trésors (voir Section 9).</p>
+<p><strong>Libération.</strong> Dans ses moments de lucidité, quand Amaterasu relâche le contrôle, Himiko cherche en secret des alliés par Seimei, et peut aider les joueurs sans pouvoir dire toute la vérité. Mais <strong>elle ne sait pas qu'on peut la libérer</strong> : apaiser l'Aramitama d'Amaterasu (qui deviendrait bienveillante et arrêterait ses conquêtes) est une piste que personne ne lui a dite. Pour y parvenir, il faut <strong>d'abord affaiblir l'emprise</strong> (une purification ciblée du Kegare qu'Amaterasu utilise comme levier), <strong>puis apaiser l'Aramitama</strong>. La date limite est le seppuku de 1914. Le clan Impérial, maître de la purification, est la clé naturelle, mais ignore qu'elle est possédée. Qui peut mener le rite est <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s8-3" open><summary><h3>Sukunabikona, le Créateur</h3></summary><div class="body">
+<p>Compagnon historique d'Ôkuninushi et dieu de la médecine et de la magie. Il poursuit sa propre vision : créer une armée de <strong>demi-humains</strong> vivants pour combattre les yôkai. Ses méthodes sont moralement ambiguës : il fusionne des âmes sans consentement. Il opère dans l'ombre. Son programme est secret, sans date de début imposée, et ses créations n'apparaissent que <strong>pendant la campagne</strong>. Personne ne les utilise officiellement. Il n'est l'Ujigami d'aucun clan.</p>
+<p>Il est <strong>tantôt Naobi, tantôt Magatsuhi</strong>, comme Susanô : la fusion forcée d'âmes le rapproche du Magatsuhi, un risque qu'il court.</p>
+</div></details><details class="sub" id="s8-4" open><summary><h3>Sugawara no Michizane, le Directeur</h3></summary><div class="body">
+<p><strong>Rôle.</strong> Eirei, pas encore Kami, vénéré au même titre que Hachiman (Tenjin). Il est le <strong>directeur de l'académie des Kannushi</strong>, l'académie commune à tous les clans où les apprentis prient leur Naobi vers 14 ans. Dans le mythe, c'est un lettré de cour mort en exil, dont la colère a fait tomber la foudre sur le palais. Il décide qui se présente à la prière et quand : un apprenti peut être retenu ou poussé, ce qui lui donne un vrai pouvoir politique sur les futures générations de Kannushi, et fait de lui un rival potentiel des clans. Le Naobi reste libre d'accepter ou de refuser. Michizane joue les clans les uns contre les autres : il pousse les apprentis d'un clan et retient ceux d'un autre, pour qu'aucun clan ne domine, en particulier le Shogunal : c'est un arbitre au service de l'ordre, convaincu que l'ambition des clans affaiblit la défense de Yamatai. C'est un acteur politique à part entière. Hachiman comprend cette logique (un clan trop puissant est un danger) : les deux hommes se respectent à distance, sans conflit. Sa nature de dieu de l'étude et de la foudre vénérée reste à préciser <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s8-5" open><summary><h3>Ouvert (Section 8)</h3></summary><div class="body">
+<ul>
+<li>La vérité exacte du plan d'Ôkuninushi que Hachiman a « perçue » (intuition définie : il se sert des morts comme d'une armée ; le reste est laissé au metaplot).</li>
+<li>Le rite qui libère Himiko, et qui peut le mener.</li>
+<li>Les Huit Bannières (SYSTÈME DU JEU).</li>
+<li>Les suites sur Seimei (ascendance, chair humaine, lien avec Sukunabikona, Kuzunoha).</li>
+</ul></div></details>
+</section>
+<section class="sec" id="s9" data-k="天">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/dragon.jpg);background-position:50% 50%"></div><div class="in"><div class="num">Section 9</div><h2>Cosmologie et Metaplot </h2></div></div>
+<details class="sub" id="s9-1" open><summary><h3>Les Mondes (quatre couches)</h3></summary><div class="body">
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Monde</th>
+<th>Nom japonais</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le Monde du Ciel</td>
+<td>Takama-ga-hara</td>
+<td>Domaine des Amatsukami, gouverné par Amaterasu</td>
+</tr>
+<tr>
+<td>Le Pays du Milieu</td>
+<td>Ashihara no Nakatsukuni</td>
+<td>Le vrai Japon : des humains ordinaires, sans Aura ni yôkai, qui ignorent Tokoyo et vivent dans le temps normal (1909 : l'ère Meiji). Tenu par les descendants d'Amaterasu, fermé à Tokoyo depuis 1870. Ôkuninushi veut le reprendre. Il pourrait un jour devenir un lieu de jeu</td>
+</tr>
+<tr>
+<td>Le Monde Éternel</td>
+<td>Tokoyo no Kuni</td>
+<td>Domaine des Kunitsukami et des humains. Ancien paradis spirituel, devenu matériel en 1185, en état de siège. <strong>Sous-domaine du Yomi</strong></td>
+</tr>
+<tr>
+<td>Le Monde des Morts</td>
+<td>Yomi</td>
+<td>Domaine d'Izanami. Séparé du monde des vivants par le rocher scellé par Izanagi</td>
+</tr>
+</tbody>
+</table></div>
+<p>Tokoyo no Kuni est un sous-domaine du Yomi, pas identique au Yomi entier. La structure est donc de quatre couches : le Ciel (Takama-ga-hara), le Pays du Milieu (Ashihara no Nakatsukuni), et le Yomi comme ensemble, qui contient Tokoyo no Kuni et Ne no Kuni (le domaine scellé de Susanô et d'Izanami). Elle est <strong>posée</strong>. Ne no Kuni, le pays des racines de Susanô, est lié au Yomi par la même entrée : c'est là qu'il est scellé avec Izanami. Le Pays du Milieu existe comme monde actif, c'est le vrai Japon d'humains ordinaires qui ignorent Tokoyo, mais il est fermé : son rôle dans la campagne et les conditions pour y accéder sont <span class="tag open">OUVERT</span>.</p>
+</div></details><details class="sub" id="s9-2" open><summary><h3>Le Conflit Central</h3></summary><div class="body">
+<p>Le metaplot tourne autour du conflit entre les Dieux du Ciel (Amatsukami) et les Dieux de la Terre (Kunitsukami). Ôkuninushi recrute secrètement des Eirei depuis le règne de Jinmu pour bâtir une armée qui lui permettra de se venger d'Amaterasu, de reprendre le Pays du Milieu (Ashihara no Nakatsukuni) et d'envahir le Takama-ga-hara. À Dan no Ura, Ôkuninushi refuse de rendre à Amaterasu ses Trois Trésors perdus dans la bataille, ce qui déclare la guerre. En parlant en secret avec Izanami, Amaterasu comprend ce qui s'est vraiment passé : Ôkuninushi amasse les âmes des morts pour les envoyer dans son monde plutôt que vers les profondeurs du Yomi. Les plans d'Ôkuninushi changent alors : il est sur la défensive, et doit d'abord gagner la bataille de Tokoyo, avant celle d'Ashihara no Nakatsukuni, puis celle du Takama-ga-hara.</p>
+<p><strong>Amaterasu tue par nécessité stratégique, pas par haine</strong> : sinon Ôkuninushi l'envahirait par-derrière. Elle a trois raisons de vouloir la chute de Yamatai : le pacte d'Izanami, les Trois Trésors, cette nécessité. <strong>La menace d'Ôkuninushi est réelle.</strong> Mais l'<strong>Aramitama</strong> d'Amaterasu domine, ce qui la rend impitoyable et l'empêche de chercher une autre solution. Apaisée, elle trouverait un autre moyen de se défendre. <strong>Nul ne sait</strong> que son Aramitama domine (voir Section 8).</p>
+</div></details><details class="sub" id="s9-3" open><summary><h3>L'Événement Fondateur : Dan no Ura (1185)</h3></summary><div class="body">
+<p>La bataille de Dan no Ura marque la perte des Trois Trésors Sacrés. Taira no Tokiko se jette dans les eaux du détroit de Shimonoseki avec le jeune Empereur Antoku, emportant avec elle l'épée Kusanagi, le miroir Yata-no-Kagami et le joyau Yasakani. À cet instant, <strong>des portails s'ouvrent et déversent le Kegare dans le monde</strong>. Le monde devient matériel, les corps apparaissent d'un coup, les premiers yôkai apparaissent, désorganisés. Les Trois Trésors, engloutis dans des eaux qui touchent au monde des morts, se sont retrouvés à l'intérieur de Tokoyo. Jusqu'en 1870, Kusanagi était chez Hachiman et le Yasakani chez l'Impératrice. Lors de son Sacrifice, Ôkuninushi a dispersé les trois trésors, introuvables depuis. Le miroir Yata-no-Kagami (l'âme d'Amaterasu selon la tradition) n'a jamais été localisé. Un <strong>objet qui abrite un Kami suit son Kami</strong> : si ce Kami bascule en Ara, l'objet est corrompu avec lui. Cela justifie qu'Amaterasu cherche à récupérer le miroir.</p>
+<p>La première Génération organisée de yôkai date de 1228. S'ensuit la lente saignée, de 1228 à 1870, où tombent les 30 Royaumes un par un, jusqu'au dernier combat et au Sacrifice d'Ôkuninushi en 1870 (voir Section 2).</p>
+<p>Si Yamatai tombe : Ôkuninushi meurt, c'est la fin de Tokoyo, les humains deviennent des yôkai au service d'Izanami, le sceau d'Izanagi faiblit, Amaterasu récupère les Trois Trésors et empêche l'invasion, Izanami règne (le pacte est honoré). Les joueurs choisissent leur camp.</p>
+</div></details><details class="sub" id="s9-4" open><summary><h3>Les Plot Twists Majeurs</h3></summary><div class="body">
+<h4>Plot Twist 1, le Pacte Secret</h4>
+<h4>Plot Twist 2, le Vrai Plan d'Ôkuninushi</h4>
+<h4>Plot Twist 3, Hachiman sait</h4>
+<h4>Plot Twist 4, l'Aramitama d'Amaterasu</h4>
+<h4>Plot Twist 5, Izanami, l'antagoniste finale</h4>
+<p><strong>Ce pour quoi Izanami a été créée.</strong> Izanami continue de tuer autant de vivants qu'elle le veut (mille par jour n'est qu'un exemple), et Izanagi fait naître plus d'humains qu'elle n'en tue, ce qui explique le cycle de la vie. Elle tue aussi pour obliger Izanagi à revenir la sauver, mais il ne peut pas bouger : il est le sceau qui la retient. Izanagi et Izanami n'ont pas pu finir ce qu'ils avaient commencé : créer tous les dieux et toutes les choses grâce à leur union. Kagutsuchi est arrivé et a tué Izanami. Izanagi a échoué à la ramener du Yomi à cause de sa curiosité et de son amour (il s'est retourné pour la voir avant qu'elle soit sortie). Izanami est persuadée que si elle s'unissait de nouveau avec Izanagi, ils pourraient <strong>terminer la création</strong> et rétablir l'harmonie de l'univers.</p>
+</div></details><details class="sub" id="s9-5" open><summary><h3>Izanagi et Izanami, maîtres du destin</h3></summary><div class="body">
+<p>Le facteur chance dans Kannushi no Sekai est une dualité entre <strong>Izanami (la malchance)</strong> et <strong>Izanagi (la chance)</strong>. Ils sont les maîtres du destin. Quand un Kannushi meurt, c'est qu'Izanami a gagné, pour cet être humain, la bataille contre Izanagi. Sans elle, il y aurait quand même des morts, mais les morts tragiques ou horribles sont souvent son œuvre, du moins selon les légendes (la Reine de la Mort).</p>
+<p><strong>En jeu, le MJ incarne cette dualité</strong> : Izanagi qui apporte la vie, Izanami qui apporte la mort. Les deux divinités pèsent sur le destin sans le changer complètement.</p>
+<p><strong>Izanagi est le sceau.</strong> Il ne réagit pas parce qu'il ne peut pas : il est le sceau qui empêche Izanami de sortir du monde des morts, comme le Sacrifice d'Ôkuninushi. Le rocher du Yomi n'est pas qu'une pierre, c'est lui. C'est aussi pourquoi Izanami cherche à s'unir de nouveau à lui : le retrouver, c'est briser le sceau. Ce sceau est un serment, un Seigan : « ma vie contre une Norito surpuissante ». Les deux sceaux sont liés : si Yamatai tombe et qu'Ôkuninushi meurt, le sceau d'Izanagi faiblit, ce qui donne à Izanami sa propre raison de vouloir la chute de Yamatai. Plus le sceau faiblit, plus la malchance d'Izanami pèse sur le monde : le MJ en fait une horloge, avec des signes et des morts de plus en plus tragiques. Ce qu'il peut encore faire depuis le sceau, et les conditions exactes d'affaiblissement et de destruction du sceau, sont <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s9-6" open><summary><h3>La mort : face à Izanami</h3></summary><div class="body">
+<p>Izanami est la maîtresse du monde de la mort. Elle est scellée au plus profond du Yomi, mais elle y garde des pouvoirs : elle peut influencer la mort d'un individu. <strong>Quand quelqu'un meurt, il fait face à Izanami.</strong> Il y a trois issues :</p>
+<ol>
+<li><strong>Elle lui prend son âme</strong> et l'envoie au plus profond du Yomi.</li>
+<li><strong>Elle lui propose un pacte</strong>, un serment qu'il doit remplir sous peine d'être tué par Izanami. Ses marchés vont des plus simples aux plus coûteux. Izanami est capricieuse : elle peut, plus tard, demander une faveur ou exiger son dû. Elle peut réclamer un sacrifice, ou demander quelque chose d'étrange et d'apparemment innocent. Ses caprices sont imprévisibles.</li>
+<li><strong>Le Kannushi repousse la mort</strong>, par pure foi ou force d'âme. Mais Izanami n'oublie jamais une âme qu'on lui a volée : elle la marque d'un <strong>Kegare permanent</strong>.</li>
+</ol>
+<p>Tout le monde fait face à Izanami, mais seuls les Kannushi (ou ceux dont l'âme est assez forte) peuvent repousser la mort : un humain ordinaire voit son âme prise, ou se voit proposer un pacte. Seul un Kannushi qui a accompli l'Éveil 5 y échappe : à sa mort, il rejoint Amida, hors de portée d'Izanami.</p>
+<p>En cas de mort, c'est le <strong>passeur</strong> qui emmène l'âme dans le monde des morts où réside Izanami. <strong>Le passeur est Keneô (voir Section 2)</strong>.</p>
+<p>Les clans qui s'occupent des morts (la foi du Jôdo, les rites du Tendai et du Yoshida) ont pour but d'empêcher qu'Izanami garde les âmes dans le monde des morts. Chaque clan a sa propre vision de ce que doit devenir une âme après la mort (Amida, la réincarnation, une place de petit kami), mais les laisser dans les griffes de la déesse de la mort n'est une option pour aucun.</p>
+<p>On ne peut pas savoir si une personne est la réincarnation d'une âme : tout nouveau-né est potentiellement la réincarnation d'une âme. Une âme réincarnée garde parfois des échos diffus de sa vie passée (rêves, impressions de déjà-vu, affinités), sans aucun bonus de jeu : c'est une case vide laissée au MJ.</p>
+</div></details><details class="sub" id="s9-7" open><summary><h3>La campagne principale : la quête des Trois Trésors</h3></summary><div class="body">
+</div></details><details class="sub" id="s9-8" open><summary><h3>La Tension Cosmique Finale</h3></summary><div class="body">
+<p><strong>Il existe une troisième voie</strong>, concrète : apaiser l'Aramitama d'Amaterasu fait tomber ses conquêtes et rompt le pacte avec Izanami, puis il faut négocier avec Ôkuninushi. Apaiser Amaterasu la libère de la corruption d'Izanami et rompt leur alliance : Izanami reste seule, et c'est contre elle que se joue le dernier affrontement. Elle est difficile, longue et fragile, c'est la fin « bonne » de la campagne.</p>
+</div></details><details class="sub" id="s9-9" open><summary><h3>Ouvert (Section 9)</h3></summary><div class="body">
+<ul>
+<li>Le mode exact du retour d'Ôkuninushi (dix théories, aucune engagée) : il fait partie de la fin de campagne ultime, qu'on écrira plus tard.</li>
+<li>La structure des mondes est posée (quatre couches), reste le rôle du Pays du Milieu et ses conditions d'accès.</li>
+<li>Ce que fait Izanami pendant la campagne, ce que devient le pacte après l'apaisement d'Amaterasu.</li>
+<li>La localisation du miroir Yata-no-Kagami.</li>
+</ul></div></details>
+</section>
+<section class="sec" id="s10" data-k="妖">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/yokai.jpg);background-position:50% 50%"></div><div class="in"><div class="num">Section 10</div><h2>Les Yôkai </h2></div></div>
+<details class="sub" id="s10-1" open><summary><h3>Classification</h3></summary><div class="body">
+<p><strong>Six types</strong> : humain, animal, plante, objet, objet naturel, <strong>Kami</strong>. L'unité est la <strong>famille nommée</strong> (-kin).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Familles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Humain</td>
+<td>Oni-kin, Shiryô-kin</td>
+</tr>
+<tr>
+<td>Animal</td>
+<td>Kitsune, Tanuki, Neko, Inu, Itachi, Kumo, Namazu, Tori (tengu), Kappa</td>
+</tr>
+<tr>
+<td>Plante</td>
+<td>Ki-kin</td>
+</tr>
+<tr>
+<td>Objet</td>
+<td>Tsumo-kin (esprits nés de l'âge d'un objet)</td>
+</tr>
+<tr>
+<td>Objet naturel</td>
+<td>Shizen-kin</td>
+</tr>
+<tr>
+<td>Kami</td>
+<td><strong>Magatsuhi</strong> et <strong>Tatarigami</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Le <strong>Reiraku</strong> (dieu déchu par l'oubli) n'est pas un type, mais une <strong>source d'apparition</strong> : il donne des yôkai de n'importe quel type (par exemple un kappa, Hitotsume-kozô). Un objet qui <strong>abrite</strong> un Kami (yorishiro, goshintai, katashiro) n'est <strong>pas</strong> un tsumogami : c'est un Shinpô ou un Jingi (voir Section 11).</p>
+<p><strong>Magatsuhi et Tatarigami.</strong> Le type Kami est une nature divine, pas un corps : la forme devient une étiquette, et « de chair et de sang » ne vaut donc pas pour lui. Un <strong>Magatsuhi</strong> est un Kami majeur en Ara <strong>au-dessus du Shinkai 10</strong>, qui nuit durablement. Un <strong>Tatarigami</strong> est un Kami local ou une âme divinisée de rang plus bas, en Ara, de <strong>Shinkai 4 à 8</strong>. Les familles du type Kami au-delà de ces deux sont <strong><span class="tag open">OUVERT</span></strong>. Les Magatsuhi ont deux origines (envoyés par le pacte, ou devenus par leurs actes). Un Kami bascule en Ara parce qu'il n'est pas immunisé au Kegare.</p>
+<p><strong>Échelle.</strong> Le Shinkai, de 0 à 10, égale en puissance brute celle des Kannushi. Seuls les Magatsuhi la dépassent. Les petits yôkai existent (Shinkai 0 à 2). Capacités de base par type : <strong>SYSTÈME DU JEU</strong>.</p>
+</div></details><details class="sub" id="s10-2" open><summary><h3>Les Générations et leurs chefs</h3></summary><div class="body">
+<p>Chaque Génération est menée par un chef ou un groupe d'<strong>êtres uniques nommés</strong>, pas par une espèce. <strong>L'ordre</strong> (quelle année pour quel chef) est <strong><span class="tag open">OUVERT</span></strong>. Décisions prises :</p>
+<ul>
+<li><strong>Duos</strong> : Suzuka Gozen + Ôtakemaru ; Ibaraki-dôji accompagne Shuten-dôji.</li>
+<li><strong>Hyakki Yakô</strong> (la Parade nocturne des cent démons), mené par <strong>Nurarihyon</strong> : sera l'une des 15 Générations, laquelle est ouverte. Le lien avec l'Ômagatoki est naturel, le crépuscule étant « l'heure où naissent les cent envoûtements ».</li>
+<li><strong>Les fantômes des Heike</strong> (Taira no Tomomori et les noyés de Dan no Ura) sont parmi les premiers yôkai, en 1185, de façon désorganisée. Ils ne mènent pas la Génération de 1228.</li>
+<li><strong>Keneô</strong> (seul, sans Datsue-ba) se tient sur l'océan, avec les Rois Dragons (voir Section 2).</li>
+<li><strong>Kuzuryû</strong> est l'un des Huit Rois Dragons : il quitte les candidats chefs de Génération.</li>
+<li><strong>Momiji</strong> n'est pas un chef de Génération : c'est une Eirei du clan Edo.</li>
+<li><strong>Zenki et Goki</strong> : yôkai subjugués par En no Gyôja.</li>
+<li><strong>Nue</strong> : un individu légendaire unique (la chimère tuée par Minamoto no Yorimasa en 1153), avec un usage plus large du mot aujourd'hui.</li>
+<li><strong>Kusenbô</strong> : roi des kappa, chef de famille. <strong>Hage-tanuki</strong> : roi des tanuki, bienveillant, allié ou neutre. La famille <strong>Neko</strong> n'a pas de chef nommé (pas de « roi des chats »).</li>
+<li><strong>Dairokuten Maô</strong> : Omodaru et Ayakashikone, et Oda Nobunaga est l'usurpateur (voir Section 5). Nobunaga n'est pas lié à la Génération de 1571.</li>
+</ul>
+<p><strong>Candidats à une Génération</strong> (liste de travail de l'auteur) : Shuten-dôji, Tamamo-no-Mae, Ôtakemaru, Ryômen Sukuna, Ômukade, Fujin et Raijin, Sanme Hachimen, Yamata no Orochi, Yamamoto Gorôzaemon et Shin-no-Akugorô, Yasomagatsuhi, Ômagatsuhi, les Huit Dieux du Tonnerre, Yomotsu-shikome. Les chefs de famille sociale (Sôjôbô, Kusenbô, Hage-tanuki) et la place de Fujin et Raijin face aux Kami jouables Shinatobe et Takemikazuchi sont à régler. Avec le Hyakki Yakô de Nurarihyon, cette liste forme 14 groupes (Suzuka Gozen accompagne Ôtakemaru), soit les 14 Générations passées (1228 à 1865) ; la 15e (celle de la campagne) est probablement secrète. L'ordre est laissé au MJ.</p>
+</div></details><details class="sub" id="s10-3" open><summary><h3>L'Infiltration</h3></summary><div class="body">
+<p>Seuls les <strong>Henge Yôkai</strong> se métamorphosent. Un Henge peut jouer n'importe quel rôle social (marchand, paysan, noble, soldat, Kannushi), avec des tendances de type facultatives. Il possède un <strong>domaine</strong> issu de sa nature, qui ressemble à celui d'un Kami (pour un Reiraku, le domaine d'avant la chute), ce qui lui permet de passer pour un Kannushi. Les yôkai ont en plus deux domaines propres, la Supercherie et la Malédiction, et ont accès aux autres domaines. Pas de pouvoir divin, sauf Wakemitama d'un Magatsuhi. Cela crée la paranoïa centrale du jeu : n'importe qui à Yamatai peut être un yôkai, y compris parmi les personnages joueurs (variante yôkai secret).</p>
+<p><strong>Copie d'une personne</strong> : trois cas coexistent (imitation d'une personne précise, visage humain inventé, imitation avec un coût ou une limite laissant des indices), laissés au MJ.</p>
+<p><strong>Détection</strong> : par un <strong>faisceau d'indices imparfaits</strong>, jamais un test unique (pas de lien Kami ou prière ratée, Kegare perceptible, signes liés au type). L'Onmyôdô <strong>signale</strong> (divination) et <strong>protège</strong> (barrières, sceaux, interdits) ; chasser un yôkai infiltré revient officiellement au Tendai ou au Shugendô ; les experts de l'Indigo peuvent distinguer un yôkai. Couche vrai/faux : certains « yôkai » sont des mensonges ou des erreurs.</p>
+<p><strong>L'Ômagatoki</strong> aide l'infiltration : en pleine nuit, on ne distingue plus les visages (voir Section 2).</p></div></details>
+</section>
+<section class="sec" id="s11" data-k="剣">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/objets.jpg);background-position:50% 18%"></div><div class="in"><div class="num">Section 11</div><h2>Les Armes et Objets Sacrés </h2></div></div>
+<details class="sub" id="s11-1" open><summary><h3>Jingi et Shinpô</h3></summary><div class="body">
+<p>Deux termes japonais réels remplacent « Armes Divines » (sources : Kotobank, Wikipédia japonais) :</p>
+<ul>
+<li><strong>JINGI</strong> (神器) : relique mythique <strong>unique</strong>, liée à un mythe fondateur <strong>et</strong> qui abrite un Kami majeur ou une part de son âme. Exemple : les Trois Trésors Sacrés.</li>
+<li><strong>SHINPÔ</strong> (神宝, kamudakara) : objet sacré secondaire d'un sanctuaire ou d'un clan, qui abrite un Kami mineur ou une âme (un Eirei, par exemple).</li>
+</ul>
+<p>Un objet qui <strong>abrite</strong> un Kami (yorishiro, goshintai, katashiro) n'est <strong>pas</strong> un tsumogami (esprit propre né de l'âge, un Tsumo-kin, donc un yôkai). Un <strong>objet qui abrite un Kami suit son Kami</strong> : si le Kami bascule en Ara, l'objet est corrompu avec lui, contrairement au Wakemitama donné à un hôte, qui reste intact.</p>
+</div></details><details class="sub" id="s11-2" open><summary><h3>Les Trois Trésors Sacrés (Jingi)</h3></summary><div class="body">
+<p>Kusanagi, Yata-no-Kagami, Yasakani no Magatama, perdus à Dan no Ura en 1185, se trouvent dans Tokoyo. Ôkuninushi les a dispersés lors de son Sacrifice (1870) : ils sont introuvables depuis.</p>
+<ul>
+<li><strong>Kusanagi</strong> : détenue par Hachiman jusqu'en 1870, introuvable depuis. Susanô savait où elle était, Amaterasu aussi, via Himiko.</li>
+<li><strong>Yasakani no Magatama</strong> (le bijou) : porté par l'Impératrice jusqu'en 1870, introuvable depuis. Il était un canal de sa divination (des présages fabriqués par Amaterasu) et servait à tester les consortes de la maison impériale.</li>
+<li><strong>Yata-no-Kagami</strong> (le miroir) : l'âme d'Amaterasu selon la tradition, pas localisé. Sa localisation dépend du metaplot <strong><span class="tag open">OUVERT</span></strong>. Amaterasu, Magatsuhi, cherche à le récupérer.</li>
+</ul>
+<p>Les pouvoirs des Trois Trésors au-delà de la divination sont <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s11-3" open><summary><h3>Muramasa et Masamune (Shinpô)</h3></summary><div class="body">
+<p>Lames de forgerons légendaires, un <strong>duo opposé</strong> : l'une est habitée par une âme <strong>maudite</strong>, l'autre par une âme <strong>pure</strong> (base légendaire de mémoire, non vérifiée). L'identité des âmes est <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s11-4" open><summary><h3>Futsunushi (Shinpô)</h3></summary><div class="body">
+<p>Épée sacrée que les joueurs pourront <strong>obtenir</strong>. Futsunushi, frère d'armes de Takemikazuchi, est devenu une lame qui abrite son âme (un Shinpô qui abrite un Kami suit son Kami). Ce qu'elle donne, où elle se trouve, qui la garde, et ce que devient l'âme qu'elle abrite sont <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s11-5" open><summary><h3>Les Shinpô de clan</h3></summary><div class="body">
+<p><strong>Chaque clan</strong> aura au moins un Shinpô lié à son fondateur ou à son enseignement. Les neuf objets sont à inventer <strong><span class="tag open">OUVERT</span></strong>.</p>
+</div></details><details class="sub" id="s11-6" open><summary><h3>Le Jade</h3></summary><div class="body">
+<p>Catalyseur d'Aura pour armes (voir Section 4). Il est partagé entre le Shugendô et le Shogunal. Les sabres de Jade sont des shinken (神剣, « sabre divin »).</p>
+</div></details><details class="sub" id="s11-7" open><summary><h3>Ouvert (Section 11)</h3></summary><div class="body">
+<ul>
+<li>Pouvoirs des Trois Trésors, localisation du miroir.</li>
+<li>Liste complète, rôle narratif de chaque objet, les neuf Shinpô de clan.</li>
+<li>Identité des âmes de Muramasa et de Masamune.</li>
+</ul></div></details>
+</section>
+<section class="sec" id="s12" data-k="問">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/suspens.jpg);background-position:50% 72%"></div><div class="in"><div class="num">Section 12</div><h2>Points en Suspens <span class="tag open">OUVERT</span></h2></div></div>
+<p><em>Liste mise à jour avec toutes les décisions jusqu'au 13 octobre 2026. Les points résolus depuis la v4 ne figurent plus.</em></p>
+<details class="sub" id="s12-1" open><summary><h3>Monde et chronologie</h3></summary><div class="body">
+<ul>
+<li><strong>L'ordre des 15 Générations</strong> : laissé au MJ (les 14 groupes de la liste couvrent les 14 Générations passées), dont la place du <strong>Hyakki Yakô</strong> (Nurarihyon).</li>
+<li><strong>La 15e Génération</strong> (celle de la campagne) : qui la mène, probablement un secret.</li>
+<li>Le <strong>mode exact du retour d'Ôkuninushi</strong> (dix théories, aucune engagée) : il fait partie de la fin de campagne ultime, qu'on écrira plus tard.</li>
+<li>La <strong>refonte des Trois Mondes</strong> : posée (quatre couches : Ciel, Pays du Milieu, Yomi avec Tokoyo et Ne no Kuni). Reste le rôle du Pays du Milieu et ses conditions d'accès.</li>
+<li>
+<p>Ce que <strong>fait Izanami</strong> pendant la campagne, et ce que devient le pacte si Amaterasu est apaisée.</p>
+</li>
+<li>
+<p><strong>Noms des ères</strong> (liés aux chefs de chaque Génération), qui dépendent de l'ordre des Générations.</p>
+</li>
+</ul>
+</div></details><details class="sub" id="s12-2" open><summary><h3>Géographie</h3></summary><div class="body">
+<ul>
+<li>Le <strong>sens du yin et du yang</strong> : posé (le yang renforce toutes les Auras, le yin tout ce qui touche au corps, sans contrepartie). Reste l'ampleur de l'effet.</li>
+<li>Le <strong>sens des îles extérieures</strong> et des <strong>frontières en pointillé</strong> de la carte.</li>
+<li><strong>Modifier la carte</strong> : deux îles centrales (Yamatai et le Palais d'Ôkuninushi) au lieu de quatre. Le statut de la carte « Empire de Tokugawa » est non confirmé.</li>
+<li><strong>Yamatai</strong> : les cinq quartiers sont posés (Section 2). Reste à recaler le supplément KNS_Yamatai_v2 (lieux, personnages, secrets) sur la chronologie actuelle et à écrire le détail de chaque quartier.</li>
+<li>Les <strong>29 Royaumes perdus</strong> : noms posés (Section 2). Reste l'ordre de chute, les deux derniers, et ce qui est encore accessible.</li>
+<li>Les <strong>villages vivants hors de Yamatai</strong> : combien, où, quel lien avec l'Empire, et comment ils tiennent face aux yôkai.</li>
+</ul>
+</div></details><details class="sub" id="s12-3" open><summary><h3>Système de magie et de jeu (renvoyés à SYSTÈME DU JEU)</h3></summary><div class="body">
+<ul>
+<li><strong>Jauge d'Ara</strong> : taille, montée, ratés, interaction avec l'Aura Jaune. Pas de jauge de Nigi pour l'instant.</li>
+<li><strong>Barème du Kegare</strong> (valeurs, paliers).</li>
+<li><strong>Les Huit Bannières</strong> du clan Shogunal : chaque Bannière est une maîtrise d'arme avec un petit bonus, valeur chiffrée à fixer.</li>
+<li>La <strong>bénédiction chiffrée</strong> (petit bonus) de chaque Ujigami.</li>
+<li><strong>Détail de l'ajout d'Auras (entraînement, une Aura de plus par Éveil)</strong>.</li>
+<li><strong>Technique signature</strong> : moment d'apparition.</li>
+<li>Les <strong>points de chance</strong> (7) à retravailler. L'identité mécanique propre à chaque Kami élémentaire.</li>
+<li><strong>Éveil 3</strong> : nom « Shinjin » à confirmer. Comment les Éveils approfondissent la greffe du Wakemitama, et ce que l'Aura Violette fait au Naohi.</li>
+<li><strong>Ce que devient le Wakemitama</strong> à la mort de l'hôte ou s'il devient yôkai.</li>
+<li>Le <strong>système de dés</strong> (en dernier). Le <strong>système de niveaux de Senki</strong>.</li>
+<li>
+<p><strong>Capacités des yôkai jouables</strong> par type et par famille.</p>
+</li>
+<li>
+<p><strong>Éveil 5</strong> : l'éveil vers le Nirvana : ses effets exacts et la façon dont se mène l'enquête que permet l'Éveil 4.</p>
+</li>
+</ul>
+</div></details><details class="sub" id="s12-4" open><summary><h3>Kami et clans</h3></summary><div class="body">
+<ul>
+<li>Les <strong>critères de refus</strong> de chaque Naobi : laissés au MJ (point résolu).</li>
+<li>Les <strong>noms des Kami locaux et régionaux</strong>.</li>
+<li>Le <strong>rite d'apaisement de l'Ara</strong> d'un Kami : principe posé (un rite et le règlement de la cause), détail à écrire.</li>
+<li><strong>Omodaru et Ayakashikone</strong> : comment ils se rapportent à la règle « aucun Amatsukami fidèle n'accorde de pouvoir ».</li>
+<li>Le <strong>clan Kirishitan</strong> (mis de côté) : s'il reste dans l'univers, son enseignement, ses craintes, une éventuelle persécution, le lien avec la doctrine Yoshida de l'Origine unique. <strong>Jules Brunet</strong> : détails du rituel.</li>
+<li>Les <strong>neuf Shinpô de clan</strong>. Les <strong>Shinpô</strong> Muramasa et Masamune : identité des âmes.</li>
+<li><strong>Hime-gami</strong> : qui est-ce à Tokoyo.</li>
+<li>Les forgerons liés à Kagutsuchi : le Shugendô ou à part.</li>
+<li>
+<p>Un <strong>yôkai peut-il appartenir à un clan</strong> (cas général).</p>
+</li>
+<li>
+<p>Le <strong>statut hors panthéon</strong> de Sarutahiko (probablement l'un des chefs des Tengu, détails à voir), de Michizane (Tenjin : Eirei, pas encore Kami, vu au même titre que Hachiman, directeur de l'académie des Kannushi ; sa nature et un éventuel titre de Kami restent à préciser) et de Ryûjin.</p>
+</li>
+<li><strong>Takeminakata, Guerre</strong> : présence à l'Éveil 2, Norito orientées tank, coût de la forme de bataille, valeur du passif d'expérience, « Maître des voies ».</li>
+<li>L'<strong>identité mécanique de chaque domaine</strong> : Norito de la Sagesse (six familles posées) et des Arts (trois piliers posés) à écrire, identité des éléments (idée d'un passif par élément gardée, non tranchée). La Guerre a un brouillon de 12 Norito par couleur, dont la famille Leurre est à reprendre (l'Orange ne fait plus d'illusions).</li>
+</ul>
+</div></details><details class="sub" id="s12-5" open><summary><h3>Figures de pouvoir</h3></summary><div class="body">
+<ul>
+<li><strong>Seimei</strong> : qui connaît son ascendance, doit-il manger de la chair humaine, lien avec Sukunabikona, statut de Kuzunoha.</li>
+<li><strong>Le rite qui libère Himiko</strong> et qui peut le mener (le clan Impérial ignore qu'elle est possédée par l'Ara).</li>
+<li>La <strong>vérité exacte</strong> du plan d'Ôkuninushi que Hachiman a intuitivement perçue (au-delà de « les morts comme armée »).</li>
+<li><strong>Les Kami ennemis, leaders des armées yôkai</strong> : ce sont les chefs de Génération, êtres uniques nommés, qui mènent les armées sur le terrain. Pas de Kami loyal à la tête de troupes.</li>
+<li>
+<p>Le <strong>plot global</strong> et l'<strong>événement déclencheur</strong> pour les joueurs.</p>
+</li>
+<li>
+<p><strong>Izanagi</strong> : il est le sceau qui retient Izanami au Yomi (voir Section 9). Restent ce qu'il peut encore faire depuis le sceau, et les conditions d'affaiblissement et de destruction du sceau.</p>
+</li>
+<li><strong>Kagutsuchi face à Izanami</strong> : ce qu'elle pense de lui et de ses Kannushi (case vide, à remplir plus tard).</li>
+<li>
+<p><strong>La mécanique de la dualité chance/malchance</strong> (Izanagi et Izanami) : SYSTÈME DU JEU.</p>
+</li>
+<li>
+<p><strong>Les Trois Trésors</strong> : où Ôkuninushi les a dispersés, les rumeurs et indices, les gardiens, l'ordre des trois actes de la campagne principale.</p>
+</li>
+<li><strong>M</strong><strong>éthode pour tester les consortes</strong> depuis la dispersion du Yasakani.</li>
+</ul>
+</div></details><details class="sub" id="s12-6" open><summary><h3>Travail éditorial à faire</h3></summary><div class="body">
+<ul>
+<li><strong>Redessiner la carte.</strong></li>
+<li>Une note sur l'automutilation et le suicide rituel (seppuku) au-delà du cadre général 16+.</li>
+<li>Relecture finale : retirer les marqueurs <span class="tag open">OUVERT</span> résolus.</li>
+</ul></div></details>
+</section>
+<section class="sec" id="s13" data-k="賽">
+<div class="banner rv"><div class="banner-bg" data-par="0.12" data-lim=".25" style="background-image:url(img/des.jpg);background-position:50% 25%"></div><div class="in"><div class="num">Section 13</div><h2>Le Système de Dés (Discord, en construction) </h2></div></div>
+<p>Ce système est conçu d'abord pour le RP écrit en direct sur Discord : événements à heure fixe, beaucoup de joueurs, plusieurs MJ. Un bot lance les dés et tient les comptes. L'adaptation au JDR sur table viendra ensuite. Les règles de l'ancienne version (v3) ne sont que du contexte : rien n'en est gardé d'office. Ce qui suit est ce que Katsu a validé, avec la mention « à tester » quand une règle attend les premiers essais. Dernière mise à jour : 16 octobre 2026.</p>
+<details class="sub" id="s13-1" open><summary><h3>Objectifs</h3></summary><div class="body">
+<p>Le système doit être, dans cet ordre de choix : <strong>épique</strong> (des combats spectaculaires où la magie et les Auras brillent), <strong>tendu</strong> (le danger est réel, les choix comptent) et centré sur la <strong>progression</strong> (on sent qu'on devient plus puissant). La vitesse et l'équité ne sont pas les priorités. Les règles doivent rester <strong>simples à comprendre et à appliquer</strong>. Pour les très gros événements, des règles plus simples et plus narratives seront écrites plus tard.</p>
+</div></details><details class="sub" id="s13-2" open><summary><h3>Le dé</h3></summary><div class="body">
+<ul>
+<li>Les actions incertaines se résolvent avec un <strong>d100 lancé par un bot</strong> dans le salon, par paliers de 5. Le d100 joue comme un d20 pour les bonus et malus (tous des multiples de 5) ; il sert surtout pour la lecture en pourcentage (« s'il fait 87, il reste environ 13 % de chances de faire mieux ») et pour les événements à 1 %.</li>
+<li>Dans une opposition, <strong>le plus haut résultat l'emporte</strong> ; l'égalité va au défenseur.</li>
+<li><strong>Le Shinkai donne +5 par niveau</strong> : Shinkai 1 = +5, Shinkai 10 = +50, Shinkai 0 = +0. Dans une opposition, c'est équivalent à +5 par niveau d'écart.</li>
+<li>Le bot affiche le dé naturel à part du total, par exemple « [4] + 30 = 34 ».</li>
+<li>Les difficultés fixes (contre le décor) devront monter avec le Shinkai. <strong><span class="tag open">OUVERT</span></strong></li>
+</ul>
+</div></details><details class="sub" id="s13-3" open><summary><h3>Les critiques</h3></summary><div class="body">
+<ul>
+<li>Les critiques se lisent <strong>sur le dé naturel</strong> : aucun bonus ni malus ne les change.</li>
+<li><strong>100 naturel : réussite légendaire</strong> (la faveur d'Izanagi). Le dé <strong>explose vers le haut</strong> : on relance et on additionne. L'effet légendaire exact est à définir. <strong><span class="tag open">OUVERT</span></strong></li>
+<li><strong>4 naturel : échec légendaire</strong> (le chiffre 4 se lit <em>shi</em>, « mort » : la marque d'Izanami). Le dé <strong>explose vers le bas</strong> : on relance et on soustrait.</li>
+<li><strong>Critiques ordinaires</strong> : réussite critique de 96 à 99, échec critique de 1, 2, 3 ou 5 (5 % de chances chacun, légendaires compris). Un <strong>échec critique échoue toujours</strong>, quel que soit le total.</li>
+<li><strong>L'attaquant lance en premier.</strong> S'il fait un échec critique, il échoue et le défenseur n'a même pas à lancer. Double échec critique : l'attaquant échoue. Double réussite critique : le total le plus haut gagne.</li>
+<li><strong>Une réussite critique ne garantit pas un touché</strong> : il faut gagner le duel. Mais une réussite critique ordinaire qui touche <strong>passe à travers la Garde</strong> (les dégâts comptent directement en malus).</li>
+<li>Un échec critique fait baisser la Garde de celui qui le fait. <strong><span class="tag open">OUVERT</span> <span class="tagnote">l'ampleur</span></strong></li>
+<li>Les effets propres à chaque action du v3 (+1 action en dégainant, hémorragie, etc.) restent des pistes en réserve. <strong><span class="tag open">OUVERT</span></strong></li>
+</ul>
+</div></details><details class="sub" id="s13-4" open><summary><h3>Les actions et l'ordre de jeu</h3></summary><div class="body">
+<p>Le nombre d'actions par round suit les Éveils : <strong>1 action</strong> de Shinkai 1 à 3, <strong>2</strong> de 4 à 6, <strong>3</strong> de 7 à 9, <strong>4</strong> au Shinkai 10.</p>
+<p><strong>Ordre de jeu :</strong> tour par tour classique. Le bot donne un ordre fixe et chacun joue <strong>toutes ses actions d'un coup</strong>. L'ordre est fixé par le <strong>Shinkai</strong> (le plus haut joue en premier) ; un jet d100 départage seulement les égalités. Les postures secrètes se choisissent au début du round.</p>
+</div></details><details class="sub" id="s13-5" open><summary><h3>Les Norito : construction par points de Majoration</h3></summary><div class="body">
+<p>Inspirée de L'Empire des Cerisiers. Une Norito se construit avec des <strong>points de Majoration</strong>, un budget de construction : on additionne le prix de chaque choix, et ce total fixe le nombre d'actions et le coût en Aura. Le jet n'est pas modifié. Tout ceci est <strong>à tester</strong> (un banc d'essai, l'Atelier des Norito, applique ces règles).</p>
+<h4>Prix de la puissance</h4>
+<p>La puissance (dégâts, soins, bonus ou malus) s'achète par paliers de 5. Le prix du palier monte tous les trois crans.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Puissance</th>
+<th>5</th>
+<th>10</th>
+<th>15</th>
+<th>20</th>
+<th>25</th>
+<th>30</th>
+<th>35</th>
+<th>40</th>
+<th>45</th>
+<th>50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Majoration</strong></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>7</td>
+<td>9</td>
+<td>12</td>
+<td>15</td>
+<td>18</td>
+<td>22</td>
+</tr>
+</tbody>
+</table></div>
+<p>La puissance maximale est <strong>-50</strong>. Les soins, bonus et malus suivent la même courbe, plafonnés à 25 (valeur du v3, hypothèse).</p>
+<h4>Prix des extras</h4>
+<ul>
+<li><strong>Portée</strong> : contact (sans Aura Orange) 0, courte (avec l'Orange) 0, moyenne 1, longue 2, <strong>Par Perception</strong> 3 (Indigo et Orange ; elle s'exerce dès qu'un sens du Kannushi perçoit la cible).</li>
+<li><strong>Durée</strong> (bonus et malus) : 1 tour 0, 3 tours 2, 5 tours 3, la scène 4, la journée 5, la semaine 6. Une durée de N tours se compte en <strong>tours du lanceur</strong> : 1 tour dure jusqu'au début de son prochain tour.</li>
+<li><strong>Cibles</strong> : 1 cible (ou soi-même) 0, 2 cibles 1, 3 cibles 2, 4 cibles 3, et ainsi de suite (n cibles = n - 1 points).</li>
+<li><strong>Effets spéciaux</strong> : voir plus bas.</li>
+</ul>
+<h4>Les actions</h4>
+<p>La 1re action absorbe 1 point de Majoration, la 2e 2 points, la 3e 3 points, etc.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Majoration</th>
+<th>1</th>
+<th>2-3</th>
+<th>4-6</th>
+<th>7-10</th>
+<th>11-15</th>
+<th>16-21</th>
+<th>22-28</th>
+<th>29-36</th>
+<th>37-45</th>
+<th>46-55</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actions</strong></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Un -20 coûte 5 points, donc 3 actions. Un ultime à 26 points coûte 7 actions. Une technique sans puissance (utilitaire, narrative) coûte <strong>1 action en combat</strong> et aucune hors combat. La charge n'est pas perdue si le lanceur est attaqué. Plus d'Auras ne donne pas plus d'actions. (Système 1 retenu pour l'instant ; deux variantes à greffer après les tests : un point de Majoration offert par Aura, ou des extras sans temps de charge.)</p>
+<h4>La réserve d'Aura et le coût</h4>
+<ul>
+<li><strong>Réserve d'Aura = 5 × Shinkai</strong>, séparée de la Garde, tenue par le bot.</li>
+<li><strong>Coût d'une Norito = Majoration + 2 par Aura en plus de la première.</strong></li>
+<li><strong>Synergie Rouge + Orange</strong> : quand une technique réunit le Rouge et l'Orange, le prix de ses dégâts baisse de 2 points de Majoration (minimum 1). Le coût en Aura reste Majoration + 2 par Aura en plus : dès -20, le duo coûte autant d'Aura que l'Orange seule, avec une action de moins. (À tester ; règle générale pour les autres paires d'Auras à étudier.)</li>
+<li><strong>Chaque point d'Aura non payé donne -5 de malus après la technique</strong> (coût 55 avec 50 de réserve : 5 non payés, -25 de malus ensuite).</li>
+<li><strong>Règle anti-spam</strong> : une Norito qui a touché ne peut pas être relancée dans le même round (exceptions négociées avec le staff, autorisation demandée avant).</li>
+<li><strong>Récupération de l'Aura : uniquement entre les scènes.</strong> À la fin d'une scène, la réserve est pleine. Aucune récupération pendant un combat : l'action de récupération du v3 est supprimée (elle servait à faire durer les combats). La soupape existe déjà : l'Aura non payée donne -5 de malus. Si les soirées à plusieurs combats se révèlent trop dures, on pourra ajouter un repos à deux niveaux (pause courte = moitié de la réserve). <strong>La fin de scène est déclarée par le meneur, par une commande du bot</strong> (il s'applique à tous les joueurs de sa scène). <strong>Sans meneur, les joueurs s'accordent entre eux, au fair-play.</strong></li>
+</ul>
+<h4>Les plafonds</h4>
+<ul>
+<li><strong>Plafond de Majoration</strong> : le total d'une technique ne dépasse pas <strong>5 × Shinkai</strong> (5 au Shinkai 1, 50 au Shinkai 10). Un Shinkai 1 est donc limité à -20.</li>
+<li><strong>Règle P : plafond de puissance selon le nombre d'Auras</strong> : 1 Aura -25, 2 Auras -30, 3 Auras -35, 4 Auras -40, 5 Auras -45, 6 Auras -50 (20 + 5 par Aura). Le -50 réunit les six Auras ordinaires : c'est le sommet, au Shinkai 10.</li>
+<li><strong>Auras mélangeables par Shinkai (1 à 10)</strong> : 1, 2, 2, 2, 3, 3, 4, 4, 5, 6.</li>
+<li>Les <strong>limites</strong> (Aura Bleue) permettent de dépasser ces plafonds proportionnellement à la contrainte acceptée (principe des Seigan, pénalité si on la rompt), jugées par le staff au cas par cas.</li>
+</ul>
+<h4>Ce que débloque chaque Aura</h4>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Aura</th>
+<th>Débloque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rouge</strong></td>
+<td>Dégâts (et le corps : dégâts physiques et Garde)</td>
+</tr>
+<tr>
+<td><strong>Orange</strong></td>
+<td>Dégâts et Portée</td>
+</tr>
+<tr>
+<td><strong>Jaune</strong></td>
+<td>Bonus et malus (avec durée) : les jets, sur soi, alliés et ennemis ; les Modes ; les émotions</td>
+</tr>
+<tr>
+<td><strong>Verte</strong></td>
+<td>Soins et purification</td>
+</tr>
+<tr>
+<td><strong>Bleue</strong></td>
+<td>Upcasting (Zone, Bénédiction) et limites ; ne fait pas de dégâts par elle-même</td>
+</tr>
+<tr>
+<td><strong>Indigo</strong></td>
+<td>Multiciblage (plusieurs cibles choisies), bonus (pas de malus), Par Perception avec l'Orange</td>
+</tr>
+<tr>
+<td><strong>Violette</strong></td>
+<td>Réservée</td>
+</tr>
+</tbody>
+</table></div>
+<p>Seules <strong>Rouge et Orange infligent des dégâts</strong>. Chaque Aura listée dans une technique doit servir à quelque chose. Une technique peut avoir plusieurs effets (par exemple un soin et un malus) si elle contient les Auras correspondantes. Les illusions ne sont pas d'une Aura (domaine des Arts, Uzume).</p>
+<h4>Plusieurs cibles, Zone et Bénédiction</h4>
+<ul>
+<li>Le <strong>multiciblage ciblé</strong> exige l'Aura Indigo et se paie n - 1 points pour n cibles.</li>
+<li>La <strong>Zone</strong> (touche tout le monde dans une zone) et la <strong>Bénédiction</strong> (soins ou bonus de zone aux alliés) sont des <strong>upcastings de l'Aura Bleue</strong>. Elles exigent la Bleue <strong>et une autre Aura qui porte l'effet</strong> (la Bleue ne suffit jamais seule), et se paient d'après un <strong>nombre de cibles maximal déclaré à la création</strong> : prix de base (Zone 3, Bénédiction 2) plus (n - 1), pour 4 cibles ou plus (en dessous, on utilise le multiciblage par l'Indigo). L'upcasting n'est pas forcément rattaché à une limite.</li>
+<li>Le <strong>Perforant</strong> (la moitié des dégâts ignore la Garde) est limité à 50 % et interdit avec une Zone.</li>
+<li>Un seul bonus et un seul malus de même nature par cible. L'inesquivabilité se juge sur la Majoration, avant l'effet de la Hâte.</li>
+<li>Étude de neuf agents (Shinkai 2 à 10) : le multiciblage par l'Indigo est fort mais acceptable à tous les niveaux ; la Zone à 3 points sans limite de cibles était cassée.</li>
+</ul>
+<h4>Techniques lourdes inesquivables</h4>
+<p>Une technique qui coûte <strong>5 actions ou plus</strong> (y compris à plusieurs cibles) est <strong>inesquivable</strong> : le lanceur fait un seul jet, que chaque cible compare à son propre jet de défense. Défense gagnante (égalité à la cible) : dégâts <strong>réduits de moitié</strong> (arrondis à 5). <strong>Réussite critique de la défense (96 à 100 naturel) : aucun dégât.</strong> Un échec critique du lanceur fait rater toute la technique. Une réussite critique du lanceur n'empêche pas la demi-réduction. Cela évite la frustration d'avoir chargé 2 ou 3 rounds pour rater. Une technique de 4 actions ou moins reste esquivable (un jet de défense par cible, le plus haut gagne).</p>
+<h4>Dégâts persistants</h4>
+<p>Trait pour les dégâts répartis sur plusieurs tours (poison, brûlure). Même prix qu'un coup direct de même total. La <strong>durée est automatique</strong> : 1 tour par palier de 5 (un total de 25 dure 5 tours), au maximum la scène. Les dégâts arrivent <strong>par parts de 5 à chaque tour de la cible</strong>, et le dernier tour ajoute <strong>+5</strong> (bonus de patience, perdu si le DoT est coupé avant). Un soin ou une purification (Aura Verte) retire des dégâts persistants à hauteur de sa puissance. Tous les dégâts d'une technique (immédiats et persistants) comptent ensemble pour le prix, la Règle P et le maximum de -50, bonus compris. Il ne contourne pas la Garde, et deux dégâts persistants de même nature ne s'empilent pas.</p>
+<h4>Les Modes</h4>
+<p>Buffs de durée limitée (Kaioken, Super Saiyan, Sage Mode) : un bonus de la Jaune (l'Indigo n'est pas nécessaire pour un Mode), avec sa durée achetée sur la fiche. Synergie Jaune + Rouge : un Mode qui réunit la Jaune et le Rouge (bonus sur soi seul) voit le prix de son bonus baisser de 2 points de Majoration (minimum 1). Un Mode Jaune seul garde le prix plein. Exemples : +20 sur 5 tours passe de 8 à 6 points (3 actions au lieu de 4) ; +10 sur 3 tours de 4 à 2 points (2 actions au lieu de 3). Le maintien supplémentaire (fatigue après usage, fatigue tous les X tours, entretien en Aura) est une limite (Bleue). Le nom « mode » est gardé pour l'instant. <strong><span class="tag open">À tester ; à décider</span> <span class="tagnote">le plafond de bonus par niveau du v3 (+5 au niveau 1 jusqu'à +25 au niveau 9), peut-être déjà remplacé par le plafond de Majoration</span></strong></p>
+<h4>Les effets spéciaux</h4>
+<p>Les traits (Défensif, Résistance, Arme en Jade, Contre-Norito, Effet différé, Purification, Perforant, Discret, Hâte, Sélectif, Renforcé, Persistant, Réaction, Lien, Transformation, Invocation, etc.) sont des <strong>effets à prix fixe</strong>, disponibles pour toute Norito et toute Aura. Les joueurs peuvent en créer, jugés par le staff. Le catalogue provisoire est dans un fichier à part ; les prix ne sont pas fixés. <strong><span class="tag open">OUVERT</span></strong></p>
+<h4>Techniques d'exemple</h4>
+<p>Calculées : -20 simple (Majoration 5, 3 actions, 5 d'Aura), Mode +20 sur 5 tours (8 / 4 / 8), Foudre Tertiaire (4 / 3 / 4), Braise tenace (7 / 4 / 7), ultime -40 à 4 Auras (23 / 7 / 29), ultime -50 à six Auras (32 / 8 / 42).</p>
+</div></details><details class="sub" id="s13-6" open><summary><h3>La vie et la mort</h3></summary><div class="body">
+<ul>
+<li><strong>La Garde (Kamae)</strong> est la protection du personnage : un coup réussi entame d'abord la Garde.</li>
+<li><strong>La mort est rare et annoncée.</strong> Avant toute scène où un personnage peut mourir, le MJ dit <strong>« RPK activé »</strong>.</li>
+<li><strong>La mort n'est pas toujours la fin</strong> : le mourant fait face à Izanami (voir Section 9). Un joueur qui prend un nouveau personnage progresse plus vite, selon le Shinkai du défunt. Le barème est à définir. <strong><span class="tag open">OUVERT</span></strong></li>
+<li>Une défaite ordinaire ne tue pas : elle laisse des conséquences durables à définir. <strong><span class="tag open">OUVERT</span></strong></li>
+</ul>
+</div></details><details class="sub" id="s13-7" open><summary><h3>La Garde et le coup de grâce</h3></summary><div class="body">
+<p>La Garde s'inspire de la posture de Sekiro et des blessures de Légende des Cinq Anneaux. Elle répond à un défaut de l'ancien système, où le premier touché perdait presque toujours.</p>
+<ul>
+<li><strong>Un coup réussi entame d'abord la Garde.</strong> Le jet décide seulement si le coup touche : les points perdus sont fixes selon le type de dégâts. <strong>Dégâts physiques</strong> (corps à corps, arme blanche, arme à feu) : tous identiques, <strong>-5 par attaque qui touche</strong>, quelle que soit l'arme. <strong>Dégâts magiques</strong> : ceux des Norito (voir plus haut). <strong>La Garde vaut 5 × Shinkai</strong> (5 au Shinkai 1, 50 au Shinkai 10, 0 au Shinkai 0 : à confirmer pour les Nawanashi). <strong><span class="tag open">OUVERT</span></strong></li>
+<li><strong>En récit, un coup qui entame la Garde touche vraiment</strong> : l'Aura de la cible l'absorbe, comme dans Dragon Ball ou Jujutsu Kaisen. On le décrit par des effets visibles (l'Aura se fissure, des éclats partent, un recul), car un coup réussi qui ne se voit pas est insatisfaisant (critique faite à la 5e édition de L5R).</li>
+<li><strong>La défense active</strong> : un défenseur qui dépense une action pour se défendre activement et gagne l'opposition fait perdre de la Garde à l'attaquant.</li>
+<li><strong>Pas de régénération passive.</strong> On regagne de la Garde en dépensant une action (« Reprendre sa garde »), qui rend 5 de Garde (valeur à ajuster). <strong><span class="tag open">OUVERT</span></strong></li>
+<li><strong>Les combos</strong> : une attaque physique qui touche inflige -5 de Garde et l'attaquant peut <strong>réattaquer</strong> (l'action est remboursée, jusqu'à 4 fois par round). Les attaques suivantes du combo n'infligent pas de dégâts en elles-mêmes (sauf coup critique). Pour <strong>terminer</strong> son combo, le joueur écrit une scène décrivant la fin de son enchaînement et lance un dernier jet : s'il réussit, le malus de combo s'applique ; s'il échoue, il perd son investissement. Dégâts supplémentaires de fin de combo : <strong>3 touchés = -5, 4 = -10, 5 = -15</strong> (le coup final compte). Une Norito lancée pendant un combo applique le bonus mais ne rembourse pas l'action.</li>
+<li><strong>Garde brisée</strong> : les dégâts suivants deviennent des malus de 5 en 5 sur les jets. Un coup qui dépasse la Garde restante passe à travers et compte en malus.</li>
+<li><strong>Le seuil de blessure</strong> : quand il l'atteint, un personnage peut être « tué » d'un coup de grâce (avec « RPK activé » pour un personnage joueur). Il monte à chaque Shinkai, de -20 (Shinkai 1) à -50 (Shinkai 10). Table de départ (v3) : -20, -25, -30, -30, -35, -35, -40, -40, -45, -50. <strong><span class="tag open">OUVERT</span></strong></li>
+<li><strong>Le coup de grâce des petits ennemis</strong> : pour un petit ennemi ou une foule, il suffit que la Garde soit brisée pour qu'un coup de grâce soit possible (Ending Blow, Todome).</li>
+<li><strong>Rejeté</strong> : accepter une blessure plutôt que de perdre de la Garde (idée de la 5e édition de L5R).</li>
+</ul>
+</div></details><details class="sub" id="s13-8" open><summary><h3>Les postures de combat (en construction)</h3></summary><div class="body">
+<p>Le but n'est pas de copier les cinq éléments de L5R, mais de trouver la patte unique de KNS. Rien n'est décidé ici. <strong><span class="tag open">OUVERT</span></strong></p>
+<ul>
+<li><strong>Quand on choisit :</strong> au début du round, en secret (un bot demande la posture à chaque joueur, puis les postures sont révélées ensemble, pour éviter le métagaming). On peut en changer à chaque tour.</li>
+<li><strong>L'Ara joue le rôle des points de Vide</strong> de L5R : on peut puiser dans l'Ara pour influencer ses capacités en combat. La jauge d'Ara monte aussi sur un échec critique (voir Section 4).</li>
+<li><strong>Postures retenues</strong> (inspirées des cinq gardes de Musashi) : <strong>Milieu</strong> (équilibrée, la base) ; <strong>Haute</strong> (<em>jōdan</em>, offensive : coup critique dès 91, plus de dégâts ; en échange +1 d'Ara par tour, pas de défense active, -10 sur les défenses) ; <strong>Basse</strong> (<em>gedan</em>, défensive : -10 sur les attaques, +10 sur les défenses, annule les critiques adverses sauf le 100) ; <strong>Vide</strong> (on sacrifie ses actions pour être renforcé au tour suivant, l'Ara n'augmente pas) ; <strong>de côté</strong> (<em>waki</em>, la cinquième) : effet à trouver. <strong><span class="tag open">OUVERT</span></strong></li>
+<li>Le Centre de L5R (sacrifier toutes ses actions pour être renforcé) plaît beaucoup à Katsu. Le +10 d'initiative du Vide n'a plus d'effet (l'ordre suit le Shinkai) : lui trouver un autre avantage.</li>
+</ul>
+</div></details><details class="sub" id="s13-9" open><summary><h3>Idées gardées en réserve</h3></summary><div class="body">
+<ul>
+<li><strong>Le dé d'Aura</strong> (d8 puis d10, d12, d20 selon le Shinkai, qui perd un cran sur un « chiffre de mort ») : mis de côté.</li>
+<li><strong>La fatigue d'Aura en états</strong> (Frais, Essoufflé, Épuisé, À bout) : écartée pour l'instant.</li>
+<li><strong>Les chiffres du dé comme information</strong> (doubles, chiffre des unités) : pas utilisés.</li>
+<li><strong>Une surcharge</strong> (-5 au jet par point au-delà d'un seuil) pour l'overcasting : possible plus tard.</li>
+</ul>
+</div></details><details class="sub" id="s13-10" open><summary><h3>Ouvert</h3></summary><div class="body">
+<ul>
+<li>Le catalogue d'effets spéciaux et leurs prix ; les Modes (maintien, vitesse).</li>
+<li>L'effet de la réussite légendaire (100) et de l'échec légendaire (4), et l'ampleur du gain ou de la perte de Garde sur les critiques ordinaires.</li>
+<li>Les postures (valeurs, la posture de côté), le seuil de blessure exact, les difficultés fixes.</li>
+<li>La récompense de progression accélérée après une mort, les points de chance (7), le mode simplifié des très gros événements, l'adaptation au JDR sur table.</li>
+</ul></div></details>
+</section>
+  </article>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <h3>Crédits des images</h3>
+  <ul>
+    <li>Guerrier au manteau rouge : BetiDraws (Pixabay)</li>
+    <li>Silhouette de samouraï : oldmanbrown17 (Pixabay)</li>
+    <li>Voyageur dans la forêt : jovemvoodo (Pixabay)</li>
+    <li>Pagode et nuages : elhoz (Pixabay)</li>
+    <li>Renard et torii : papus_sss (Pixabay)</li>
+    <li>Visage de démon : panachoi_stand (Pixabay)</li>
+    <li>Duel de guerriers : u_l0vakjkyp5 (Pixabay)</li>
+    <li>Logo : Kannushi no Sekai</li>
+  </ul>
+  <p>Images sous licence Pixabay. Texte tiré de la Bible d'Univers v6.1 (brouillon), état du 21 octobre 2026. Les passages réservés aux meneurs ont été retirés. Ce document est en évolution : la version de référence reste la Bible de l'auteur.</p>
+</div></footer>
+<button class="top" id="top" type="button" aria-label="Retour en haut">↑</button>
+
+<script>
+(function(){
+  var doc=document.documentElement,body=document.body;
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine=window.matchMedia&&matchMedia("(hover:hover) and (pointer:fine)").matches;
+  var $=function(id){return document.getElementById(id)};
+
+  /* apparition des bannières */
+  var rv=[].slice.call(document.querySelectorAll(".rv"));
+  if("IntersectionObserver" in window&&!reduce){
+    doc.classList.add("js");
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+    rv.forEach(function(el){io.observe(el)});
+    setTimeout(function(){rv.forEach(function(el){el.classList.add("in")})},5000);
+  }
+
+  /* progression, parallaxe, sommaire actif */
+  var par=[].slice.call(document.querySelectorAll("[data-par]")),tick=false;
+  var secs=[].slice.call(document.querySelectorAll(".sec")),navLis=[].slice.call(document.querySelectorAll("#side > ol > li"));
+  var subs=[].slice.call(document.querySelectorAll("details.sub"));
+  var topb=$("top");
+  function frame(){
+    tick=false;
+    var vh=innerHeight,max=doc.scrollHeight-vh;
+    $("prog").style.setProperty("--p",max>0?Math.min(1,scrollY/max):0);
+    topb.classList.toggle("show",scrollY>900);
+    if(!reduce)par.forEach(function(el){
+      var r=el.parentNode.getBoundingClientRect();
+      if(r.bottom<-100||r.top>vh+100)return;
+      var d=(r.top+r.height/2)-vh/2,lim=r.height*(el.dataset.lim||.2),py=Math.max(-lim,Math.min(lim,-d*parseFloat(el.dataset.par)));
+      el.style.setProperty("--py",py.toFixed(1)+"px");
+    });
+    var cur=-1;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<vh*.35)cur=i});
+    navLis.forEach(function(li,i){li.classList.toggle("on",i===cur)});
+    var curSub=null;subs.forEach(function(d){if(d.getBoundingClientRect().top<vh*.35)curSub=d.id});
+    [].forEach.call(document.querySelectorAll("#side ol ol a"),function(a){a.classList.toggle("cur",a.getAttribute("href")==="#"+curSub)});
+  }
+  function onScroll(){if(!tick){tick=true;requestAnimationFrame(frame)}}
+  addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",onScroll);frame();
+  topb.addEventListener("click",function(){scrollTo({top:0,behavior:reduce?"auto":"smooth"})});
+
+  /* sommaire mobile */
+  $("tocbtn").addEventListener("click",function(){body.classList.toggle("toc")});
+  $("side").addEventListener("click",function(e){if(e.target.closest("a"))body.classList.remove("toc")});
+
+  /* tout replier / déplier */
+  var allOpen=true;
+  $("foldbtn").addEventListener("click",function(){
+    allOpen=!allOpen;subs.forEach(function(d){d.open=allOpen});
+    this.textContent=allOpen?"Tout replier":"Tout déplier";
+  });
+  /* ouvrir un bloc quand on suit un lien du sommaire */
+  addEventListener("hashchange",openHash);openHash();
+  function openHash(){
+    var id=location.hash.slice(1);if(!id)return;
+    var el=document.getElementById(id);if(!el)return;
+    var d=el.closest&&el.closest("details.sub");if(d)d.open=true;
+  }
+  [].forEach.call(document.querySelectorAll("#side ol ol a"),function(a){
+    a.addEventListener("click",function(){var el=document.getElementById(a.getAttribute("href").slice(1));if(el&&el.tagName==="DETAILS")el.open=true});
+  });
+
+  /* secrets de meneur */
+  var spb=$("spbtn");
+  spb.addEventListener("click",function(){
+    var on=body.classList.toggle("hidesp");
+    spb.setAttribute("aria-pressed",on);spb.textContent=on?"Montrer les secrets":"Flouter les secrets";
+  });
+  [].forEach.call(document.querySelectorAll(".spoilp"),function(p){p.addEventListener("click",function(){if(body.classList.contains("hidesp"))p.classList.toggle("shown")})});
+
+  /* recherche */
+  var q=$("q"),hits=$("hits"),marks=[],idx=-1,timer=null,root=$("content");
+  function clearMarks(){
+    marks.forEach(function(m){var p=m.parentNode;p.replaceChild(document.createTextNode(m.textContent),m);p.normalize()});
+    marks=[];idx=-1;
+  }
+  function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
+  function search(){
+    clearMarks();hits.textContent="";
+    var t=q.value.trim();if(t.length<2)return;
+    var re=new RegExp(esc(t),"gi"),walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null),nodes=[],n;
+    while(n=walker.nextNode()){if(n.nodeValue.length>=t.length&&re.test(n.nodeValue))nodes.push(n);re.lastIndex=0}
+    nodes.forEach(function(node){
+      if(marks.length>400)return;
+      var frag=document.createDocumentFragment(),text=node.nodeValue,last=0,m;re.lastIndex=0;
+      while((m=re.exec(text))){
+        if(m.index>last)frag.appendChild(document.createTextNode(text.slice(last,m.index)));
+        var mk=document.createElement("mark");mk.textContent=m[0];frag.appendChild(mk);marks.push(mk);last=m.index+m[0].length;
+        if(m[0].length===0)re.lastIndex++;
+      }
+      if(last<text.length)frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag,node);
+    });
+    if(!marks.length){hits.textContent="Aucun résultat";return}
+    go(0);
+  }
+  function go(i){
+    if(!marks.length)return;
+    if(idx>=0&&marks[idx])marks[idx].classList.remove("cur");
+    idx=(i+marks.length)%marks.length;
+    var m=marks[idx];m.classList.add("cur");
+    var d=m.closest("details.sub");while(d){d.open=true;d=d.parentElement&&d.parentElement.closest("details.sub")}
+    m.scrollIntoView({block:"center",behavior:reduce?"auto":"smooth"});
+    hits.innerHTML="";
+    var s=document.createElement("span");s.textContent=(idx+1)+" sur "+marks.length+(marks.length>400?"+":"");
+    var pv=document.createElement("button");pv.type="button";pv.textContent="↑";pv.setAttribute("aria-label","Résultat précédent");pv.onclick=function(){go(idx-1)};
+    var nx=document.createElement("button");nx.type="button";nx.textContent="↓";nx.setAttribute("aria-label","Résultat suivant");nx.onclick=function(){go(idx+1)};
+    hits.appendChild(s);hits.appendChild(pv);hits.appendChild(nx);
+  }
+  q.addEventListener("input",function(){clearTimeout(timer);timer=setTimeout(search,250)});
+  q.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();if(marks.length)go(idx+(e.shiftKey?-1:1));else search()}if(e.key==="Escape"){q.value="";search()}});
+
+
+  /* bandeau de kanji */
+  var words=[["神主","Kannushi"],["常世","Tokoyo"],["祝詞","Norito"],["英霊","Eirei"],["妖怪","Yôkai"],["浄化","Purification"],["鳥居","Torii"],["気","Aura"]],tkh="";
+  for(var k=0;k<2;k++)words.forEach(function(w){tkh+='<span lang="ja">'+w[0]+'<small>'+w[1]+'</small></span>'});
+  $("tk").innerHTML=tkh;
+
+  /* compteurs de la couverture */
+  function count(el){
+    var to=+el.dataset.to;
+    if(reduce){el.textContent=to.toString().replace(/\B(?=(\d{3})+(?!\d))/g," ");return}
+    var t0=null,dur=1500;
+    function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3),v=Math.round(to*e);el.textContent=String(v).replace(/\B(?=(\d{3})+(?!\d))/g," ");if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  }
+  [].forEach.call(document.querySelectorAll(".chips b"),function(b){if(!reduce)b.textContent="0";setTimeout(function(){count(b)},reduce?0:3000)});
+
+  /* apparition douce des blocs et des tableaux */
+  if(doc.classList.contains("js")){
+    var extra=[].slice.call(document.querySelectorAll("details.sub,.tw"));
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io2.unobserve(e.target)}})},{threshold:.04});
+    extra.forEach(function(el){el.classList.add("rv");io2.observe(el)});
+    setTimeout(function(){extra.forEach(function(el){el.classList.add("in")})},6000);
+  }
+
+  /* trace d'encre noire, brève : elle disparaît en quelques instants et ne laisse rien */
+  var ic=$("ink");
+  if(ic&&fine&&!reduce){
+    var ix=ic.getContext("2d"),iw=0,ih=0,pts=[],running=false,LIFE=420;
+    function isize(){iw=innerWidth;ih=innerHeight;ic.width=iw;ic.height=ih}
+    isize();addEventListener("resize",isize);
+    function iloop(){
+      var now=performance.now();
+      ix.clearRect(0,0,iw,ih);
+      pts=pts.filter(function(p){return now-p.t<LIFE});
+      if(pts.length>1){
+        ix.lineCap="round";ix.lineJoin="round";
+        for(var pass=0;pass<2;pass++){
+          for(var i=1;i<pts.length;i++){
+            var a=pts[i-1],b=pts[i];if(b.t-a.t>90)continue;
+            var k=1-(now-b.t)/LIFE;if(k<=0)continue;
+            ix.beginPath();ix.moveTo(a.x,a.y);ix.lineTo(b.x,b.y);
+            if(pass===0){ix.strokeStyle="rgba(236,228,214,"+(k*.35).toFixed(3)+")";ix.lineWidth=2+5*k+3}
+            else{ix.strokeStyle="rgba(8,6,10,"+(k*.92).toFixed(3)+")";ix.lineWidth=2+5*k}
+            ix.stroke();
+          }
+        }
+      }
+      if(pts.length)requestAnimationFrame(iloop);else{running=false;ix.clearRect(0,0,iw,ih)}
+    }
+    addEventListener("pointermove",function(e){
+      pts.push({x:e.clientX,y:e.clientY,t:performance.now()});
+      if(pts.length>80)pts.shift();
+      if(!running){running=true;requestAnimationFrame(iloop)}
+    },{passive:true});
+    document.addEventListener("mouseleave",function(){pts=[]});
+  }
+  /* inclinaison des bannieres */
+  if(fine&&!reduce){
+    [].forEach.call(document.querySelectorAll(".banner"),function(b){
+      b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;b.style.transform="perspective(1100px) rotateX("+(-y*3).toFixed(2)+"deg) rotateY("+(x*4).toFixed(2)+"deg)"});
+      b.addEventListener("pointerleave",function(){b.style.transform=""});
+    });
+  }
+
+  /* pétales et braises de la couverture */
+  var cv=$("fx");
+  if(cv&&!reduce){
+    var cx=cv.getContext("2d"),W=0,H=0,dpr=Math.min(2,window.devicePixelRatio||1),P=[],run=true;
+    function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+    function mk(init){var e=Math.random()<.35;return{x:Math.random()*W,y:init?Math.random()*H:-20,r:e?1+Math.random()*1.8:4+Math.random()*5,vy:e?-(.3+Math.random()*.6):.5+Math.random()*.9,vx:(Math.random()-.4)*.5,a:Math.random()*6.28,va:(Math.random()-.5)*.03,sw:Math.random()*6.28,e:e,al:.35+Math.random()*.5}}
+    function init(){size();P=[];var n=Math.round(Math.min(40,W/26));for(var i=0;i<n;i++)P.push(mk(true))}
+    function draw(){
+      if(!run)return;cx.clearRect(0,0,W,H);
+      P.forEach(function(p,i){
+        p.sw+=.02;p.x+=p.vx+Math.sin(p.sw)*.5;p.y+=p.vy;p.a+=p.va;
+        if(p.y>H+20||p.y<-30||p.x<-30||p.x>W+30){P[i]=mk(false);if(p.e)P[i].y=H+10;return}
+        cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.globalAlpha=p.al;
+        if(p.e){cx.fillStyle="#ff7a3a";cx.shadowColor="#ff5a2a";cx.shadowBlur=10;cx.beginPath();cx.arc(0,0,p.r,0,6.28);cx.fill()}
+        else{cx.fillStyle="#d8453d";cx.beginPath();cx.ellipse(0,0,p.r,p.r*.55,0,0,6.28);cx.fill()}
+        cx.restore();
+      });
+      requestAnimationFrame(draw);
+    }
+    init();draw();addEventListener("resize",init);
+    if("IntersectionObserver" in window)new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!run){run=true;draw()}run=v}).observe(cv);
+  }
+})();
+</script>
+
+</body>
+</html>
